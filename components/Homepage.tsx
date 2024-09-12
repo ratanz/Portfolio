@@ -88,42 +88,47 @@ const Homepage = () => {
         trigger: mainTitleRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: 1,
+        scrub: 2,  // Increased for smoother scrolling
         toggleActions: "play none none reverse"
       }
     })
 
     scrollTl.to(mainTitleRef.current, { 
-      y: -100, 
+      y: -120, 
       opacity: 0, 
-      duration: 1 
+      duration: 2.5,
+      ease: "power3.inOut"
     })
 
     scrollTl.to(subTitleRef.current, { 
-      y: -80, 
+      y: -100, 
       opacity: 0, 
-      duration: 1 
-    }, "-=0.5")
+      duration: 2.5,
+      ease: "power3.inOut"
+    }, "-=2")
 
     scrollTl.to(descriptionRef.current, { 
-      y: -60, 
-      opacity: 0, 
-      duration: 1 
-    }, "-=0.5")
+      y: 40, 
+      opacity: 0,
+      duration: 3,
+      ease: "power3.out",
+    }, "-=2.5")
 
     scrollTl.to(techStackTitleRef.current, { 
-      y: -40, 
+      y: -60, 
       opacity: 0, 
-      duration: 1 
-    }, "-=0.5")
+      duration: 2.5,
+      ease: "power3.inOut"
+    }, "-=2.5")
 
     if (iconsRef.current) {
       scrollTl.to(Array.from(iconsRef.current.children), { 
-        y: -20, 
+        y: -40, 
         opacity: 0, 
-        duration: 1,
-        stagger: 0.1
-      }, "-=0.5")
+        duration: 2.5,
+        stagger: 0.1,  // Increased for slower sequential fade
+        ease: "power2.inOut"
+      }, "-=2.5")
     }
 
     return () => {
