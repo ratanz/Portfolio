@@ -7,8 +7,12 @@ export default function Home() {
     <>
     <div className="main h-screen w-full">
     <Navbar />
+    <section id="home">
     <Homepage />
-    <Projects />
+    </section>
+    <section id="projects">
+    <Projects  />
+    </section>
     </div>
     </>
     
