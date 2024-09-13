@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${pretendard.variable} `}>
+      <body className={`${poppins.variable} ${pretendard.variable}`}>
         {children}
       </body>
     </html>

@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 .group:hover .group-hover\:w-full {
   width: 100%;
+}
+
+html , body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
 }
 
 @layer base {

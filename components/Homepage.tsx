@@ -56,17 +56,17 @@ const Homepage = () => {
     animateGradientText(connectTitleRef.current!)
     animateGradientText(connectIconsRef.current!)
 
-    // tl.fromTo(connectTitleRef.current,
-    //   { y: 0, opacity: 0 },
-    //   { y: 0, opacity: 1, duration: 1.7, ease: 'power3.out' },
-    //   '-=0.9'
-    // )
+    tl.fromTo(connectTitleRef.current,
+      { x: 0, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', stagger: 0.2 },
+      '-=0.9'
+    )
 
-    // tl.fromTo(connectIconsRef.current,
-    //   { y: 0, opacity: 0 },
-    //   { y: 0, opacity: 1, duration: 1.7, ease: 'power3.out' },
-    //   '-=0.9'
-    // )
+    tl.fromTo(connectIconsRef.current,
+      { x: 0, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', stagger: 0.2 },
+      '-=0.9'
+    )
 
 
     // tech stack title animation
@@ -113,6 +113,7 @@ const Homepage = () => {
     scrollTl.to(mainTitleRef.current, { 
       y: -120, 
       opacity: 0, 
+      scrub: 2,
       duration: 2.5,
       ease: "power3.inOut"
     })
@@ -121,6 +122,7 @@ const Homepage = () => {
       y: -100, 
       opacity: 0, 
       duration: 2.5,
+      stagger: 0.3,
       ease: "power3.inOut"
     }, "-=2")
 
@@ -128,24 +130,31 @@ const Homepage = () => {
       y: 40, 
       opacity: 0,
       duration: 3,
-      scrub: 2,
+      scrub: 3,
+      stagger: 0.3,
       ease: "power3.out",
     }, "-=2.5")
 
     
-    // scrollTl.to(connectTitleRef.current, { 
-    //   y: 60, 
-    //   opacity: 0, 
-    //   duration: 2.5,
-    //   ease: "power3.inOut"
-    // }, "-=2.5")
+    scrollTl.to(connectTitleRef.current, { 
+      y: 50, 
+      opacity: 0, 
+      duration: 1.9,
+      delay: 0.9,
+      stagger: 0.2,
+      scrub: 4,
+      ease: "power3.out"
+    }, "-=3.8")
 
-    // scrollTl.to(connectIconsRef.current, { 
-    //   y: 60, 
-    //   opacity: 0,
-    //   duration: 2.5,
-    //   ease: "power3.inOut"
-    // }, "-=2.5")
+    scrollTl.to(connectIconsRef.current, { 
+      y: 50, 
+      opacity: 0,
+      duration: 1.9,
+      delay: 0.9,
+      stagger: 0.2,
+      scrub: 4,
+      ease: "power3.out"
+    }, "-=3.8")
 
 
     scrollTl.to(techStackTitleRef.current, { 
@@ -153,15 +162,16 @@ const Homepage = () => {
       opacity: 0, 
       duration: 2.5,
       ease: "power3.inOut"
-    }, "-=2.5")
+    }, "-=2.8")
 
     if (iconsRef.current) {
       scrollTl.to(Array.from(iconsRef.current.children), { 
         y: -40, 
         opacity: 0, 
+        delay: 0.5,
         duration: 2.5,
-        stagger: 0.1,  // Increased for slower sequential fade
-        ease: "power2.inOut"
+        stagger: 0.7,  // Increased for slower sequential fade
+        ease: "power2.out"
       }, "-=2.5")
     }
 
@@ -172,7 +182,7 @@ const Homepage = () => {
 
 
   return (
-    <div className='content min-h-screen p-14 font-pretendard w-full bg-gradient-to-t from-zinc-400 to-zinc-200'>
+    <div className='content h-full p-14 font-pretendard w-full bg-gradient-to-t from-zinc-400 to-zinc-200'>
       <div className='flex flex-col items-start justify-center mt-24'>
 
         <h1 ref={mainTitleRef} className='text-[5.2vw] font-bold self-center bg-gradient-to-t  from-zinc-500 to-zinc-700 bg-clip-text text-transparent p-6'>
@@ -190,7 +200,7 @@ const Homepage = () => {
           I create interfaces and experiences that captivate users and align with brand identities.
         </p>
 
-        {/* <div className="connect flex flex-col items-center justify-center mt-6 w-full">
+        <div className="connect flex flex-col items-center justify-center mt-6 w-full">
           <p ref={connectTitleRef} className='text-xl font-semibold bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent tracking-wider'>Lets connect</p>
           <div ref={connectIconsRef} className="flex space-x-4 mt-2">
             <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-700 hover:text-zinc-900 transition-colors duration-300">
@@ -203,11 +213,11 @@ const Homepage = () => {
               <FaTwitter className="text-2xl" />
             </a>
           </div>
-        </div> */}
+        </div>
       </div>
 
 
-      <div className='flex flex-col items-center justify-center mt-24'>
+      <div className='flex flex-col items-center justify-center mt-20'>
         <h1 ref={techStackTitleRef} className={`text-xl font-bold self-center tracking-wider p-2 uppercase ${styles.animatedGradientText}`}>
           Cool tech stack i work with
         </h1>
