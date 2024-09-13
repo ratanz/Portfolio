@@ -12,7 +12,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
+    animation: shine 5.5s linear infinite;
   }
   
   @keyframes shine {
