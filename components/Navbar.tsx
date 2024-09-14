@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { TransitionLink } from '../utils/TransitionLink'
+import { triggerPageTransition } from '../utils/animations'
 
 gsap.registerPlugin();
 
@@ -18,11 +18,18 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const href = e.currentTarget.getAttribute('href')
+    triggerPageTransition(() => {
+      window.location.href = href || '/'
+    })
+  }
   
   return (
     <div className={`content h-14 px-6 py-4 mt-4 flex justify-between items-center fixed top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-50 ${
       isScrolled
-        ? 'bg-[#80808020] backdrop-blur-sm'
+        ? 'bg-[#80808020] backdrop-blur-2xl'
         : 'bg-[#62626216] backdrop-blur-xl'
     }`}>
       <div className="logo-name flex items-center py-4">
