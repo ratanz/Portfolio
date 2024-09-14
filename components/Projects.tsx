@@ -7,10 +7,41 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+
 gsap.registerPlugin(ScrollTrigger)
 
 const Projects = () => {
+    const containerRef = useRef<HTMLDivElement>(null)
+    const projectsRef = useRef<HTMLDivElement>(null)
 
+    useEffect(() => {
+        const container = containerRef.current
+        const projects = projectsRef.current
+
+        if (container && projects) {
+            const totalWidth = projects.scrollWidth - window.innerWidth
+            const extraScroll = window.innerWidth * 0.10
+
+            gsap.to(projects, {
+                x: -totalWidth,
+                ease: "power1.inOut",
+                scrollTrigger: {
+                    trigger: container,
+                    start: "top -10%",
+                    end: () => `+=${totalWidth + extraScroll}`,
+                    pin: true,
+                    scrub: 2,
+                    anticipatePin: 1,
+                    pinSpacing: true,
+                    markers: true,
+                    invalidateOnRefresh: true,
+                }
+            })
+        }
+    }, [])
+
+
+    
     const projectsContent = [
         {
             title: "Studio Size",
@@ -58,14 +89,17 @@ const Projects = () => {
 
     return (
         <div
-            className="projects-container h-[95vw] w-full bg-gradient-to-b from-black to-zinc-800 overflow-hidden">
-            <div className='flex flex-col items-center  mt-36'>
+            ref={containerRef}
+            className="projects-container h-[99vw] w-full  bg-gradient-to-b from-black to-zinc-800 overflow-hidden">
+            <div className='flex justify-center items-center mt-32'>
                 <h1 className='text-6xl font-bold text-transparent p-14 mb-4 bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
-                <div className="project-boxes flex flex-wrap flex-row items-start justify-center gap-4">
-                    {projectsContent.map((project, index) => (
-                        <ProjectBox key={index} {...project} />
-                    ))}
-                </div>
+            </div>
+            <div 
+            ref={projectsRef}
+            className="project-boxes flex w-full items-start px-10 gap-4">
+                {projectsContent.map((project, index) => (
+                    <ProjectBox key={index} {...project} />
+                ))}
             </div>
         </div>
     )
@@ -73,17 +107,17 @@ const Projects = () => {
 
 const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: string, description: string, imageUrl: string, projectUrl: string }) => {
     return (
-        <div className="flex flex-col items-center w-[25vw] m-2 ">
+        <div className="flex flex-col items-center w-full m-2 ">
             <motion.div
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
-                className="relative w-full h-[14vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
+                className="relative w-[45w] h-[32vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
             >
                 <Link href={projectUrl} passHref>
-                    <div className="h-full w-full rounded-lg relative">
+                    <div className="h-[34vw] w-[60vw] rounded-lg relative self-center pointer-events-none ">
                         <Image
                             src={imageUrl}
                             alt={title}
-                            layout="fill"
+                            layout='fill'
                             objectFit="cover"
                         />
                         <div className="absolute bottom-4 right-4 transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
@@ -95,7 +129,7 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: strin
                 </Link>
             </motion.div>
             <div className="text-center">
-                <h3 className="text-xl font-bold mb-2 bg-gradient-to-t from-zinc-100 to-zinc-500 bg-clip-text text-transparent">{title}</h3>
+                <h3 className="text-xl font-bold  bg-gradient-to-t  from-zinc-100 to-zinc-500 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-sm bg-gradient-to-r from-zinc-400 to-zinc-100 bg-clip-text text-transparent">{description}</p>
             </div>
         </div>
