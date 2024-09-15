@@ -36,15 +36,15 @@ const Homepage = () => {
     // sub title and description animation
     tl.fromTo([subTitleRef.current, descriptionRef.current, techStackTitleRef.current, iconsRef.current],
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.7, stagger: 0.2, ease: 'power3.out' },
+      { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: 'power3.out' },
       '-=0.9'
     )
 
-    // Helper function to animate gradient text
+
     const animateGradientText = (element: HTMLElement) => {
       tl.fromTo(element,
         { backgroundSize: '0% 100%', opacity: 0 },
-        { backgroundSize: '100% 100%', opacity: 1, duration: 1.8, scrub: 0.8, stagger: 0.2, ease: 'power2.out' },
+        { backgroundSize: '100% 100%', opacity: 1, duration: 1.2, scrub: 0.8, stagger: 0.2, ease: 'power2.out' },
         '-=0.8'
       )
     }
@@ -63,8 +63,8 @@ const Homepage = () => {
     )
 
     tl.fromTo(connectIconsRef.current,
-      { x: 0, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', stagger: 0.2 },
+      { y: 0, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.2 },
       '-=0.9'
     )
 
@@ -87,99 +87,98 @@ const Homepage = () => {
       {
         opacity: 1,
         y: 0,
-        duration: 0.4,
+        duration: 0.3,
         stagger: 0.2,
         ease: 'back.out(1.4)'
       },
-      '-=0.75'  // This makes the icons animation start earlier
+      '-=0.7'  // This makes the icons animation start earlier
     )
 
 
     if (iconsRef.current) {
       gsap.set(Array.from(iconsRef.current.children), { opacity: 0, y: 20 })
     }
+  }, [])
+ 
+    useEffect(() => {
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainTitleRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.5,  // Increased for smoother scrolling
+          toggleActions: "play none none reverse"
+        }
+      })
 
-    // scroll trigger
-    const scrollTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: mainTitleRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 2,  // Increased for smoother scrolling
-        toggleActions: "play none none reverse"
-      }
-    })
-
-    scrollTl.to(mainTitleRef.current, { 
-      y: -120, 
-      opacity: 0, 
-      scrub: 2,
-      duration: 2.5,
-      ease: "power3.inOut"
-    })
-
-    scrollTl.to(subTitleRef.current, { 
-      y: -100, 
-      opacity: 0, 
-      duration: 2.5,
-      stagger: 0.3,
-      ease: "power3.inOut"
-    }, "-=2")
-
-    scrollTl.to(descriptionRef.current, { 
-      y: 40, 
-      opacity: 0,
-      duration: 3,
-      scrub: 3,
-      stagger: 0.3,
-      ease: "power3.out",
-    }, "-=2.5")
-
-    
-    scrollTl.to(connectTitleRef.current, { 
-      y: 50, 
-      opacity: 0, 
-      duration: 1.9,
-      delay: 0.9,
-      stagger: 0.2,
-      scrub: 4,
-      ease: "power3.out"
-    }, "-=3.8")
-
+      scrollTl.to(mainTitleRef.current, { 
+        y: -120, 
+        opacity: 0, 
+        scrub: 2,
+        duration: 2.5,
+        ease: "power3.inOut"
+      })
+  
+      scrollTl.to(subTitleRef.current, { 
+        y: -100, 
+        opacity: 0, 
+        duration: 2.5,
+        stagger: 0.3,
+        ease: "power3.inOut"
+      }, "-=2")
+  
+      scrollTl.to(descriptionRef.current, { 
+        y: 40, 
+        opacity: 0,
+        duration: 3,
+        scrub: 3,
+        stagger: 0.3,
+        ease: "power3.out",
+      }, "-=2.5")
+  
+      
+      scrollTl.to(connectTitleRef.current, { 
+        y: 50, 
+        opacity: 0, 
+        duration: 1.9,
+        delay: 0.9,
+        stagger: 0.2,
+        scrub: 4,
+        ease: "power3.out"
+      }, "-=3.8")
+  
     scrollTl.to(connectIconsRef.current, { 
       y: 50, 
       opacity: 0,
-      duration: 1.9,
-      delay: 0.9,
-      stagger: 0.2,
-      scrub: 4,
+      duration: 1.2,
+      scrub: 3,
       ease: "power3.out"
-    }, "-=3.8")
-
-
+    }, "-=0.23")
+  
+  
     scrollTl.to(techStackTitleRef.current, { 
       y: -60, 
       opacity: 0, 
       duration: 2.5,
       ease: "power3.inOut"
-    }, "-=2.8")
-
+    }, "-=2.2")
+  
     if (iconsRef.current) {
       scrollTl.to(Array.from(iconsRef.current.children), { 
         y: -40, 
         opacity: 0, 
-        delay: 0.5,
-        duration: 2.5,
-        stagger: 0.7,  // Increased for slower sequential fade
-        ease: "power2.out"
-      }, "-=2.5")
+        delay: 0.40,
+        duration: 1.3,
+        stagger: 0.3,  // Increased for slower sequential fade
+        ease: "power3.inout"
+      }, "-=0.4")
     }
-
+  
     return () => {
+      scrollTl.kill()
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
-
 
   return (
     <div className='content h-full p-14 font-pretendard w-full bg-gradient-to-t from-zinc-400 to-zinc-200'>

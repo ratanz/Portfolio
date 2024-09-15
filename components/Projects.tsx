@@ -20,21 +20,17 @@ const Projects = () => {
 
         if (container && projects) {
             const totalWidth = projects.scrollWidth - window.innerWidth
-            const extraScroll = window.innerWidth * 5.20
 
             gsap.to(projects, {
+                width: '135%',
                 x: -totalWidth,
-                ease: "power1.inOut",
+                ease: "none",
                 scrollTrigger: {
                     trigger: container,
-                    start: "top top",
-                    end: () => `+=${totalWidth + extraScroll}`,
+                    start: "center center",
+                    end: () => `+=${totalWidth}`,
                     pin: true,
                     scrub: 2,
-                    anticipatePin: 1,
-                    pinSpacing: true,
-                    markers: true,
-                    invalidateOnRefresh: true,
                 }
             })
         }
@@ -88,11 +84,14 @@ const Projects = () => {
     ]
 
     return (
-        <div
+        <div 
             ref={containerRef}
-            className="projects-container lg:h-[64vw] h-screen w-full  bg-gradient-to-b from-black to-zinc-800 overflow-hidden ">
-            <div className='flex justify-center items-center pointer-events-none  mt-14'> 
-                <h1 className='text-6xl font-bold text-transparent p-10  bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+            className="projects-container relative lg:h-[80vw] h-screen w-full flex-col bg-gradient-to-b from-black to-zinc-800  ">  
+            <div 
+             className="content flex flex-col justify-center items-center pt-[18vw]">
+
+            <div className=' pointer-events-none '> 
+                <h1 className='text-6xl font-bold p-6 text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
             </div>
             <div 
             ref={projectsRef}
@@ -100,6 +99,7 @@ const Projects = () => {
                 {projectsContent.map((project, index) => (
                     <ProjectBox key={index} {...project} />
                 ))}
+            </div>
             </div>
         </div>
     )
@@ -110,10 +110,10 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: strin
         <div className="flex flex-col items-center w-full m-2 ">
             <motion.div
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
-                className="relative w-[45w] h-[32vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
+                className="relative w-[65w] h-[35vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
             >
                 <Link href={projectUrl} passHref>
-                    <div className="h-[34vw] w-[60vw] rounded-lg relative self-center pointer-events-none ">
+                    <div className="h-[35vw] w-[60vw]  rounded-lg relative self-center pointer-events-none ">
                         <Image
                             src={imageUrl}
                             alt={title}
