@@ -20,14 +20,14 @@ const Projects = () => {
 
         if (container && projects) {
             const totalWidth = projects.scrollWidth - window.innerWidth
-            const extraScroll = window.innerWidth * 0.10
+            const extraScroll = window.innerWidth * 5.20
 
             gsap.to(projects, {
                 x: -totalWidth,
                 ease: "power1.inOut",
                 scrollTrigger: {
                     trigger: container,
-                    start: "top -10%",
+                    start: "top top",
                     end: () => `+=${totalWidth + extraScroll}`,
                     pin: true,
                     scrub: 2,
@@ -90,9 +90,9 @@ const Projects = () => {
     return (
         <div
             ref={containerRef}
-            className="projects-container h-[99vw] w-full  bg-gradient-to-b from-black to-zinc-800 overflow-hidden">
-            <div className='flex justify-center items-center mt-32'>
-                <h1 className='text-6xl font-bold text-transparent p-14 mb-4 bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+            className="projects-container lg:h-[64vw] h-screen w-full  bg-gradient-to-b from-black to-zinc-800 overflow-hidden ">
+            <div className='flex justify-center items-center pointer-events-none  mt-14'> 
+                <h1 className='text-6xl font-bold text-transparent p-10  bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
             </div>
             <div 
             ref={projectsRef}
