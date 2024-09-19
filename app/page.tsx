@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { Navbar } from "@/components/Navbar"
 import Homepage from "@/components/Homepage"
 import Projects from "@/components/Projects"
+import About from "@/components/About"
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -34,13 +35,16 @@ export default function Home() {
 
   return (
     <>
-      <div className="main w-full">
+      <div className="main w-full overflow-hidden">
         <Navbar />
         <section id="home">
           <Homepage />
         </section>
         <section id="projects">
           <Projects />
+        </section>
+        <section id="about">
+          <About />
         </section>
       </div>
     </>

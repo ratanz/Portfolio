@@ -22,15 +22,15 @@ const Projects = () => {
             const totalWidth = projects.scrollWidth - window.innerWidth
 
             gsap.to(projects, {
-                width: '135%',
+                width: '124%',
                 x: -totalWidth,
                 ease: "none",
                 scrollTrigger: {
                     trigger: container,
-                    start: "center center",
+                    start: "top top",
                     end: () => `+=${totalWidth}`,
                     pin: true,
-                    scrub: 2,
+                    scrub: 1,
                 }
             })
         }
@@ -86,16 +86,16 @@ const Projects = () => {
     return (
         <div 
             ref={containerRef}
-            className="projects-container relative lg:h-[80vw] h-screen w-full flex-col bg-gradient-to-b from-black to-zinc-800  ">  
+            className="projects-container relative lg:h-[60vw] overflow-hidden h-screen w-full flex-col bg-gradient-to-b from-black to-zinc-800  ">  
             <div 
-             className="content flex flex-col justify-center items-center pt-[18vw]">
+             className="content flex flex-col justify-center w-full items-center pt-[5vw]">
 
             <div className=' pointer-events-none '> 
-                <h1 className='text-6xl font-bold p-6 text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+                <h1 className='text-6xl font-bold p-4 text-transparent leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
             </div>
             <div 
             ref={projectsRef}
-            className="project-boxes flex w-full items-start px-10 gap-4">
+            className="project-boxes flex w-full items-start px-10 p-2 gap-6">
                 {projectsContent.map((project, index) => (
                     <ProjectBox key={index} {...project} />
                 ))}
@@ -110,10 +110,10 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: strin
         <div className="flex flex-col items-center w-full m-2 ">
             <motion.div
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
-                className="relative w-[65w] h-[35vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
+                className="relative w-[55w] h-[30vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
             >
                 <Link href={projectUrl} passHref>
-                    <div className="h-[35vw] w-[60vw]  rounded-lg relative self-center pointer-events-none ">
+                    <div className="h-[30vw] w-[55vw]  rounded-lg relative self-center pointer-events-none ">
                         <Image
                             src={imageUrl}
                             alt={title}

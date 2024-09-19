@@ -45,8 +45,8 @@ export function Navbar() {
 
       <div className="links flex gap-10 uppercase">
         {[
-          { label: 'About', href: '/about' },
           { label: 'Projects', href: '/#projects' },
+          { label: 'About', href: '/#about' },
           // { label: 'Contact', href: '/contact' },
           { label: 'Resume', href: '' }
         ].map((item) => (

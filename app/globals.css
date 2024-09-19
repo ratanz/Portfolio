@@ -12,10 +12,10 @@
 }
 
  body {
- 
  transition-property: opacity, transform, filter;
  transition-timing-function: ease-in-out;
  transition-duration: 0.5s;
+ background-color: black;
 }
 
 .page-transition {
