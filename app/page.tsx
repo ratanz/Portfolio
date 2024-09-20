@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar"
 import Homepage from "@/components/Homepage"
 import Projects from "@/components/Projects"
 import About from "@/components/About"
+import Work from "@/components/Work"
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -39,6 +40,9 @@ export default function Home() {
         <Navbar />
         <section id="home">
           <Homepage />
+        </section>
+        <section id="work">
+          <Work />
         </section>
         <section id="projects">
           <Projects />
