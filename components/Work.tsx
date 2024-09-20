@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+
 
 const experienceData = [
     {
@@ -42,7 +42,7 @@ export default function Work() {
         const cards = cardsRef.current
 
         if (section) {
-            gsap.fromTo(section, 
+            gsap.fromTo(section,
                 { opacity: 0, y: 50 },
                 {
                     opacity: 1,
@@ -50,7 +50,7 @@ export default function Work() {
                     duration: 1,
                     scrollTrigger: {
                         trigger: section,
-                        start: 'top 80%',
+                        start: 'top 90%',
                         end: 'bottom 20%',
                         toggleActions: 'play none none reverse'
                     }
@@ -69,7 +69,7 @@ export default function Work() {
                         delay: index * 0.2,
                         scrollTrigger: {
                             trigger: card,
-                            start: 'top 80%',
+                            start: 'top 90%',
                             end: 'bottom 20%',
                             toggleActions: 'play none none reverse'
                         }
@@ -93,38 +93,43 @@ export default function Work() {
 
     return (
         <div
-            ref={sectionRef}
-            className="min-h-screen bg-gradient-to-b from-zinc-900 to-zinc-800 text-zinc-100 p-8"
+            className="h-[150vh] bg-gradient-to-b from-zinc-900 to-zinc-800 text-zinc-100 p-8"
         >
-            <h2 className="text-4xl font-bold mb-12 text-center">
-                Work Experience
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-8">
-                {experienceData.map((experience, index) => (
-                    <div
-                        key={index}
-                        ref={(el: HTMLDivElement | null) => {
-                            if (el) cardsRef.current[index] = el;
-                        }}
-                    >
-                        <Card className="bg-zinc-800 border-zinc-700">
-                            <CardHeader>
-                                <CardTitle className="text-2xl font-semibold text-zinc-100">{experience.title}</CardTitle>
-                                <div className="flex justify-between items-center mt-2">
-                                    <Badge variant="secondary" className="text-sm">{experience.company}</Badge>
-                                    <span className="text-sm text-zinc-400">{experience.date}</span>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                                    {experience.responsibilities.map((responsibility, idx) => (
-                                        <li key={idx}>{responsibility}</li>
-                                    ))}
-                                </ul>
-                            </CardContent>
-                        </Card>
-                    </div>
-                ))}
+            <div
+                ref={sectionRef}
+                className="content w-full h-full flex items-center justify-center flex-col"
+            >
+                <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-t from-zinc-100 to-zinc-400 bg-clip-text text-transparent">
+                    Work Experience
+                </h2>
+                <div className="max-w-3xl mx-auto space-y-8">
+                    {experienceData.map((experience, index) => (
+                        <div
+                            key={index}
+                            ref={(el: HTMLDivElement | null) => {
+                                if (el) cardsRef.current[index] = el;
+                            }}
+                        >
+                            <Card className="bg-zinc-800 border-zinc-700">
+                                <CardHeader>
+                                    <CardTitle className="text-2xl font-semibold text-zinc-100">{experience.title}</CardTitle>
+                                    <div className="flex justify-between items-center mt-2">
+                                        <Badge variant="secondary" className="text-sm">{experience.company}</Badge>
+                                        <span className="text-sm text-zinc-400">{experience.date}</span>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul className="list-disc list-inside space-y-2 text-zinc-300">
+                                        {experience.responsibilities.map((responsibility, idx) => (
+                                            <li key={idx}>{responsibility}</li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </div>
     )

@@ -28,7 +28,7 @@ const Homepage = () => {
       {
         y: 0,
         opacity: 1,
-        duration: 0.4,
+        duration: 0.3,
         ease: 'power3.out',
       }
     )
@@ -36,7 +36,7 @@ const Homepage = () => {
     // sub title and description animation
     tl.fromTo([subTitleRef.current, descriptionRef.current, techStackTitleRef.current, iconsRef.current],
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: 'power3.out' },
+      { y: 0, opacity: 1, duration: 0.9, stagger: 0.2, ease: 'power3.out' },
       '-=0.9'
     )
 
@@ -181,7 +181,7 @@ const Homepage = () => {
   }, [])
 
   return (
-    <div className='content h-full p-14 font-pretendard w-full bg-gradient-to-t from-zinc-400 to-zinc-200'>
+    <div className='content min-h-screen p-14 font-pretendard w-full bg-gradient-to-t from-zinc-400 to-zinc-200'>
       <div className='flex flex-col items-start justify-center mt-24'>
 
         <h1 ref={mainTitleRef} className='text-[5.2vw] font-bold self-center bg-gradient-to-t  from-zinc-500 to-zinc-700 bg-clip-text text-transparent p-6'>
