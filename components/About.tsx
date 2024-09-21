@@ -37,7 +37,6 @@ const About = () => {
                 {
                     opacity: 0,
                     y: 100,
-                    rotationX: 45,
                     backgroundImage: 'linear-gradient(to right, rgba(161, 161, 170, 0) 0%, rgba(161, 161, 170, 0) 100%)',
                 },
                 {
@@ -100,15 +99,15 @@ const About = () => {
 
     return (
         <div ref={containerRef} className='about-content w-full h-[50vw] bg-gradient-to-t to-black from-zinc-800 overflow-hidden '>
-            <div className='content flex flex-col w-full justify-center h-full items-center p-14'>
-                <h1 ref={titleRef} className='text-6xl font-bold text-transparent leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>About</h1>
+            <div className='content flex flex-col w-full justify-center h-full items-center p-16'>
+                <h1 ref={titleRef} className='text-6xl font-handmade w-fit h-fit p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent   '>About</h1>
 
                 <div className='flex justify-between items-center p-4 mt-16'>
                     <div className="pic w-[20vw] h-[20vw] m-10 rounded-2xl overflow-hidden">
                         <img src="/images/me.jpg" alt="" className='w-full h-full' />
                     </div>
 
-                    <div className='flex flex-col justify-center items-center mt-10'>
+                    <div className='flex flex-col justify-center font-lovecookies leading-normal tracking-wider items-center mt-10'>
                         <p ref={contentRef} className='text-xl bg-gradient-to-r self-center text-center  from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-[50vw]'> I'm Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express.
                             <br />
                             <br />

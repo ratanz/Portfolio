@@ -71,7 +71,9 @@ const config: Config = {
 		  },
   		fontFamily: {
   			poppins: ['var(--font-poppins)'],
-  			pretendard: ['var(--font-pretendard)']
+  			pretendard: ['var(--font-pretendard)'],
+			lovecookies: ['var(--font-lovecookies)'],
+			handmade: ['var(--font-handmade)']
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

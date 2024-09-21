@@ -17,11 +17,23 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 })
 
+const lovecookies = localFont({
+  src: './fonts/LoveCookies.otf',
+  variable: '--font-lovecookies',
+})
+
+const handmade = localFont({
+  src: './fonts/Handmade.otf',
+  variable: '--font-handmade',
+})
+
+// metadata for the website
 export const metadata: Metadata = {
   title: "Ratan.codes",
   description: "Ratan's personal website",
 };
 
+// root layout for the website
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${pretendard.variable}`}>
+      <body className={`${poppins.variable} ${pretendard.variable} ${lovecookies.variable} ${handmade.variable}`}>
         {children}
       </body>
     </html>
