@@ -27,6 +27,21 @@ const handmade = localFont({
   variable: '--font-handmade',
 })
 
+const malven = localFont({
+  src: './fonts/Malven.otf',
+  variable: '--font-malven',
+})
+
+const krishna = localFont({
+  src: './fonts/Krishna.otf',
+  variable: '--font-krishna',
+})
+
+const spacer36 = localFont({
+  src: './fonts/Spacer36.otf',
+  variable: '--font-spacer36',
+})
+
 // metadata for the website
 export const metadata: Metadata = {
   title: "Ratan.codes",
@@ -41,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${pretendard.variable} ${lovecookies.variable} ${handmade.variable}`}>
+      <body className={`${poppins.variable} ${pretendard.variable} ${handmade.variable} ${malven.variable} ${krishna.variable} ${spacer36.variable}`}>
         {children}
       </body>
     </html>

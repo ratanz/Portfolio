@@ -72,8 +72,10 @@ const config: Config = {
   		fontFamily: {
   			poppins: ['var(--font-poppins)'],
   			pretendard: ['var(--font-pretendard)'],
-			lovecookies: ['var(--font-lovecookies)'],
-			handmade: ['var(--font-handmade)']
+			handmade: ['var(--font-handmade)'],
+			malven: ['var(--font-malven)'],
+			krishna: ['var(--font-krishna)'],
+			spacer36: ['var(--font-spacer36)']
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -121,7 +121,7 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: strin
                             objectFit="cover"
                         />
                         <div className="absolute flex justify-end items-center p-4 w-full h-10 bottom-0 bg-[#1a1a1a36] transition-all duration-300 transform translate-y-24 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <h3 className='text-white text-xl font-lovecookies font-bold justify-center self-center'>Visit</h3>
+                            <h3 className='text-white text-xl font-spacer36 justify-center self-center'>Visit</h3>
                             <svg className="w-6 h-6 text-white text-center ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
