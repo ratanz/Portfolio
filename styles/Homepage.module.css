@@ -1,11 +1,11 @@
 .animatedGradientText {
     background: linear-gradient(
-      to left,
-      #62626c,
-      #4f4f54,
-      #57575c,
-      #52525b,
-      #3a3a3d
+      to right,
+      #0f1922,
+      #1e2f50,
+      #2d3c5e,
+      #31565e,
+      #4b5643
     );
     background-size: 200% auto;
     color: transparent;

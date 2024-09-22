@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import styles from '@/styles/Homepage.module.css'
 import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
 
@@ -36,7 +35,7 @@ const Homepage = () => {
     // sub title and description animation
     tl.fromTo([subTitleRef.current, descriptionRef.current, techStackTitleRef.current, iconsRef.current],
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9, stagger: 0.2, ease: 'power3.out' },
+      { y: 0, opacity: 1, duration: 1.3, stagger: 0.3, ease: 'power3.out' },
       '-=0.9'
     )
 
@@ -44,7 +43,7 @@ const Homepage = () => {
     const animateGradientText = (element: HTMLElement) => {
       tl.fromTo(element,
         { backgroundSize: '0% 100%', opacity: 0 },
-        { backgroundSize: '100% 100%', opacity: 1, duration: 1.2, scrub: 0.8, stagger: 0.2, ease: 'power2.out' },
+        { backgroundSize: '100% 100%', opacity: 1, duration: 0.9, scrub: 0.8, stagger: 0.2, ease: 'power2.out' },
         '-=0.8'
       )
     }
@@ -63,11 +62,10 @@ const Homepage = () => {
     )
 
     tl.fromTo(connectIconsRef.current,
-      { y: 0, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.2 },
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.3 },
       '-=0.9'
     )
-
 
     // tech stack title animation
     tl.to(techStackTitleRef.current,
@@ -99,7 +97,8 @@ const Homepage = () => {
       gsap.set(Array.from(iconsRef.current.children), { opacity: 0, y: 20 })
     }
   }, [])
- 
+
+ // scroll animation when scroll back to top
     useEffect(() => {
       const scrollTl = gsap.timeline({
         scrollTrigger: {
@@ -130,7 +129,7 @@ const Homepage = () => {
       scrollTl.to(descriptionRef.current, { 
         y: 40, 
         opacity: 0,
-        duration: 3,
+        duration: 2.3,
         scrub: 3,
         stagger: 0.3,
         ease: "power3.out",
@@ -181,18 +180,18 @@ const Homepage = () => {
   }, [])
 
   return (
-    <div className='content min-h-screen p-14 font-pretendard w-full bg-gradient-to-t from-zinc-400 to-zinc-200'>
+    <div className='content min-h-screen p-14 font-pretendard w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
       <div className='flex flex-col items-start justify-center mt-24'>
 
-        <h1 ref={mainTitleRef} className='text-[5.2vw] font-bold self-center bg-gradient-to-t  from-zinc-500 to-zinc-700 bg-clip-text text-transparent p-6'>
+        <h1 ref={mainTitleRef} className='text-[5.2vw] font-bold self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent p-6'>
           Turning Caffeine Into Code.
         </h1>
 
-        <h2 ref={subTitleRef} className={`text-4xl font-semibold self-center bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent tracking-wider p-2 mt-10 `}>
+        <h2 ref={subTitleRef} className={`text-4xl font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider p-2 mt-10 `}>
           Hey, I'm Ratan Rathod
         </h2>
 
-        <p ref={descriptionRef} className='text-sm mt-2  font-medium text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent tracking-wide leading-relaxed'>
+        <p ref={descriptionRef} className='text-sm mt-2  font-medium text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed'>
           I'm a frontend developer based in India,
           dedicated to building scalable websites and applications that make a meaningful impact.
           With a focus on user experience, design aesthetics, and developer satisfaction,
@@ -200,24 +199,24 @@ const Homepage = () => {
         </p>
 
         <div className="connect flex flex-col items-center justify-center mt-6 w-full">
-          <p ref={connectTitleRef} className='text-xl font-semibold bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent tracking-wider'>Lets connect</p>
+          <p ref={connectTitleRef} className='text-xl font-semibold bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider'>Lets connect</p>
           <div ref={connectIconsRef} className="flex space-x-4 mt-2">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-700 hover:text-zinc-900 transition-colors duration-300">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-700 transition-colors duration-300">
               <FaGithub className="text-2xl" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-700 hover:text-zinc-900 transition-colors duration-300">
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-700 transition-colors duration-300">
               <FaLinkedin className="text-2xl" />
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-700 hover:text-zinc-900 transition-colors duration-300">
+            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-700 transition-colors duration-300">
               <FaTwitter className="text-2xl" />
             </a>
           </div>
         </div>
+
       </div>
 
-
       <div className='flex flex-col items-center justify-center mt-20'>
-        <h1 ref={techStackTitleRef} className={`text-xl font-bold self-center tracking-wider p-2 uppercase ${styles.animatedGradientText}`}>
+        <h1 ref={techStackTitleRef} className={`text-xl font-bold self-center tracking-wider p-2 uppercase bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent `}>
           Cool tech stack i work with
         </h1>
 
