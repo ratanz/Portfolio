@@ -42,6 +42,12 @@ const spacer36 = localFont({
   variable: '--font-spacer36',
 })
 
+const deutschlander = localFont({
+  src: './fonts/Deutschlander.otf',
+  variable: '--font-deutschlander',
+})
+
+
 // metadata for the website
 export const metadata: Metadata = {
   title: "Ratan.codes",
@@ -56,7 +62,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${pretendard.variable} ${handmade.variable} ${malven.variable} ${krishna.variable} ${spacer36.variable}`}>
+      <body className={`${poppins.variable} ${pretendard.variable} ${handmade.variable} ${malven.variable} 
+      ${krishna.variable} ${spacer36.variable} ${deutschlander.variable}`}>
         {children}
       </body>
     </html>

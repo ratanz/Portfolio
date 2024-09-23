@@ -75,7 +75,8 @@ const config: Config = {
 			handmade: ['var(--font-handmade)'],
 			malven: ['var(--font-malven)'],
 			krishna: ['var(--font-krishna)'],
-			spacer36: ['var(--font-spacer36)']
+			spacer36: ['var(--font-spacer36)'],
+			deutschlander: ['var(--font-deutschlander)'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
