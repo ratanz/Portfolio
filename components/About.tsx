@@ -98,7 +98,7 @@ const About = () => {
         }, [])
 
     return (
-        <div ref={containerRef} className='about-content w-full h-[50vw] bg-gradient-to-t to-black from-zinc-800 overflow-hidden '>
+        <div ref={containerRef} className='about-content w-full h-[50vw] bg-gradient-to-t to-zinc-900 from-zinc-800 overflow-hidden '>
             <div className='content flex flex-col w-full justify-center h-full items-center p-16'>
                 <h1 ref={titleRef} className='text-6xl font-handmade w-fit h-fit p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
 

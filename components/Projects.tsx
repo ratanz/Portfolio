@@ -86,7 +86,7 @@ const Projects = () => {
     return (
         <div 
             ref={containerRef}
-            className="projects-container relative lg:h-[60vw] overflow-hidden h-screen w-full flex-col bg-gradient-to-b from-black to-zinc-800  ">  
+            className="projects-container relative lg:h-[60vw] overflow-hidden h-screen w-full flex-col bg-gradient-to-t from-zinc-900 to-zinc-800">  
             <div 
              className="content flex flex-col justify-center w-full items-center pt-[5vw]">
 
