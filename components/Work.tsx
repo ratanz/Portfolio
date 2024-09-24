@@ -105,7 +105,7 @@ export default function Work() {
 
     return (
         <div
-            className="h-[150vh] bg-gradient-to-b from-zinc-900 to-zinc-800 text-zinc-100 p-8"
+            className="h-[160vh] bg-gradient-to-b from-zinc-900 to-zinc-800 text-zinc-100 p-8"
         >
             <div
                 ref={sectionRef}

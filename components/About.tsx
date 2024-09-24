@@ -4,6 +4,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+import Magnetic from './ui/Magnetic'
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -115,19 +117,27 @@ const About = () => {
 
                         <div className="icons h-[3vw] mt-6 flex justify-center items-center flex-col w-full ">
                             <div className="flex justify-center items-center space-x-10">
-                                <a href="https://github.com/ratanz" target="_blank" rel="noopener noreferrer" className="text-zinc-400
+                                <Magnetic>
+                                <a href="https://github.com/ratanz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 w-fit
                                 bg-zinc-900 p-2 rounded-md hover:text-zinc-100 transition-colors">
                                     <FaGithub className="w-6 h-6" />
                                 </a>
-                                <a href="https://linkedin.com/in/ratanrathod7" target="_blank" rel="noopener noreferrer" className="text-zinc-400 bg-zinc-900 p-2 rounded-md hover:text-zinc-100 transition-colors">
+                                </Magnetic>
+                                <Magnetic>
+                                <a href="https://linkedin.com/in/ratanrathod7" target="_blank" rel="noopener noreferrer" className="text-zinc-400 w-fit bg-zinc-900 p-2 rounded-md hover:text-zinc-100 transition-colors">
                                     <FaLinkedin className="w-6 h-6" />
                                 </a>
+                                </Magnetic>
+                                <Magnetic>
                                 <a href="https://twitter.com/ratanz_codes" target="_blank" rel="" className="text-zinc-400 bg-zinc-900 p-2 rounded-md hover:text-zinc-100 transition-colors">
                                     <FaTwitter className="w-6 h-6" />
                                 </a>
+                                </Magnetic>
+                                <Magnetic>
                                 <a href="mailto:ratanrathod7@outlook.com" className="text-zinc-400 bg-zinc-900 p-2 rounded-md hover:text-zinc-100 transition-colors">
                                     <MdEmail className="w-6 h-6" />
                                 </a>
+                                </Magnetic>
                             </div>
                         </div>
                     </div>

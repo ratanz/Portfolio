@@ -180,7 +180,7 @@ const Homepage = () => {
   }, [])
 
   return (
-    <div className='content min-h-screen p-14 font-pretendard w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
+    <div className='content min-h-[120vh] p-14 font-pretendard w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
       <div className='flex flex-col items-start justify-center mt-24'>
 
         <h1 ref={mainTitleRef} className='text-[5.2vw] font-bold font-spacer36 self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent p-6'>
