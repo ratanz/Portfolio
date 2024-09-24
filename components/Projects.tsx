@@ -86,7 +86,7 @@ const Projects = () => {
     return (
         <div 
             ref={containerRef}
-            className="projects-container relative lg:h-[60vw] overflow-hidden h-screen w-full flex-col bg-gradient-to-t from-zinc-900 to-zinc-800">  
+            className="projects-container relative lg:h-[55vw] overflow-hidden h-screen w-full flex-col bg-gradient-to-t from-zinc-900 to-zinc-800">  
             <div 
              className="content flex flex-col justify-center w-full items-center pt-[5vw]">
 
@@ -107,7 +107,7 @@ const Projects = () => {
 
 const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: string, description: string, imageUrl: string, projectUrl: string }) => {
     return (
-        <div className="flex flex-col items-center w-full ">
+        <div className="flex flex-col items-center w-full">
             <motion.div
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
                 className="relative w-[55w] h-[30vw] overflow-hidden rounded-lg cursor-pointer group mb-4"

@@ -106,7 +106,7 @@ const About = () => {
 
                 <div className='flex justify-between items-center p-4 mt-16'>
                     <div className="pic w-[20vw] h-[20vw] m-10 rounded-2xl overflow-hidden">
-                        <img src="/images/me.jpg" alt="" className='w-full h-full hover:scale-105 transition-all duration-300 ease-in' />
+                        <img src="/images/me.jpg" alt="" className='w-full h-full hover:scale-105 transition-all duration-150 ease-in-out' />
                     </div>
 
                     <div className='flex flex-col justify-center font-malven leading-normal tracking-wider items-center mt-10'>
