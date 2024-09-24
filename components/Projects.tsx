@@ -109,11 +109,11 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: strin
     return (
         <div className="flex flex-col items-center w-full">
             <motion.div
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
-                className="relative w-[55w] h-[30vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
+                whileHover={{ scale: 1.04, transition: { duration: 0.3 }, animation : "ease-in-out", boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
+                className="relative w-[55w] h-[31vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
             >
                 <Link href={projectUrl} passHref>
-                    <div className="h-[30vw] w-[55vw]  rounded-lg relative self-center pointer-events-none ">
+                    <div className="h-[31vw] w-[55vw] rounded-lg relative self-center pointer-events-none ">
                         <Image
                             src={imageUrl}
                             alt={title}

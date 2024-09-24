@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { TransitionLink } from '../utils/TransitionLink'
 import { triggerPageTransition } from '../utils/animations'
+import Magnetic from './ui/Magnetic'
 
 gsap.registerPlugin();
 
@@ -50,16 +51,18 @@ export function Navbar() {
           // { label: 'Contact', href: '/contact' },
           { label: 'Resume', href: '' }
         ].map((item) => (
-            <div className='relative group overflow-hidden'>
-          <TransitionLink key={item.label} href={item.href}>
-            <h2 
-              className=' hover:text-zinc-300 font-medium font-spacer36 text-sm inline-block w-full bg-gradient-to-t from-zinc-400 to-zinc-700 bg-clip-text text-transparent transition-all duration-300'
-            >
-              {item.label}
-            </h2>
-           <span className='block h-[1px] w-0 bg-zinc-700 absolute bottom-0 left-0 group-hover:w-full transition-all duration-300'></span>
-          </TransitionLink>
-          </div>
+          <Magnetic key={item.label}>
+            <div className='relative group'>
+              <TransitionLink href={item.href}>
+                <div className='overflow-hidden'>
+                  <h2 className='hover:text-zinc-300 font-medium font-spacer36 text-sm inline-block w-full bg-gradient-to-t from-zinc-400 to-zinc-700 bg-clip-text text-transparent transition-all duration-300'>
+                    {item.label}
+                  </h2>
+                  <span className='block h-[1px] w-0 bg-zinc-700 absolute bottom-0 left-0 group-hover:w-full transition-all duration-300'></span>
+                </div>
+              </TransitionLink>
+            </div>
+          </Magnetic>
         ))}
       </div>
     </div>
