@@ -91,7 +91,7 @@ const Projects = () => {
              className="content flex flex-col justify-center w-full items-center pt-[5vw]">
 
             <div className=''> 
-                <h1 className='text-6xl font-bold p-4 text-transparent leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+                <h1 className='text-6xl font-bold p-4 text-transparent font-malven leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
             </div>
             <div 
             ref={projectsRef}
@@ -107,7 +107,7 @@ const Projects = () => {
 
 const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: string, description: string, imageUrl: string, projectUrl: string }) => {
     return (
-        <div className="flex flex-col items-center w-full m-2 ">
+        <div className="flex flex-col items-center w-full ">
             <motion.div
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
                 className="relative w-[55w] h-[30vw] overflow-hidden rounded-lg cursor-pointer group mb-4"

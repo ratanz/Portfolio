@@ -53,7 +53,7 @@ export function Navbar() {
             <div className='relative group overflow-hidden'>
           <TransitionLink key={item.label} href={item.href}>
             <h2 
-              className=' hover:text-zinc-900 font-medium font-spacer36 text-sm inline-block w-full bg-gradient-to-t from-zinc-400 to-zinc-700 bg-clip-text text-transparent transition-all duration-300'
+              className=' hover:text-zinc-300 font-medium font-spacer36 text-sm inline-block w-full bg-gradient-to-t from-zinc-400 to-zinc-700 bg-clip-text text-transparent transition-all duration-300'
             >
               {item.label}
             </h2>

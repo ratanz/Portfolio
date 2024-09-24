@@ -46,7 +46,7 @@ const About = () => {
                     backgroundImage: 'linear-gradient(to right, rgba(161, 161, 170, 1) 0%, rgba(244, 244, 245, 1) 100%)',
                     ease: 'power4.out',
                     duration: 1.9,
-                    stagger: 0.8,
+                    stagger: 1.1,
                 }
             )
             .fromTo(
@@ -98,22 +98,22 @@ const About = () => {
         }, [])
 
     return (
-        <div ref={containerRef} className='about-content w-full h-[50vw] bg-gradient-to-t to-zinc-900 from-zinc-800 overflow-hidden '>
+        <div ref={containerRef} className='about-content w-full h-full bg-gradient-to-t to-zinc-900 from-zinc-800 overflow-hidden '>
             <div className='content flex flex-col w-full justify-center h-full items-center p-16'>
-                <h1 ref={titleRef} className='text-6xl font-handmade w-fit h-fit p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
+                <h1 ref={titleRef} className='text-6xl font-deutschlander w-fit h-fit p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
 
                 <div className='flex justify-between items-center p-4 mt-16'>
                     <div className="pic w-[20vw] h-[20vw] m-10 rounded-2xl overflow-hidden">
-                        <img src="/images/me.jpg" alt="" className='w-full h-full' />
+                        <img src="/images/me.jpg" alt="" className='w-full h-full hover:scale-105 transition-all duration-300 ease-in' />
                     </div>
 
-                    <div className='flex flex-col justify-center font-lovecookies leading-normal tracking-wider items-center mt-10'>
+                    <div className='flex flex-col justify-center font-malven leading-normal tracking-wider items-center mt-10'>
                         <p ref={contentRef} className='text-xl bg-gradient-to-r self-center text-center  from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-[50vw]'> I'm Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express.
                             <br />
                             <br />
                             I'm dedicated to optimizing performance and enhancing user experiences through advanced UI/UX design principles and cutting-edge animation techniques.</p>
 
-                        <div className="icons h-[3vw] mt-6 flex justify-center items-center flex-col w-full">
+                        <div className="icons h-[3vw] mt-6 flex justify-center items-center flex-col w-full ">
                             <div className="flex justify-center items-center space-x-10">
                                 <a href="https://github.com/ratanz" target="_blank" rel="noopener noreferrer" className="text-zinc-400
                                 bg-zinc-900 p-2 rounded-md hover:text-zinc-100 transition-colors">

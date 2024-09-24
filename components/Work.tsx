@@ -28,6 +28,18 @@ const experienceData = [
             "Created a new class to get an existing system up and running.",
             "Wrote a test suite for the class added."
         ]
+    },
+    {
+        title: "Data structure and Algorithm",
+        date: "January 2024",
+        company: "Coursera",
+        responsibilities: [
+            "Learned about various types of data structures and algorithms and their use cases.",
+            "Gained knowledge of Big O notation and how to analyze the time and space complexity of algorithms.",
+            "Got hands on experience with common data structures like arrays, linked lists, stacks, queues, trees, and graphs.",
+            "Learned about various types of sorting algorithms and their implementations.",
+            "Got hands on experience with common algorithms like binary search, dynamic programming, and graph traversal algorithms."
+        ]
     }
 ]
 
@@ -113,15 +125,15 @@ export default function Work() {
                             <Card className="bg-zinc-800 border-zinc-700">
                                 <CardHeader>
                                     <CardTitle className="text-2xl font-semibold text-zinc-100">{experience.title}</CardTitle>
-                                    <div className="flex justify-between items-center mt-2">
+                                    <div className="flex justify-between items-center pt-2">
                                         <Badge variant="secondary" className="text-sm">{experience.company}</Badge>
                                         <span className="text-sm text-zinc-400">{experience.date}</span>
                                     </div>
                                 </CardHeader>
                                 <CardContent>
-                                    <ul className="list-disc list-inside space-y-2 text-zinc-300">
+                                    <ul className="list-disc list-inside space-y-2 text-zinc-400">
                                         {experience.responsibilities.map((responsibility, idx) => (
-                                            <li key={idx}>{responsibility}</li>
+                                            <h2 key={idx}>{responsibility}</h2>
                                         ))}
                                     </ul>
                                 </CardContent>
