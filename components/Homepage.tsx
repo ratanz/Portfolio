@@ -183,22 +183,22 @@ const Homepage = () => {
     <div className='content min-h-[120vh] p-14 font-pretendard w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
       <div className='flex flex-col items-start justify-center mt-24'>
 
-        <h1 ref={mainTitleRef} className='text-[5.2vw] font-bold font-spacer36 self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent p-6'>
+        <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[6vw] text-[6.5vw] flex font-bold font-spacer36 self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-2'>
           Turning Caffeine Into Code.
         </h1>
 
-        <h2 ref={subTitleRef} className={`text-4xl font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider h-[10vh] p-2 mt-6 `}>
+        <h2 ref={subTitleRef} className={`lg:text-4xl text-2xl font-handmade font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[12vh] p-2 lg:mt-6 mt-10`}>
           Hey, I'm Ratan Rathod
         </h2>
 
-        <p ref={descriptionRef} className='text-sm mt-2 font-medium text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed'>
+        <p ref={descriptionRef} className='lg:text-sm text-xs mt-2 font-medium text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed'>
           I'm a frontend developer based in India,
           dedicated to building scalable websites and applications that make a meaningful impact.
           With a focus on user experience, design aesthetics, and developer satisfaction,
           I create interfaces and experiences that captivate users and align with brand identities.
         </p>
 
-        <div className="connect flex flex-col items-center  justify-center mt-6 w-full">
+        {/* <div className="connect flex flex-col items-center  justify-center mt-6 w-full">
           <p ref={connectTitleRef} className='text-xl font-semibold bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider'>Lets connect</p>
           <div ref={connectIconsRef} className="flex space-x-4 mt-2">
             <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-700 transition-colors duration-300">
@@ -211,27 +211,27 @@ const Homepage = () => {
               <FaTwitter className="text-2xl" />
             </a>
           </div>
-        </div>
+        </div> */}
 
       </div>
 
-      <div className='flex flex-col items-center justify-center mt-20'>
-        <h1 ref={techStackTitleRef} className={`text-xl font-bold font-spacer36 self-center tracking-wider p-2 uppercase bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent `}>
+      <div className='flex flex-col items-center justify-center lg:p-28 sm:mt-10 mt-20 p-2'>
+        <h1 ref={techStackTitleRef} className={`lg:text-xl text-sm font-bold font-spacer36 self-center tracking-wider p-2 uppercase bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent `}>
           Cool tech stack i work with
         </h1>
 
         <div ref={iconsRef} className="flex flex-wrap justify-center gap-4 mt-2">
-          <FaReact className="text-4xl text-blue-500" title="React" />
-          <SiNextdotjs className="text-4xl text-black" title="Next.js" />
-          <SiTailwindcss className="text-4xl text-teal-500" title="Tailwind CSS" />
-          <SiExpress className="text-4xl text-gray-500" title="Express.js" />
-          <SiJavascript className="text-4xl text-yellow-500" title="JavaScript" />
-          <SiTypescript className="text-4xl text-blue-600" title="TypeScript" />
-          <FaGitAlt className="text-4xl text-orange-500" title="Git" />
-          <FaGithub className="text-4xl text-gray-800" title="GitHub" />
-          <FaNpm className="text-4xl text-red-500" title="npm" />
-          <FaNodeJs className="text-4xl text-green-600" title="Node.js" />
-          <SiMongodb className="text-4xl text-green-500" title="MongoDB" />
+          <FaReact className="lg:text-4xl text-2xl text-blue-500" title="React" />
+          <SiNextdotjs className="lg:text-4xl text-2xl text-black" title="Next.js" />
+          <SiTailwindcss className="lg:text-4xl text-2xl text-teal-500" title="Tailwind CSS" />
+          <SiExpress className="lg:text-4xl text-2xl text-gray-500" title="Express.js" />
+          <SiJavascript className="lg:text-4xl text-2xl text-yellow-500" title="JavaScript" />
+          <SiTypescript className="lg:text-4xl text-2xl text-blue-600" title="TypeScript" />
+          <FaGitAlt className="lg:text-4xl text-2xl text-orange-500" title="Git" />
+          <FaGithub className="lg:text-4xl text-2xl text-gray-800" title="GitHub" />
+          <FaNpm className="lg:text-4xl text-2xl text-red-500" title="npm" />
+          <FaNodeJs className="lg:text-4xl text-2xl text-green-600" title="Node.js" />
+          <SiMongodb className="lg:text-4xl text-2xl text-green-500" title="MongoDB" />
         </div>
       </div>
 
