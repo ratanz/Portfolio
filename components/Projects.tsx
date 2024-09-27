@@ -1,18 +1,28 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-
 gsap.registerPlugin(ScrollTrigger)
 
 const Projects = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const projectsRef = useRef<HTMLDivElement>(null)
+    const projectBoxesRef = useRef<(HTMLDivElement | null)[]>([])
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
 
     useEffect(() => {
         const container = containerRef.current
@@ -86,34 +96,32 @@ const Projects = () => {
     return (
         <div 
             ref={containerRef}
-            className="projects-container relative lg:h-[55vw] overflow-hidden h-screen w-full flex-col bg-gradient-to-t from-zinc-900 to-zinc-800">  
-            <div 
-             className="content flex flex-col justify-center w-full items-center pt-[5vw]">
-
-            <div className=''> 
-                <h1 className='text-6xl font-bold p-4 text-transparent font-malven leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
-            </div>
-            <div 
-            ref={projectsRef}
-            className="project-boxes flex w-full items-start px-10 p-2 gap-6">
-                {projectsContent.map((project, index) => (
-                    <ProjectBox key={index} {...project} />
-                ))}
-            </div>
+            className={`projects-container relative ${isMobile ? 'min-h-screen' : 'lg:h-[55vw]'} overflow-hidden w-full flex-col bg-gradient-to-t from-zinc-900 to-zinc-800`}>  
+            <div className="content flex flex-col justify-center w-full items-center pt-[5vw]">
+                <div className=''> 
+                    <h1 className='text-4xl md:text-6xl font-bold p-4 text-transparent font-malven leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+                </div>
+                <div 
+                ref={projectsRef}
+                className={`project-boxes ${isMobile ? 'flex flex-col space-y-8' : 'flex'} w-full items-start px-4 md:px-10 gap-6`}>
+                    {projectsContent.map((project, index) => (
+                        <ProjectBox key={index} {...project} isMobile={isMobile} />
+                    ))}
+                </div>
             </div>
         </div>
     )
 }
 
-const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: string, description: string, imageUrl: string, projectUrl: string }) => {
+const ProjectBox = ({ title, description, imageUrl, projectUrl, isMobile }: { title: string, description: string, imageUrl: string, projectUrl: string, isMobile: boolean }) => {
     return (
-        <div className="flex flex-col items-center w-full">
+        <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-[55vw]'}`}>
             <motion.div
-                whileHover={{ scale: 1.04, transition: { duration: 0.3 }, animation : "ease-in-out", boxShadow: '0 10px 29px rgba(240,240,240, 0.1)' }}
-                className="relative w-[55w] h-[31vw] overflow-hidden rounded-lg cursor-pointer group mb-4"
+                whileHover={{ scale: 1.04, transition: { duration: 0.3 } }}
+                className={`relative ${isMobile ? 'w-full aspect-video' : 'w-[55vw] h-[31vw]'} overflow-hidden rounded-lg cursor-pointer group mb-4`}
             >
                 <Link href={projectUrl} passHref>
-                    <div className="h-[31vw] w-[55vw] rounded-lg relative self-center pointer-events-none ">
+                    <div className={`${isMobile ? 'h-full w-full' : 'h-[31vw] w-[55vw]'} rounded-lg relative self-center pointer-events-none`}>
                         <Image
                             src={imageUrl}
                             alt={title}
@@ -130,12 +138,11 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl }: { title: strin
                 </Link>
             </motion.div>
             <div className="text-center">
-                <h3 className="text-xl font-bold  bg-gradient-to-t  from-zinc-100 to-zinc-500 bg-clip-text text-transparent">{title}</h3>
+                <h3 className="text-xl font-bold bg-gradient-to-t from-zinc-100 to-zinc-500 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-sm bg-gradient-to-r from-zinc-400 to-zinc-100 bg-clip-text text-transparent">{description}</p>
             </div>
         </div>
     )
 }
-
 
 export default Projects
