@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -28,26 +28,50 @@ const Projects = () => {
         const container = containerRef.current
         const projects = projectsRef.current
 
-        if (container && projects) {
-            const totalWidth = projects.scrollWidth - window.innerWidth
+        let ctx = gsap.context(() => {
+            if (!isMobile && container && projects) {
+                const totalWidth = projects.scrollWidth - window.innerWidth
 
-            gsap.to(projects, {
-                width: '124%',
-                x: -totalWidth,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: container,
-                    start: "top top",
-                    end: () => `+=${totalWidth}`,
-                    pin: true,
-                    scrub: 1,
+                gsap.to(projects, {
+                    width: '124%',
+                    x: -totalWidth,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top top",
+                        end: () => `+=${totalWidth}`,
+                        pin: true,
+                        scrub: 1,
+                    }
+                })
+            }
+
+            // Animate project boxes
+            projectBoxesRef.current.forEach((box) => {
+                if (box) {
+                    gsap.fromTo(box,
+                        { opacity: 0, y: 50 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.5,
+                            scrollTrigger: {
+                                trigger: box,
+                                start: 'top 90%',
+                                end: 'bottom 20%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    )
                 }
             })
+        })
+
+        return () => {
+            ctx.revert() // This will kill all ScrollTriggers created in this context
         }
-    }, [])
+    }, [isMobile])
 
-
-    
     const projectsContent = [
         {
             title: "Studio Size",
@@ -105,7 +129,14 @@ const Projects = () => {
                 ref={projectsRef}
                 className={`project-boxes ${isMobile ? 'flex flex-col space-y-8' : 'flex'} w-full items-start px-4 md:px-10 gap-6`}>
                     {projectsContent.map((project, index) => (
-                        <ProjectBox key={index} {...project} isMobile={isMobile} />
+                        <ProjectBox 
+                            key={index} 
+                            {...project} 
+                            isMobile={isMobile} 
+                            ref={(el: HTMLDivElement | null) => {
+                                projectBoxesRef.current[index] = el;
+                            }}
+                        />
                     ))}
                 </div>
             </div>
@@ -113,9 +144,10 @@ const Projects = () => {
     )
 }
 
-const ProjectBox = ({ title, description, imageUrl, projectUrl, isMobile }: { title: string, description: string, imageUrl: string, projectUrl: string, isMobile: boolean }) => {
+const ProjectBox = React.forwardRef<HTMLDivElement, { title: string, description: string, imageUrl: string, projectUrl: string, isMobile: boolean }>(
+    ({ title, description, imageUrl, projectUrl, isMobile }, ref) => {
     return (
-        <div className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-[55vw]'}`}>
+        <div ref={ref} className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-[55vw]'}`}>
             <motion.div
                 whileHover={{ scale: 1.04, transition: { duration: 0.3 } }}
                 className={`relative ${isMobile ? 'w-full aspect-video' : 'w-[55vw] h-[31vw]'} overflow-hidden rounded-lg cursor-pointer group mb-4`}
@@ -143,6 +175,8 @@ const ProjectBox = ({ title, description, imageUrl, projectUrl, isMobile }: { ti
             </div>
         </div>
     )
-}
+})
+
+ProjectBox.displayName = 'ProjectBox'
 
 export default Projects
