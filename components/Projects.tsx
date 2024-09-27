@@ -77,7 +77,7 @@ const Projects = () => {
         },
         {
             title: "sundown",
-            description: "Real-time collaborative document editing platform",
+            description: "A smooth interactive website",
             imageUrl: "/images/sun.png",
             projectUrl: "/projects/project2"
         },
