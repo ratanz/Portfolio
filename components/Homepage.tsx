@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
 
 gsap.registerPlugin(ScrollTrigger)
@@ -188,11 +188,11 @@ const Homepage = () => {
         </h1>
 
         <h2 ref={subTitleRef} className={`lg:text-4xl text-2xl font-handmade font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[12vh] p-2 lg:mt-6 mt-10`}>
-          Hey, I'm Ratan Rathod
+          Hey, I&apos;m Ratan Rathod
         </h2>
 
         <p ref={descriptionRef} className='lg:text-sm text-xs mt-2 font-medium text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed'>
-          I'm a frontend developer based in India,
+          I&apos;m a frontend developer based in India,
           dedicated to building scalable websites and applications that make a meaningful impact.
           With a focus on user experience, design aesthetics, and developer satisfaction,
           I create interfaces and experiences that captivate users and align with brand identities.

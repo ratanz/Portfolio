@@ -1,11 +1,10 @@
-
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import Magnetic from './ui/Magnetic'
-
+import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -106,14 +105,14 @@ const About = () => {
 
                 <div className='flex justify-between items-center p-4 mt-16'>
                     <div className="pic w-[20vw] h-[20vw] m-10 rounded-2xl overflow-hidden">
-                        <img src="/images/me.jpg" alt="" className='w-full h-full hover:scale-105 transition-all duration-150 ease-in-out' />
+                        <Image src="/images/me.jpg" alt="Ratan Rathod" width={300} height={300} className='w-full h-full hover:scale-105 transition-all duration-150 ease-in-out' />
                     </div>
 
                     <div className='flex flex-col justify-center font-malven leading-normal tracking-wider items-center mt-10'>
-                        <p ref={contentRef} className='text-xl bg-gradient-to-r self-center text-center  from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-[50vw]'> I'm Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express.
+                        <p ref={contentRef} className='text-xl bg-gradient-to-r self-center text-center  from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-[50vw]'> Im Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express.
                             <br />
                             <br />
-                            I'm dedicated to optimizing performance and enhancing user experiences through advanced UI/UX design principles and cutting-edge animation techniques.</p>
+                            I&apos;m dedicated to optimizing performance and enhancing user experiences through advanced UI/UX design principles and cutting-edge animation techniques.</p>
 
                         <div className="icons h-[3vw] mt-6 flex justify-center items-center flex-col w-full ">
                             <div className="flex justify-center items-center space-x-10">

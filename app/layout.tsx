@@ -17,11 +17,6 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 })
 
-const lovecookies = localFont({
-  src: './fonts/LoveCookies.otf',
-  variable: '--font-lovecookies',
-})
-
 const handmade = localFont({
   src: './fonts/Handmade.otf',
   variable: '--font-handmade',
