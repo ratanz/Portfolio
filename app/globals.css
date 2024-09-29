@@ -25,7 +25,6 @@
   filter: blur(40px);
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
