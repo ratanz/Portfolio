@@ -28,7 +28,7 @@ const Projects = () => {
         const container = containerRef.current
         const projects = projectsRef.current
 
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             if (!isMobile && container && projects) {
                 const totalWidth = projects.scrollWidth - window.innerWidth
 
