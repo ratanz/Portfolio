@@ -42,6 +42,11 @@ const deutschlander = localFont({
   variable: '--font-deutschlander',
 })
 
+const glorich = localFont({
+  src: './fonts/Glorich-Bold.otf',
+  variable: '--font-glorich',
+})
+
 
 // metadata for the website
 export const metadata: Metadata = {
@@ -58,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${pretendard.variable} ${handmade.variable} ${malven.variable} 
-      ${krishna.variable} ${spacer36.variable} ${deutschlander.variable}`}>
+      ${krishna.variable} ${spacer36.variable} ${deutschlander.variable} ${glorich.variable}`}>
         {children}
       </body>
     </html>

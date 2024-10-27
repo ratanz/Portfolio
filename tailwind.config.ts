@@ -77,6 +77,7 @@ const config: Config = {
 			krishna: ['var(--font-krishna)'],
 			spacer36: ['var(--font-spacer36)'],
 			deutschlander: ['var(--font-deutschlander)'],
+			glorich: ['var(--font-glorich)'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

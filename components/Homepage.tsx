@@ -180,14 +180,14 @@ const Homepage = () => {
   }, [])
 
   return (
-    <div className='content min-h-[120vh] p-14 font-pretendard w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
+    <div className='content min-h-[120vh] p-14 font-glorich w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
       <div className='flex flex-col items-start justify-center lg:mt-24 mt-40'>
 
-        <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[6vw] text-[4.8vw] flex font-bold font-spacer36 self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
+        <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[6vw] text-[4.8vw] flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
           Turning Caffeine Into Code.
         </h1>
 
-        <h2 ref={subTitleRef} className={`lg:text-4xl text-2xl font-handmade font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[12vh] p-2 lg:mt-6 mt-16`}>
+        <h2 ref={subTitleRef} className={`lg:text-4xl text-2xl  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[12vh] p-2 lg:mt-6 mt-16`}>
           Hey, I&apos;m Ratan Rathod
         </h2>
 
@@ -216,7 +216,7 @@ const Homepage = () => {
       </div>
 
       <div className='flex flex-col items-center justify-center lg:p-28 sm:mt-10 mt-20 '>
-        <h1 ref={techStackTitleRef} className={`lg:text-xl text-sm font-bold font-spacer36 self-center tracking-wider p-2 uppercase bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent `}>
+        <h1 ref={techStackTitleRef} className={`lg:text-xl text-sm font-bold self-center tracking-wider p-2 uppercase bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent `}>
           Cool tech stack i work with
         </h1>
 
