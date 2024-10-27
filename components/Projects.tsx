@@ -83,38 +83,57 @@ const Projects = () => {
             title: "Brainwave",
             description: "Responsive web application showcasing advanced UI/UX",
             imageUrl: "/images/brainwave.png",
-            projectUrl: "/projects/project2"
+            projectUrl: "https://brainwave-ebon-xi.vercel.app/"
         },
         {
             title: "Dribble Landing Page",
             description: "Created a landing page clone of Dribble",
             imageUrl: "/images/dribble.png",
-            projectUrl: "/projects/project3"
+            projectUrl: "https://dribble-clone-frontend.vercel.app/"
         },
         {
             title: "Rejoice",
             description: "Attractive website made with frontend skills",
             imageUrl: "/images/rejoice.png",
-            projectUrl: "/projects/project2"
+            projectUrl: "https://rejoicex.netlify.app/"
         },
         {
             title: "Nike",
             description: "Responsive frontend development of a Nike website",
             imageUrl: "/images/nike.png",
-            projectUrl: "/projects/project2"
+            projectUrl: "https://nike-landing-page-seven-iota.vercel.app/"
         },
         {
             title: "Glass Glam",
             description: "A landing page for Glass Glam ",
             imageUrl: "/images/glass.png",
-            projectUrl: "/projects/project2"
+            projectUrl: "#projects"
         },
         {
             title: "sundown",
             description: "A smooth interactive website",
             imageUrl: "/images/sun.png",
-            projectUrl: "/projects/project2"
+            projectUrl: ""
         },
+        {
+            title: "Cinematic Odesessy",
+            description: "A website for a movie",
+            imageUrl: "/images/cinematic.png",
+            projectUrl: "https://cinematic-odyssey.vercel.app/"
+        },
+        {
+            title: "Genesis",
+            description: "A Scrolling Magic",
+            imageUrl: "/images/genesis.png",
+            projectUrl: "https://genesis-omega.vercel.app/"
+        },
+        {
+            title: "artistry",
+            description: "Art in motion",
+            imageUrl: "/images/artistry.png",
+            projectUrl: "https://artistry-omega.vercel.app/"
+        }
+
     ]
 
     return (
@@ -158,7 +177,7 @@ const ProjectBox = React.forwardRef<HTMLDivElement, { title: string, description
                             src={imageUrl}
                             alt={title}
                             layout='fill'
-                            objectFit="cover"
+                            objectFit=""
                         />
                         <div className="absolute flex justify-end items-center p-4 w-full h-10 bottom-0 bg-[#1a1a1a36] transition-all duration-300 transform translate-y-24 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                             <h3 className='text-white text-xl font-spacer36 justify-center self-center'>Visit</h3>

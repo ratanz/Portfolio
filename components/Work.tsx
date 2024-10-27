@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { motion } from 'framer-motion'
 
 
 const experienceData = [
@@ -39,6 +40,38 @@ const experienceData = [
             "Got hands on experience with common data structures like arrays, linked lists, stacks, queues, trees, and graphs.",
             "Learned about various types of sorting algorithms and their implementations.",
             "Got hands on experience with common algorithms like binary search, dynamic programming, and graph traversal algorithms."
+        ]
+    },
+    {
+        title: "Artistry",
+        date: "December 2023",
+        company: "Freelance",
+        responsibilities: [
+            "Created a website for a local artist to showcase their work and sell prints.",
+            "Used Next.js, Shadcn, and Tailwind CSS to create a responsive and visually appealing website.",
+            "Implemented a shopping cart system using Redux Toolkit to allow users to add and remove items from their cart.",
+            "Integrated Stripe to handle payments and manage the checkout process."
+        ]
+    },
+    {
+        title: "Cinematic Odyssey",
+        date: "December 2023",
+        company: "Freelance",
+        responsibilities: [
+            "Crafted a wesbite to showcase digital artwork, with a focus on a cinematic experience. with the one of the smoothest scrolling experiences. Animations experience which makes you feel like a joy of a ride.",
+            "Used high quality images and animations to create a visually appealing website.",
+            "Used Framer Motion for the animations and GSAP for the scrolling effects.",
+            "Magic of a gsap scroll trigger to create a smooth scrolling experience."
+        ]
+    },
+    {
+        title: "Genesis",
+        date: "December 2023",
+        company: "Freelance",
+        responsibilities: [
+            "Genesis is a state of the art that showcase anime characters in a whole new light.",
+            "Implemented a smooth scrolling experience with GSAP.",
+            "A ride scroll trigger that makes you feel like you are on a rollercoaster."
         ]
     }
 ]
@@ -104,45 +137,52 @@ export default function Work() {
     }, [])
 
     return (
-        <div
-            className="h-full bg-gradient-to-b from-zinc-900 to-zinc-800 text-zinc-100 p-8"
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 text-zinc-100 py-20 px-4 sm:px-6 lg:px-8"
         >
             <div
                 ref={sectionRef}
-                className="content w-full h-full flex items-center justify-center flex-col"
+                className="max-w-7xl mx-auto"
             >
-                <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-t from-zinc-100 to-zinc-400 bg-clip-text text-transparent">
+                <h2 className="text-5xl font-extrabold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
                     Work Experience
                 </h2>
-                <div className="max-w-3xl mx-auto space-y-8">
+                <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
                     {experienceData.map((experience, index) => (
-                        <div
+                        <motion.div
                             key={index}
                             ref={(el: HTMLDivElement | null) => {
                                 if (el) cardsRef.current[index] = el;
                             }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 300 }}
                         >
-                            <Card className="bg-zinc-800 border-zinc-700">
+                            <Card className="h-full bg-zinc-800/50 border-zinc-700 backdrop-blur-sm hover:bg-zinc-700/50 transition-colors duration-300">
                                 <CardHeader>
-                                    <CardTitle className="text-2xl font-semibold text-zinc-100">{experience.title}</CardTitle>
-                                    <div className="flex justify-between items-center pt-2">
-                                        <Badge variant="secondary" className="text-sm">{experience.company}</Badge>
+                                    <CardTitle className="text-2xl font-bold text-zinc-100 mb-2">{experience.title}</CardTitle>
+                                    <div className="flex justify-between items-center">
+                                        <Badge variant="secondary" className="text-sm bg-blue-500/20 text-blue-300">{experience.company}</Badge>
                                         <span className="text-sm text-zinc-400">{experience.date}</span>
                                     </div>
                                 </CardHeader>
                                 <CardContent>
-                                    <ul className="list-disc list-inside space-y-2 text-zinc-400">
+                                    <ul className="space-y-2 text-zinc-300">
                                         {experience.responsibilities.map((responsibility, idx) => (
-                                            <h2 key={idx}>{responsibility}</h2>
+                                            <li key={idx} className="flex items-start">
+                                                <span className="mr-2 text-blue-400">•</span>
+                                                <span>{responsibility}</span>
+                                            </li>
                                         ))}
                                     </ul>
                                 </CardContent>
                             </Card>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-
             </div>
-        </div>
+        </motion.div>
     )
 }

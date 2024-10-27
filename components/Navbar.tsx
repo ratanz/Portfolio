@@ -96,7 +96,7 @@ export function Navbar() {
   const menuItems = [
     { label: 'Projects', href: '/#projects' },
     { label: 'About', href: '/#about' },
-    { label: 'Resume', href: '' }
+    { label: 'Resume', href: 'https://docs.google.com/document/d/1c9jIaVQ1FwQKgU3lLI3c2uV5CBlR12SfuyPaLIInx-Q/edit' }
   ];
 
   return (
