@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
-import TextRevealByWord from './ui/text-reveal';
+
 
 gsap.registerPlugin(ScrollTrigger)
 
