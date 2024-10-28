@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import Magnetic from './ui/Magnetic'
 import Image from 'next/image'
+import TextRevealByWord from './ui/text-reveal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -63,7 +64,11 @@ const About = () => {
 
             gsap.fromTo(
                 pic,
-                { opacity: 0, scale: 0.8 },
+                { 
+                    opacity: 0, 
+                    scale: 0.9,
+                    y: 30
+                },
                 {
                     opacity: 1,
                     scale: 1,
@@ -103,23 +108,31 @@ const About = () => {
     }, []) 
 
     return (
-        <div ref={containerRef} className='about-content w-full min-h-screen bg-gradient-to-t to-zinc-900 from-zinc-800 overflow-hidden'>
+        <div ref={containerRef} className='about-content w-full lg:min-h-[115vh] bg-zinc-900 overflow-hidden  lg:mt-40 lg:pt-14 min-h-[150vh] pt-[25vh]  '>
             <div className='content flex flex-col w-full justify-center min-h-screen items-center p-4 sm:p-8 md:p-16'>
-                <h1 ref={titleRef} className='text-4xl sm:text-5xl md:text-6xl font-deutschlander w-fit h-fit p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
+                <h1 ref={titleRef} className='text-[10vw] sm:text-4xl md:text-[3vw] font-glorich w-fit h-fit lg:p-10 p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
 
-                <div className='flex flex-col md:flex-row justify-between items-center p-4 mt-8 md:mt-16'>
-                    <div className="pic lg:w-64 lg:h-72 w-40 h-40 m-4 md:m-10 rounded-2xl overflow-hidden">
-                        <Image src="/images/me.jpg" alt="Ratan Rathod" width={300} height={300} className='w-full h-full object-cover hover:scale-105 transition-all duration-150 ease-in-out' />
-                    </div>
+                    <div className='flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-24 w-full max-w-6xl'>
+                        {/* Image container with enhanced styling */}
+                        <div className="pic relative w-64 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent z-10"></div>
+                            <Image 
+                                src="/images/me.jpg" 
+                                alt="Ratan Rathod" 
+                                width={400} 
+                                height={500} 
+                                className='w-full h-full object-cover'
+                                priority
+                            />
+                        </div>
 
-                    <div className='flex flex-col justify-center font-malven leading-normal tracking-wider items-center mt-14 md:mt-10'>
-                        <p ref={contentRef} className='text-base sm:text-lg md:text-xl bg-gradient-to-r self-center text-center from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-full md:w-[50vw]'>
-                            Im Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express.
-                            <br />
-                            <br />
-                            I&apos;m dedicated to optimizing performance and enhancing user experiences through advanced UI/UX design principles and cutting-edge animation techniques.</p>
-
-                        <div className="icons mt-6 flex justify-center items-center flex-col w-full">
+                    <div className='flex flex-col justify-center font-glorich    leading-normal tracking-wider items-center mt-0 md:mt-16'>
+                        <TextRevealByWord 
+                            text="Im Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express. I'm dedicated to optimizing performance and enhancing user experiences through advanced UI/UX design principles and cutting-edge animation techniques."
+                            className="text-[8px] sm:text-lg md:text-sm bg-gradient-to-r self-center text-center from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-full md:w-[50vw]"
+                        />
+                        
+                        <div className="icons lg:mt-6 mt-4 flex justify-center items-center flex-col w-full">
                             <div className="flex justify-center items-center space-x-4 sm:space-x-6 md:space-x-10">
                                 <Magnetic>
                                 <a href="https://github.com/ratanz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 w-fit

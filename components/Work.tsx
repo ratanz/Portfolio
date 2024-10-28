@@ -1,11 +1,13 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react' 
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import TextRevealByWord from './ui/text-reveal'
+
 
 const experienceData = [
     {
@@ -86,7 +88,7 @@ const TiltCard = ({ children, cardRef }: TiltCardProps) => {
     const divRef = useRef(null);
     const x = useMotionValue(0);
     const y = useMotionValue(0);
-    
+
     // Spotlight states from SpotlightCard
     const [isFocused, setIsFocused] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -108,7 +110,7 @@ const TiltCard = ({ children, cardRef }: TiltCardProps) => {
         const mouseY = event.clientY - rect.top;
         const xPct = (mouseX / width) - 0.5;
         const yPct = (mouseY / height) - 0.5;
-        
+
         x.set(xPct);
         y.set(yPct);
 
@@ -194,7 +196,7 @@ export default function Work() {
                     duration: 0.3,
                     scrollTrigger: {
                         trigger: section,
-                        start: 'top 100%',
+                        start: 'top 70%',
                         end: 'bottom 30%',
                         toggleActions: 'play none none reverse'
                     }
@@ -213,7 +215,7 @@ export default function Work() {
                         delay: index * 0.2,
                         scrollTrigger: {
                             trigger: card,
-                            start: 'top 90%',
+                            start: 'top 80%',
                             end: 'bottom 20%',
                             toggleActions: 'play none none reverse'
                         }
@@ -243,9 +245,7 @@ export default function Work() {
             className="min-h-screen bg-zinc-900  text-zinc-100 py-20 px-4 sm:px-6 lg:px-8"
         >
             <div ref={sectionRef} className="max-w-7xl mx-auto">
-                <h2 className="text-5xl font-extrabold mb-16 text-center text-zinc-100">
-                    Work Experience
-                </h2>
+                <TextRevealByWord text="Work Experience" className="text-2xl lg:text-5xl font-extrabold mb-16 text-center text-zinc-100" />
                 <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 perspective-1000">
                     {experienceData.map((experience, index) => (
                         <div key={index} className="group h-[500px]">
@@ -259,37 +259,37 @@ export default function Work() {
                                   
                                     group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]
                                     overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-500/20"
-                                >
-                                    <CardHeader className="sticky top-0 z-10 bg-zinc-800/95 backdrop-blur-sm border-b border-zinc-700/50">
-                                        <CardTitle className="text-xl font-bold text-zinc-100 mb-2">
-                                            {experience.title}
-                                        </CardTitle>
-                                        <div className="flex justify-between items-center">
-                                            <Badge 
-                                                variant="secondary" 
-                                                className="text-sm bg-blue-400/20 text-blue-300 "
-                                            >
-                                                {experience.company}
-                                            </Badge>
-                                            <span className="text-sm text-zinc-400">{experience.date}</span>
-                                        </div>
-                                    </CardHeader>
-                                    <CardContent className="pt-4">
-                                        <ul className="space-y-2 text-zinc-300">
-                                            {experience.responsibilities.map((responsibility, idx) => (
-                                                <li key={idx} className="flex items-start">
-                                                    <span className="mr-2 text-blue-400">•</span>
-                                                    <span>{responsibility}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </CardContent>
-                                </Card>
+                            >
+                                <CardHeader className="sticky top-0 z-10 bg-zinc-800/95 backdrop-blur-sm border-b border-zinc-700/50">
+                                    <CardTitle className="text-xl font-bold text-zinc-100 mb-2">
+                                        {experience.title}
+                                    </CardTitle>
+                                    <div className="flex justify-between items-center">
+                                        <Badge
+                                            variant="secondary"
+                                            className="text-sm bg-blue-400/20 text-blue-300 "
+                                        >
+                                            {experience.company}
+                                        </Badge>
+                                        <span className="text-sm text-zinc-400">{experience.date}</span>
+                                    </div>
+                                </CardHeader>
+                                <CardContent className="pt-4">
+                                    <ul className="space-y-2 text-zinc-300">
+                                        {experience.responsibilities.map((responsibility, idx) => (
+                                            <li key={idx} className="flex items-start">
+                                                <span className="mr-2 text-blue-400">•</span>
+                                                <span>{responsibility}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
                             </TiltCard>
                         </div>
                     ))}
                 </div>
             </div>
-        </motion.div>
+        </motion.div >
     )
 }

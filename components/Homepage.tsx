@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
+import TextRevealByWord from './ui/text-reveal';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -99,88 +100,88 @@ const Homepage = () => {
   }, [])
 
  // scroll animation when scroll back to top
-    useEffect(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: mainTitleRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5,  // Increased for smoother scrolling
-          toggleActions: "play none none reverse"
-        }
-      })
+  //   useEffect(() => {
+  //     const scrollTl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: mainTitleRef.current,
+  //         start: "top top",
+  //         end: "bottom top",
+  //         scrub: 1.5,  // Increased for smoother scrolling
+  //         toggleActions: "play none none reverse"
+  //       }
+  //     })
 
-      scrollTl.to(mainTitleRef.current, { 
-        y: -120, 
-        opacity: 0, 
-        scrub: 2,
-        duration: 2.5,
-        ease: "power3.inOut"
-      })
+  //     scrollTl.to(mainTitleRef.current, { 
+  //       y: -120, 
+  //       opacity: 0, 
+  //       scrub: 2,
+  //       duration: 2.5,
+  //       ease: "power3.inOut"
+  //     })
   
-      scrollTl.to(subTitleRef.current, { 
-        y: -100, 
-        opacity: 0, 
-        duration: 2.5,
-        stagger: 0.3,
-        ease: "power3.inOut"
-      }, "-=2")
+  //     scrollTl.to(subTitleRef.current, { 
+  //       y: -100, 
+  //       opacity: 0, 
+  //       duration: 2.5,
+  //       stagger: 0.3,
+  //       ease: "power3.inOut"
+  //     }, "-=2")
   
-      scrollTl.to(descriptionRef.current, { 
-        y: 40, 
-        opacity: 0,
-        duration: 2.3,
-        scrub: 3,
-        stagger: 0.3,
-        ease: "power3.out",
-      }, "-=2.5")
+  //     scrollTl.to(descriptionRef.current, { 
+  //       y: 40, 
+  //       opacity: 0,
+  //       duration: 2.3,
+  //       scrub: 3,
+  //       stagger: 0.3,
+  //       ease: "power3.out",
+  //     }, "-=2.5")
   
       
-      scrollTl.to(connectTitleRef.current, { 
-        y: 50, 
-        opacity: 0, 
-        duration: 1.9,
-        delay: 0.9,
-        stagger: 0.2,
-        scrub: 4,
-        ease: "power3.out"
-      }, "-=3.8")
+  //     scrollTl.to(connectTitleRef.current, { 
+  //       y: 50, 
+  //       opacity: 0, 
+  //       duration: 1.9,
+  //       delay: 0.9,
+  //       stagger: 0.2,
+  //       scrub: 4,
+  //       ease: "power3.out"
+  //     }, "-=3.8")
   
-    scrollTl.to(connectIconsRef.current, { 
-      y: 50, 
-      opacity: 0,
-      duration: 1.2,
-      scrub: 3,
-      ease: "power3.out"
-    }, "-=0.23")
+  //   scrollTl.to(connectIconsRef.current, { 
+  //     y: 50, 
+  //     opacity: 0,
+  //     duration: 1.2,
+  //     scrub: 3,
+  //     ease: "power3.out"
+  //   }, "-=0.23")
   
   
-    scrollTl.to(techStackTitleRef.current, { 
-      y: -60, 
-      opacity: 0, 
-      duration: 2.5,
-      ease: "power3.inOut"
-    }, "-=2.2")
+  //   scrollTl.to(techStackTitleRef.current, { 
+  //     y: -60, 
+  //     opacity: 0, 
+  //     duration: 2.5,
+  //     ease: "power3.inOut"
+  //   }, "-=2.2")
   
-    if (iconsRef.current) {
-      scrollTl.to(Array.from(iconsRef.current.children), { 
-        y: -40, 
-        opacity: 0, 
-        delay: 0.40,
-        duration: 1.3,
-        stagger: 0.3,  // Increased for slower sequential fade
-        ease: "power3.inout"
-      }, "-=0.4")
-    }
+  //   if (iconsRef.current) {
+  //     scrollTl.to(Array.from(iconsRef.current.children), { 
+  //       y: -40, 
+  //       opacity: 0, 
+  //       delay: 0.40,
+  //       duration: 1.3,
+  //       stagger: 0.3,  // Increased for slower sequential fade
+  //       ease: "power3.inout"
+  //     }, "-=0.4")
+  //   }
   
-    return () => {
-      scrollTl.kill()
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
-  }, [])
+  //   return () => {
+  //     scrollTl.kill()
+  //     ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+  //   }
+  // }, [])
 
   return (
-    <div className='content lg:min-h-[100vh] min-h-[60vh] lg:p-14 p-6 font-glorich w-full bg-gradient-to-t from-zinc-900 to-zinc-800'>
+    <div className='content lg:min-h-[100vh] min-h-[80vh] lg:p-14 p-6 font-glorich w-full bg-zinc-900'>
       <div className='flex flex-col items-start justify-center lg:mt-24 mt-40'>
 
         <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[3vw] text-2xl flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
@@ -191,7 +192,7 @@ const Homepage = () => {
           Hey, I&apos;m Ratan Rathod
         </h2>
 
-        <p ref={descriptionRef} className='lg:text-sm text-[6px] lg:mt-2 mt-0  font-normal text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-loose'>
+        <p ref={descriptionRef} className='lg:text-sm text-[6px] lg:mt-2 mt-1  font-normal text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-loose'>
           I&apos;m a frontend developer based in India,
           dedicated to building scalable websites and applications that make a meaningful impact.
           With a focus on user experience, design aesthetics, and developer satisfaction,
