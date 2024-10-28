@@ -25,6 +25,15 @@
   filter: blur(40px);
 }
 
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Optional: Add this if you want to prevent the 3D effect from affecting text readability */
+.preserve-flat {
+  transform: translateZ(0);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

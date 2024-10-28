@@ -139,14 +139,14 @@ const Projects = () => {
     return (
         <div 
             ref={containerRef}
-            className={`projects-container relative ${isMobile ? 'min-h-screen' : 'lg:h-[55vw]'} overflow-hidden w-full flex-col bg-gradient-to-t from-zinc-900 to-zinc-800`}>  
-            <div className="content flex flex-col justify-center w-full items-center pt-[5vw]">
+            className={`projects-container relative ${isMobile ? 'min-h-screen' : 'lg:h-[55vw]'} overflow-hidden w-full flex-col bg-zinc-900 font-glorich`}>  
+            <div className="content flex flex-col justify-center w-full items-center pt-[4vw]">
                 <div className=''> 
-                    <h1 className='text-4xl md:text-6xl font-bold p-4 text-transparent font-malven leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+                    <h1 className='text-4xl md:text-4xl font-bold p-6 text-transparent font-glorich leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
                 </div>
                 <div 
                 ref={projectsRef}
-                className={`project-boxes ${isMobile ? 'flex flex-col space-y-8' : 'flex'} w-full items-start px-4 md:px-10 gap-6`}>
+                className={`project-boxes ${isMobile ? 'flex flex-col space-y-8' : 'flex'} w-full items-start px-4 md:px-10 gap-10`}>
                     {projectsContent.map((project, index) => (
                         <ProjectBox 
                             key={index} 
@@ -168,7 +168,7 @@ const ProjectBox = React.forwardRef<HTMLDivElement, { title: string, description
     return (
         <div ref={ref} className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-[55vw]'}`}>
             <motion.div
-                whileHover={{ scale: 1.04, transition: { duration: 0.3 } }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
                 className={`relative ${isMobile ? 'w-full aspect-video' : 'w-[55vw] h-[31vw]'} overflow-hidden rounded-lg cursor-pointer group mb-4`}
             >
                 <Link href={projectUrl} passHref>

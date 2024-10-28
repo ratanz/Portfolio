@@ -1,12 +1,11 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react' 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { motion } from 'framer-motion'
-
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 const experienceData = [
     {
@@ -78,6 +77,106 @@ const experienceData = [
 
 gsap.registerPlugin(ScrollTrigger)
 
+interface TiltCardProps {
+    children: React.ReactNode;
+    cardRef?: (el: HTMLDivElement | null) => void;
+}
+
+const TiltCard = ({ children, cardRef }: TiltCardProps) => {
+    const divRef = useRef(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    
+    // Spotlight states from SpotlightCard
+    const [isFocused, setIsFocused] = useState(false);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [opacity, setOpacity] = useState(0);
+
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+
+    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+        if (!divRef.current || isFocused) return;
+
+        const rect = event.currentTarget.getBoundingClientRect();
+        // For tilt effect
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+        const xPct = (mouseX / width) - 0.5;
+        const yPct = (mouseY / height) - 0.5;
+        
+        x.set(xPct);
+        y.set(yPct);
+
+        // For spotlight effect
+        setPosition({ x: mouseX, y: mouseY });
+    };
+
+    const handleFocus = () => {
+        setIsFocused(true);
+        setOpacity(0.6);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+        setOpacity(0);
+    };
+
+    const handleMouseEnter = () => {
+        setOpacity(0.6);
+    };
+
+    const handleMouseLeave = () => {
+        setOpacity(0);
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={cardRef}
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+            }}
+            className="relative h-full"
+            transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 40,
+            }}
+        >
+            <motion.div
+                ref={divRef}
+                onMouseMove={handleMouseMove}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                    transform: "translateZ(75px)",
+                    transformStyle: "preserve-3d",
+                }}
+                className="h-full relative"
+            >
+                {children}
+                <div
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
+                    style={{
+                        opacity,
+                        background: `radial-gradient(circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.13), transparent 90%)`,
+                    }}
+                />
+            </motion.div>
+        </motion.div>
+    );
+};
+
 export default function Work() {
     const sectionRef = useRef<HTMLDivElement>(null)
     const cardsRef = useRef<(HTMLDivElement | null)[]>([])
@@ -88,15 +187,15 @@ export default function Work() {
 
         if (section) {
             gsap.fromTo(section,
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 40 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1,
+                    duration: 0.3,
                     scrollTrigger: {
                         trigger: section,
-                        start: 'top 90%',
-                        end: 'bottom 20%',
+                        start: 'top 100%',
+                        end: 'bottom 30%',
                         toggleActions: 'play none none reverse'
                     }
                 }
@@ -141,45 +240,53 @@ export default function Work() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 text-zinc-100 py-20 px-4 sm:px-6 lg:px-8"
+            className="min-h-screen bg-zinc-900  text-zinc-100 py-20 px-4 sm:px-6 lg:px-8"
         >
-            <div
-                ref={sectionRef}
-                className="max-w-7xl mx-auto"
-            >
-                <h2 className="text-5xl font-extrabold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+            <div ref={sectionRef} className="max-w-7xl mx-auto">
+                <h2 className="text-5xl font-extrabold mb-16 text-center text-zinc-100">
                     Work Experience
                 </h2>
-                <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 perspective-1000">
                     {experienceData.map((experience, index) => (
-                        <motion.div
-                            key={index}
-                            ref={(el: HTMLDivElement | null) => {
-                                if (el) cardsRef.current[index] = el;
-                            }}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ type: "spring", stiffness: 300 }}
-                        >
-                            <Card className="h-full bg-zinc-800/50 border-zinc-700 backdrop-blur-sm hover:bg-zinc-700/50 transition-colors duration-300">
-                                <CardHeader>
-                                    <CardTitle className="text-2xl font-bold text-zinc-100 mb-2">{experience.title}</CardTitle>
-                                    <div className="flex justify-between items-center">
-                                        <Badge variant="secondary" className="text-sm bg-blue-500/20 text-blue-300">{experience.company}</Badge>
-                                        <span className="text-sm text-zinc-400">{experience.date}</span>
-                                    </div>
-                                </CardHeader>
-                                <CardContent>
-                                    <ul className="space-y-2 text-zinc-300">
-                                        {experience.responsibilities.map((responsibility, idx) => (
-                                            <li key={idx} className="flex items-start">
-                                                <span className="mr-2 text-blue-400">•</span>
-                                                <span>{responsibility}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
+                        <div key={index} className="group h-[500px]">
+                            <TiltCard
+                                cardRef={(el: HTMLDivElement | null) => {
+                                    if (el) cardsRef.current[index] = el;
+                                }}
+                            >
+                                <Card className="h-full bg-zinc-800/50 border-zinc-700 backdrop-blur-sm 
+                                    transition-all duration-300 
+                                  
+                                    group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]
+                                    overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-500/20"
+                                >
+                                    <CardHeader className="sticky top-0 z-10 bg-zinc-800/95 backdrop-blur-sm border-b border-zinc-700/50">
+                                        <CardTitle className="text-xl font-bold text-zinc-100 mb-2">
+                                            {experience.title}
+                                        </CardTitle>
+                                        <div className="flex justify-between items-center">
+                                            <Badge 
+                                                variant="secondary" 
+                                                className="text-sm bg-blue-400/20 text-blue-300 "
+                                            >
+                                                {experience.company}
+                                            </Badge>
+                                            <span className="text-sm text-zinc-400">{experience.date}</span>
+                                        </div>
+                                    </CardHeader>
+                                    <CardContent className="pt-4">
+                                        <ul className="space-y-2 text-zinc-300">
+                                            {experience.responsibilities.map((responsibility, idx) => (
+                                                <li key={idx} className="flex items-start">
+                                                    <span className="mr-2 text-blue-400">•</span>
+                                                    <span>{responsibility}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </CardContent>
+                                </Card>
+                            </TiltCard>
+                        </div>
                     ))}
                 </div>
             </div>
