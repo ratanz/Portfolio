@@ -257,7 +257,7 @@ export default function Work() {
                                 <Card className="h-full bg-zinc-800/50 border-zinc-700 backdrop-blur-sm 
                                     transition-all duration-300 
                                   
-                                    group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]"
+                                    group-hover:shadow-[0_0_25px_rgba(255,255,255,0.1)]"
                             >
                                 <CardHeader className="sticky top-0 z-10 bg-zinc-800/95 backdrop-blur-sm border-b border-zinc-700/50">
                                     <CardTitle className="lg:text-xl text-md font-bold text-zinc-100 mb-2">

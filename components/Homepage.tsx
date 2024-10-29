@@ -182,13 +182,13 @@ const Homepage = () => {
 
   return (
     <div className='content lg:min-h-[100vh] min-h-[80vh] lg:p-14 p-6 font-glorich w-full bg-zinc-900'>
-      <div className='flex flex-col items-start justify-center lg:mt-24 mt-40'>
+      <div className='flex flex-col items-start justify-center lg:mt-32 p-4 mt-40'>
 
-        <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[3vw] text-xl flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
+        <h1 ref={mainTitleRef} className='lg:text-[5vw] md:text-[3vw] text-xl flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
           Turning Caffeine Into Code.
         </h1>
 
-        <h2 ref={subTitleRef} className={`lg:text-4xl text-[13px]  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[6.3vh] pt-2 lg:mt-6 mt-10`}>
+        <h2 ref={subTitleRef} className={`lg:text-3xl text-[13px]  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[6.3vh] pt-2 lg:mt-6 mt-10`}>
           Hey, I&apos;m Ratan Rathod
         </h2>
 

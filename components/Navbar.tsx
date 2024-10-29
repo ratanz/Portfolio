@@ -16,6 +16,7 @@ export function Navbar() {
   const menuContentRef = useRef(null)
   const menuIconRef = useRef(null)
   const navbarRef = useRef(null)
+
   // Navbar Visibility
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -40,9 +41,9 @@ export function Navbar() {
 
   useEffect(() => {
     gsap.to(navbarRef.current, {
-      duration : 0.3,
-      y : isVisible ? 0 : '-150%',
-      ease : 'power3.out'
+      duration: 0.3,
+      y: isVisible ? 0 : '-200%',
+      ease: 'power3.out'
     })
   }, [isVisible])
 
@@ -101,19 +102,17 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-14 px-6 py-4 mt-4 flex justify-between  items-center fixed top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] ${isScrolled
-        ? 'bg-[#80808020] backdrop-blur-2xl'
-        : 'bg-[#62626216] backdrop-blur-xl'
-        }`}
-         style={{ transform :'translateY(-100%)'}}
-        >
+      <div ref={navbarRef} className={`content h-12 px-6 py-4 mt-2 flex justify-between  items-center fixed top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] 
+      ${isScrolled ? 'bg-[#58585820] backdrop-blur-2xl': "bg-transparent"}`}
+        style={{ transform: 'translateY(-100%)' }}
+      >
         <div className="logo-name flex items-center py-4">
           <TransitionLink href="/">
-            <h1 className={`font-bold font-handmade lg:text-xl md:text-lg text-xl
-           bg-gradient-to-t from-zinc-400 to-zinc-600 bg-clip-text text-transparent`}>Ratan.</h1>
+            <h1 className={`font-bold font-glorich lg:text-xl md:text-lg text-xl
+           bg-gradient-to-t from-zinc-400 to-zinc-600 bg-clip-text text-transparent`}>R A T A N</h1>
           </TransitionLink>
         </div>
-
+    
         <div className="links hidden lg:flex lg:gap-10 gap-2 uppercase ">
           {menuItems.map((item) => (
             <Magnetic key={item.label}>
