@@ -7,7 +7,7 @@
   display: none;
 }
 
-.group:hover .group-hover\:w-full {
+.group:hover .group-hover:w-full {
   width: 100%;
 }
 
@@ -21,7 +21,7 @@
 .page-transition {
   opacity: 0;
   background: black;
-  transform: translateY(0px) ;
+  transform: translateY(55px) ;
   filter: blur(40px);
 }
 

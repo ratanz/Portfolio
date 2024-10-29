@@ -68,22 +68,24 @@ const config: Config = {
 			  '0%': { opacity: '0', transform: 'translateY(10px)' },
 			  '100%': { opacity: '1', transform: 'translateY(0)' },
 			},
+			shine: {
+			  '0%': { 'background-position': '100%' },
+			  '100%': { 'background-position': '-100%' },
+			},
+		  },
+		  animation: {
+			shine: 'shine 2s linear infinite',
 		  },
   		fontFamily: {
-  			poppins: ['var(--font-poppins)'],
   			pretendard: ['var(--font-pretendard)'],
-			handmade: ['var(--font-handmade)'],
-			malven: ['var(--font-malven)'],
-			krishna: ['var(--font-krishna)'],
 			spacer36: ['var(--font-spacer36)'],
-			deutschlander: ['var(--font-deutschlander)'],
 			glorich: ['var(--font-glorich)'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
