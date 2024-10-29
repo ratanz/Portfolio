@@ -184,15 +184,15 @@ const Homepage = () => {
     <div className='content lg:min-h-[100vh] min-h-[80vh] lg:p-14 p-6 font-glorich w-full bg-zinc-900'>
       <div className='flex flex-col items-start justify-center lg:mt-24 mt-40'>
 
-        <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[3vw] text-2xl flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
+        <h1 ref={mainTitleRef} className='lg:text-[5.2vw] md:text-[3vw] text-xl flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
           Turning Caffeine Into Code.
         </h1>
 
-        <h2 ref={subTitleRef} className={`lg:text-4xl text-xs  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[6.3vh] pt-2 lg:mt-6 mt-10`}>
+        <h2 ref={subTitleRef} className={`lg:text-4xl text-[13px]  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[6.3vh] pt-2 lg:mt-6 mt-10`}>
           Hey, I&apos;m Ratan Rathod
         </h2>
 
-        <p ref={descriptionRef} className='lg:text-sm text-[6px] lg:mt-2 mt-1  font-normal text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-loose'>
+        <p ref={descriptionRef} className='lg:text-sm text-[10px] lg:mt-2 mt-1  font-normal text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-loose'>
           I&apos;m a frontend developer based in India,
           dedicated to building scalable websites and applications that make a meaningful impact.
           With a focus on user experience, design aesthetics, and developer satisfaction,

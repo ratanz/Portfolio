@@ -242,7 +242,7 @@ export default function Work() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="min-h-screen bg-zinc-900  text-zinc-100 py-20 px-4 sm:px-6 lg:px-8"
+            className="min-h-screen bg-zinc-900  text-zinc-100 py-20 px-10 sm:px-6 lg:px-8"
         >
             <div ref={sectionRef} className="max-w-7xl mx-auto">
                 <TextRevealByWord text="Work Experience" className="text-2xl lg:text-5xl font-extrabold mb-16 text-center text-zinc-100" />
@@ -257,25 +257,24 @@ export default function Work() {
                                 <Card className="h-full bg-zinc-800/50 border-zinc-700 backdrop-blur-sm 
                                     transition-all duration-300 
                                   
-                                    group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]
-                                    overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-blue-500/20"
+                                    group-hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]"
                             >
                                 <CardHeader className="sticky top-0 z-10 bg-zinc-800/95 backdrop-blur-sm border-b border-zinc-700/50">
-                                    <CardTitle className="text-xl font-bold text-zinc-100 mb-2">
+                                    <CardTitle className="lg:text-xl text-md font-bold text-zinc-100 mb-2">
                                         {experience.title}
                                     </CardTitle>
                                     <div className="flex justify-between items-center">
                                         <Badge
                                             variant="secondary"
-                                            className="text-sm bg-blue-400/20 text-blue-300 "
+                                            className="lg:text-sm text-xs bg-blue-600/20 text-blue-300 "
                                         >
                                             {experience.company}
                                         </Badge>
                                         <span className="text-sm text-zinc-400">{experience.date}</span>
                                     </div>
                                 </CardHeader>
-                                <CardContent className="pt-4">
-                                    <ul className="space-y-2 text-zinc-300">
+                                <CardContent className="pt-4 p-6">
+                                    <ul className="space-y-2 lg:text-[15px] text-xs leading-relaxed tracking-wide text-zinc-300">
                                         {experience.responsibilities.map((responsibility, idx) => (
                                             <li key={idx} className="flex items-start">
                                                 <span className="mr-2 text-blue-400">•</span>
