@@ -3,9 +3,9 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs } from 'react-icons/fa';
+import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaHome, FaUser, FaCode } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
-
+import ShinyText from './ui/ShinyText'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,33 +28,30 @@ const Homepage = () => {
       {
         y: 0,
         opacity: 1,
-        duration: 0.3,
+        duration: 0.5,
         ease: 'power3.out',
       }
     )
 
     // sub title and description animation
-    tl.fromTo([subTitleRef.current, descriptionRef.current, techStackTitleRef.current, iconsRef.current],
+    tl.fromTo([subTitleRef.current, descriptionRef.current, iconsRef.current],
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.3, stagger: 0.3, ease: 'power3.out' },
       '-=0.9'
     )
 
-
+    // gradient text animation
     const animateGradientText = (element: HTMLElement) => {
       tl.fromTo(element,
         { backgroundSize: '0% 100%', opacity: 0 },
-        { backgroundSize: '100% 100%', opacity: 1, duration: 0.9, scrub: 0.8, stagger: 0.2, ease: 'power2.out' },
+        { backgroundSize: '100% 100%', opacity: 1, duration: 1.2, scrub: 1, stagger: 0.6, ease: 'power2.out' },
         '-=0.8'
       )
     }
 
-    animateGradientText(mainTitleRef.current!)
-    animateGradientText(subTitleRef.current!)
-    animateGradientText(descriptionRef.current!)
-    animateGradientText(techStackTitleRef.current!)
-    animateGradientText(connectTitleRef.current!)
-    animateGradientText(connectIconsRef.current!)
+    [mainTitleRef, subTitleRef, descriptionRef, techStackTitleRef, connectTitleRef, connectIconsRef].forEach(ref => {
+      if (ref.current) animateGradientText(ref.current)
+    })
 
     tl.fromTo(connectTitleRef.current,
       { x: 0, opacity: 0 },
@@ -86,9 +83,9 @@ const Homepage = () => {
       {
         opacity: 1,
         y: 0,
-        duration: 0.3,
+        duration: 0.4,
         stagger: 0.2,
-        ease: 'back.out(1.4)'
+        ease: 'power3.out'
       },
       '-=0.7'  // This makes the icons animation start earlier
     )
@@ -99,7 +96,7 @@ const Homepage = () => {
     }
   }, [])
 
- // scroll animation when scroll back to top
+  // scroll animation when scroll back to top
   //   useEffect(() => {
   //     const scrollTl = gsap.timeline({
   //       scrollTrigger: {
@@ -118,7 +115,7 @@ const Homepage = () => {
   //       duration: 2.5,
   //       ease: "power3.inOut"
   //     })
-  
+
   //     scrollTl.to(subTitleRef.current, { 
   //       y: -100, 
   //       opacity: 0, 
@@ -126,7 +123,7 @@ const Homepage = () => {
   //       stagger: 0.3,
   //       ease: "power3.inOut"
   //     }, "-=2")
-  
+
   //     scrollTl.to(descriptionRef.current, { 
   //       y: 40, 
   //       opacity: 0,
@@ -135,8 +132,8 @@ const Homepage = () => {
   //       stagger: 0.3,
   //       ease: "power3.out",
   //     }, "-=2.5")
-  
-      
+
+
   //     scrollTl.to(connectTitleRef.current, { 
   //       y: 50, 
   //       opacity: 0, 
@@ -146,7 +143,7 @@ const Homepage = () => {
   //       scrub: 4,
   //       ease: "power3.out"
   //     }, "-=3.8")
-  
+
   //   scrollTl.to(connectIconsRef.current, { 
   //     y: 50, 
   //     opacity: 0,
@@ -154,15 +151,15 @@ const Homepage = () => {
   //     scrub: 3,
   //     ease: "power3.out"
   //   }, "-=0.23")
-  
-  
+
+
   //   scrollTl.to(techStackTitleRef.current, { 
   //     y: -60, 
   //     opacity: 0, 
   //     duration: 2.5,
   //     ease: "power3.inOut"
   //   }, "-=2.2")
-  
+
   //   if (iconsRef.current) {
   //     scrollTl.to(Array.from(iconsRef.current.children), { 
   //       y: -40, 
@@ -173,7 +170,7 @@ const Homepage = () => {
   //       ease: "power3.inout"
   //     }, "-=0.4")
   //   }
-  
+
   //   return () => {
   //     scrollTl.kill()
   //     ScrollTrigger.getAll().forEach(trigger => trigger.kill())
@@ -181,49 +178,61 @@ const Homepage = () => {
   // }, [])
 
   return (
-    <div className='content lg:min-h-[100vh] min-h-[80vh] lg:p-14 p-6 font-glorich w-full bg-zinc-900'>
+    <div className='content lg:min-h-[140vh] min-h-[80vh] lg:p-14 p-6 font-glorich w-full bg-neutral-950 '>
       <div className='flex flex-col items-start justify-center lg:mt-32 p-4 mt-40'>
 
         <h1 ref={mainTitleRef} className='lg:text-[5vw] md:text-[3vw] text-xl flex font-bold  self-center bg-gradient-to-t  from-zinc-300 to-zinc-500 bg-clip-text text-transparent lg:p-6 p-0'>
           Turning Caffeine Into Code.
         </h1>
 
-        <h2 ref={subTitleRef} className={`lg:text-3xl text-[13px]  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[6.3vh] pt-2 lg:mt-6 mt-10`}>
+        <h2 ref={subTitleRef} className={`lg:text-3xl text-[13px]  font-semibold self-center bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider lg:h-[6.3vh] pt-2 lg:mt-10 mt-10`}>
           Hey, I&apos;m Ratan Rathod
         </h2>
-
-        <p ref={descriptionRef} className='lg:text-sm text-[10px] lg:mt-2 mt-1  font-normal text-center max-w-2xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-loose'>
-          I&apos;m a frontend developer based in India,
-          dedicated to building scalable websites and applications that make a meaningful impact.
-          With a focus on user experience, design aesthetics, and developer satisfaction,
-          I create interfaces and experiences that captivate users and align with brand identities.
+        <p ref={descriptionRef} className='lg:text-sm text-[10px] lg:mt-2 mt-1  font-normal text-center max-w-4xl mx-auto bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed'>
+          I&apos;m a frontend developer based in India, dedicated to building scalable
+          websites and applications that make a meaningful impact. With a focus on user
+          experience and design aesthetics, <br />
+          I create engaging interfaces that captivate
+          users while maintaining brand consistency.
         </p>
 
       </div>
 
       <div className='flex flex-col items-center justify-center lg:p-28 sm:mt-10 mt-24 '>
-        <h1 ref={techStackTitleRef} className={`lg:text-xl text-[16px] font-bold self-center tracking-wider p-2 uppercase bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent `}>
-          Cool tech stack i work with
+        <h1 ref={techStackTitleRef}>
+          <ShinyText
+            text="Tech Stack I Work With"
+            className="lg:text-xl text-[16px] font-bold self-center tracking-wider p-2 uppercase"
+          />
         </h1>
 
-        <div ref={iconsRef} className="flex flex-wrap justify-center gap-3 mt-2">
-          <FaReact className="lg:text-4xl text-xl text-blue-500" title="React" />
-          <SiNextdotjs className="lg:text-4xl text-xl text-black" title="Next.js" />
-          <SiTailwindcss className="lg:text-4xl text-xl text-teal-500" title="Tailwind CSS" />
-          <SiExpress className="lg:text-4xl text-xl text-gray-500" title="Express.js" />
-          <SiJavascript className="lg:text-4xl text-xl text-yellow-500" title="JavaScript" />
-          <SiTypescript className="lg:text-4xl text-xl text-blue-600" title="TypeScript" />
-          <FaGitAlt className="lg:text-4xl text-xl text-orange-500" title="Git" />
-          <FaGithub className="lg:text-4xl text-xl text-gray-800" title="GitHub" />
-          <FaNpm className="lg:text-4xl text-xl text-red-500" title="npm" />
-          <FaNodeJs className="lg:text-4xl text-xl text-green-600" title="Node.js" />
-          <SiMongodb className="lg:text-4xl text-xl text-green-500" title="MongoDB" />
+        <div ref={iconsRef} className="flex flex-wrap justify-center gap-3 mt-2 p-4">
+          {[
+            { Icon: FaReact, color: "blue-500", shadowColor: "#3B82F6", title: "React" },
+            { Icon: SiNextdotjs, color: "black", shadowColor: "#000000", title: "Next.js" },
+            { Icon: SiTailwindcss, color: "teal-500", shadowColor: "#14B8A6", title: "Tailwind CSS" },
+            { Icon: SiExpress, color: "gray-500", shadowColor: "#6B7280", title: "Express.js" },
+            { Icon: SiJavascript, color: "yellow-500", shadowColor: "#EAB308", title: "JavaScript" },
+            { Icon: SiTypescript, color: "blue-600", shadowColor: "#2563EB", title: "TypeScript" },
+            { Icon: FaGitAlt, color: "orange-500", shadowColor: "#F97316", title: "Git" },
+            { Icon: FaGithub, color: "gray-800", shadowColor: "#1F2937", title: "GitHub" },
+            { Icon: FaNpm, color: "red-500", shadowColor: "#EF4444", title: "npm" },
+            { Icon: FaNodeJs, color: "green-600", shadowColor: "#16A34A", title: "Node.js" },
+            { Icon: SiMongodb, color: "green-500", shadowColor: "#22C55E", title: "MongoDB" }
+          ].map(({ Icon, color, shadowColor, title }) => (
+            <Icon 
+              key={title}
+              className={`lg:text-3xl text-xl text-${color} transition-all duration-300 hover:scale-110`}
+              style={{
+                filter: `mix-blend-mode: soft-light drop-shadow(0 0 3px ${shadowColor})`
+              }}
+              title={title}
+            />
+          ))}
         </div>
       </div>
-
     </div>
   )
 }
 
 export default Homepage
-
