@@ -179,15 +179,16 @@ const Homepage = () => {
   // }, [])
 
   return (
-    <div className='content lg:h-[250vh] w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
-      <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] lg:h-[35rem] items-center justify-between max-w-7xl mx-auto mt-10 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-8 lg:gap-16'>
-
-        <div className="flex flex-col items-center lg:items-start justify-center lg:w-1/2 space-y-6">
-          <h1 ref={mainTitleRef} className='text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left'>
+    <div className='content min-h-screen w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
+      {/* Hero Section */}
+      <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-6 sm:gap-8 lg:gap-16'>
+        
+        <div className="flex flex-col items-center lg:items-start justify-center w-full lg:w-1/2 space-y-4 sm:space-y-6">
+          <h1 ref={mainTitleRef} className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left'>
             Turning Caffeine Into Code.
           </h1>
 
-          <h2 ref={subTitleRef} className='text-xl sm:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider text-center lg:text-left'>
+          <h2 ref={subTitleRef} className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wider text-center lg:text-left'>
             Hey, I&apos;m Ratan Rathod
           </h2>
 
@@ -196,11 +197,11 @@ const Homepage = () => {
           </p>
         </div>
 
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="w-full sm:w-2/3 lg:w-1/2 flex justify-center lg:justify-end">
           <div
             ref={imageContainerRef}
-            className="pic relative rounded-2xl w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300"
-            style={{ opacity: 0 }} // Ensure initial opacity is 0
+            className="pic relative rounded-2xl w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300"
+            style={{ opacity: 0 }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div>
             <Image
@@ -213,106 +214,106 @@ const Homepage = () => {
             />
           </div>
         </div>
-
       </div>
 
-      <div className='flex flex-col items-center justify-center  h-[80vh] lg:pt-36 pt-14 lg:mt-0 '>
+      {/* Tech Stack Section */}
+      <div className='flex flex-col items-center justify-center min-h-screen pt-16 sm:pt-20 lg:pt-36'>
         <h1 ref={techStackTitleRef}>
           <ShinyText
             text="Tech Stack I Work With"
-            className="lg:text-3xl text-[16px] font-bold self-center tracking-wider p-2 uppercase"
+            className="text-base sm:text-xl lg:text-3xl font-bold tracking-wider p-2 uppercase"
           />
         </h1>
         
         <div ref={iconsRef} className="grid lg:grid-cols-6 grid-cols-6 lg:gap-16 gap-6 mt-4 border-2 border-zinc-800 rounded-lg lg:p-14 p-10">
           <Magnetic>
             <a href='https://react.dev/' target="_blank" rel="noopener noreferrer">
-              <FaReact className="lg:text-5xl text-3xl text-blue-500 cursor-pointer drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" title="React" />
+              <FaReact className="text-2xl sm:text-4xl lg:text-5xl text-blue-500 cursor-pointer drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" title="React" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://nextjs.org/' target="_blank" rel="noopener noreferrer">
-              <SiNextdotjs className="lg:text-5xl text-3xl text-zinc-500 cursor-pointer drop-shadow-[0_0_12px_rgba(45,44,44,0.66)]" title="Next.js" />
+              <SiNextdotjs className="text-2xl sm:text-4xl lg:text-5xl text-zinc-500 cursor-pointer drop-shadow-[0_0_12px_rgba(45,44,44,0.66)]" title="Next.js" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://tailwindcss.com/' target="_blank" rel="noopener noreferrer">
-              <SiTailwindcss className="lg:text-5xl text-3xl text-teal-500 cursor-pointer drop-shadow-[0_0_8px_rgba(20,184,166,0.5)]" title="Tailwind CSS" />
+              <SiTailwindcss className="text-2xl sm:text-4xl lg:text-5xl text-teal-500 cursor-pointer drop-shadow-[0_0_8px_rgba(20,184,166,0.5)]" title="Tailwind CSS" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://expressjs.com/' target="_blank" rel="noopener noreferrer">
-              <SiExpress className="lg:text-5xl text-3xl text-gray-500 cursor-pointer drop-shadow-[0_0_8px_rgba(107,114,128,0.5)]" title="Express.js" />
+              <SiExpress className="text-2xl sm:text-4xl lg:text-5xl text-gray-500 cursor-pointer drop-shadow-[0_0_8px_rgba(107,114,128,0.5)]" title="Express.js" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.javascript.com/' target="_blank" rel="noopener noreferrer">
-              <SiJavascript className="lg:text-5xl text-3xl text-yellow-500 cursor-pointer drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]" title="JavaScript" />
+              <SiJavascript className="text-2xl sm:text-4xl lg:text-5xl text-yellow-500 cursor-pointer drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]" title="JavaScript" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.typescriptlang.org/' target="_blank" rel="noopener noreferrer">
-              <SiTypescript className="lg:text-5xl text-3xl text-blue-600 cursor-pointer drop-shadow-[0_0_8px_rgba(37,99,235,0.5)]" title="TypeScript" />
+              <SiTypescript className="text-2xl sm:text-4xl lg:text-5xl text-blue-600 cursor-pointer drop-shadow-[0_0_8px_rgba(37,99,235,0.5)]" title="TypeScript" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://git-scm.com/' target="_blank" rel="noopener noreferrer">
-              <FaGitAlt className="lg:text-5xl text-3xl text-orange-500 cursor-pointer drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" title="Git" />
+              <FaGitAlt className="text-2xl sm:text-4xl lg:text-5xl text-orange-500 cursor-pointer drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" title="Git" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://github.com/' target="_blank" rel="noopener noreferrer">
-              <FaGithub className="lg:text-5xl text-3xl text-gray-600 cursor-pointer drop-shadow-[0_0_8px_rgba(31,41,55,0.5)]" title="GitHub" />
+              <FaGithub className="text-2xl sm:text-4xl lg:text-5xl text-gray-600 cursor-pointer drop-shadow-[0_0_8px_rgba(31,41,55,0.5)]" title="GitHub" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.npmjs.com/' target="_blank" rel="noopener noreferrer">
-              <FaNpm className="lg:text-5xl text-3xl text-red-500 cursor-pointer drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" title="npm" />
+              <FaNpm className="text-2xl sm:text-4xl lg:text-5xl text-red-500 cursor-pointer drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" title="npm" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://nodejs.org/' target="_blank" rel="noopener noreferrer">
-              <FaNodeJs className="lg:text-5xl text-3xl text-green-600 cursor-pointer drop-shadow-[0_0_8px_rgba(22,163,74,0.5)]" title="Node.js" />
+              <FaNodeJs className="text-2xl sm:text-4xl lg:text-5xl text-green-600 cursor-pointer drop-shadow-[0_0_8px_rgba(22,163,74,0.5)]" title="Node.js" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.mongodb.com/' target="_blank" rel="noopener noreferrer">
-              <SiMongodb className="lg:text-5xl text-3xl text-green-500 cursor-pointer drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" title="MongoDB" />
+              <SiMongodb className="text-2xl sm:text-4xl lg:text-5xl text-green-500 cursor-pointer drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" title="MongoDB" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.framer.com/motion/' target="_blank" rel="noopener noreferrer">
-              <SiFramer className="lg:text-5xl text-3xl text-purple-500 cursor-pointer drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" title="Framer Motion" />
+              <SiFramer className="text-2xl sm:text-4xl lg:text-5xl text-purple-500 cursor-pointer drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" title="Framer Motion" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.figma.com/' target="_blank" rel="noopener noreferrer">
-              <SiFigma className="lg:text-5xl text-3xl text-pink-500 cursor-pointer drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]" title="Figma" />
+              <SiFigma className="text-2xl sm:text-4xl lg:text-5xl text-pink-500 cursor-pointer drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]" title="Figma" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://isocpp.org/' target="_blank" rel="noopener noreferrer">
-              <SiCplusplus className="lg:text-5xl text-3xl text-blue-700 cursor-pointer drop-shadow-[0_0_8px_rgba(0,0,255,0.5)]" title="C++" />
+              <SiCplusplus className="text-2xl sm:text-4xl lg:text-5xl text-blue-700 cursor-pointer drop-shadow-[0_0_8px_rgba(0,0,255,0.5)]" title="C++" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.java.com/' target="_blank" rel="noopener noreferrer">
-              <FaJava className="lg:text-5xl text-3xl text-red-700 cursor-pointer drop-shadow-[0_0_8px_rgba(255,0,0,0.5)]" title="Java" />
+              <FaJava className="text-2xl sm:text-4xl lg:text-5xl text-red-700 cursor-pointer drop-shadow-[0_0_8px_rgba(255,0,0,0.5)]" title="Java" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://www.rust-lang.org/' target="_blank" rel="noopener noreferrer">
-              <SiRust className="lg:text-5xl text-3xl text-orange-700 cursor-pointer drop-shadow-[0_0_8px_rgba(255,165,0,0.3)]" title="Rust" />
+              <SiRust className="text-2xl sm:text-4xl lg:text-5xl text-orange-700 cursor-pointer drop-shadow-[0_0_8px_rgba(255,165,0,0.3)]" title="Rust" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://golang.org/' target="_blank" rel="noopener noreferrer">
-              <SiGo className="lg:text-5xl text-3xl text-teal-700 cursor-pointer drop-shadow-[0_0_8px_rgba(0,128,128,0.5)]" title="Go" />
+              <SiGo className="text-2xl sm:text-4xl lg:text-5xl text-teal-700 cursor-pointer drop-shadow-[0_0_8px_rgba(0,128,128,0.5)]" title="Go" />
             </a>
           </Magnetic>
           <Magnetic>
             <a href='https://vitejs.dev/' target="_blank" rel="noopener noreferrer">
-              <SiVite className="lg:text-5xl text-3xl text-purple-600 cursor-pointer drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]" title="Vite" />
+              <SiVite className="text-2xl sm:text-4xl lg:text-5xl text-purple-600 cursor-pointer drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]" title="Vite" />
             </a>
           </Magnetic>
         </div>
