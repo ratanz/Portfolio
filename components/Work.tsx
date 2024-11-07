@@ -142,7 +142,7 @@ export default function Work() {
             transition={{ duration: 0.8 }}
             className="min-h-screen bg-neutral-950 "
         >
-            <div className="max-w-7xl mx-auto flex flex-col items-center justify-center  ">
+            <div className="max-w-7xl mx-auto h-full pt-16 flex flex-col items-center justify-center  ">
                 <div ref={titleRef}>
                     <ShinyText
                         text="Work Experience"
