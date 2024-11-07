@@ -41,21 +41,8 @@ const Homepage = () => {
       '-=0.9'
     )
 
-    // gradient text animation
-    const animateGradientText = (element: HTMLElement) => {
-      tl.fromTo(element,
-        { backgroundSize: '0% 100%', opacity: 0 },
-        { backgroundSize: '100% 100%', opacity: 1, duration: 1.2, scrub: 1, stagger: 0.6, ease: 'power2.out' },
-        '-=0.8'
-      )
-    }
-
-    [mainTitleRef, subTitleRef, descriptionRef, imageContainerRef, techStackTitleRef].forEach(ref => {
-      if (ref.current) animateGradientText(ref.current)
-    })
-  
-    // Add image animation after the main title but before subtitle
-    tl.fromTo(imageContainerRef.current,
+     // Add image animation after the main title but before subtitle
+     tl.fromTo(imageContainerRef.current,
       { x: 25, opacity: 0 },
       {
         x: 0,
@@ -65,6 +52,20 @@ const Homepage = () => {
       },
       '-=0.3'  // Slight overlap with previous animation
     )
+
+    // gradient text animation
+    const animateGradientText = (element: HTMLElement) => {
+      tl.fromTo(element,
+        { backgroundSize: '0% 100%', opacity: 0 },
+        { backgroundSize: '100% 100%', opacity: 1, duration: 1.2, scrub: 1, stagger: 0.6, ease: 'power2.out' },
+        '-=0.8'
+      )
+    }
+
+    [mainTitleRef, subTitleRef, descriptionRef,  techStackTitleRef].forEach(ref => {
+      if (ref.current) animateGradientText(ref.current)
+    })
+  
 
     // tech stack title animation
     tl.to(techStackTitleRef.current,
@@ -91,7 +92,7 @@ const Homepage = () => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: iconsRef.current,
-        start: 'top 90%', // Start animation when icons are 80% into the viewport
+        start: 'top 80%', // Start animation when icons are 80% into the viewport
         toggleActions: 'play none none reverse',
       },
     })
@@ -197,10 +198,10 @@ const Homepage = () => {
           </p>
         </div>
 
-        <div className="w-full sm:w-2/3 lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="w-full sm:w-2/3 lg:w-1/2 flex justify-center lg:justify-end mt-16 lg:mt-0">
           <div
             ref={imageContainerRef}
-            className="pic relative rounded-2xl w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300"
+            className="pic relative rounded-2xl w-52 h-52 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300"
             style={{ opacity: 0 }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div>
@@ -217,7 +218,7 @@ const Homepage = () => {
       </div>
 
       {/* Tech Stack Section */}
-      <div className='flex flex-col items-center justify-center min-h-screen pt-16 sm:pt-20 lg:pt-36'>
+      <div className='flex flex-col items-center justify-center min-h-[60vh] pt-2 sm:pt-20 lg:pt-36'>
         <h1 ref={techStackTitleRef}>
           <ShinyText
             text="Tech Stack I Work With"
