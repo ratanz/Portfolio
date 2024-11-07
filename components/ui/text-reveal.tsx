@@ -26,7 +26,7 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
       className={className}
     >
       {words.map((word, i) => {
-        const start = i / (words.length * 1.6);
+        const start = i / (words.length * 1.7);
         const end = start + (1 / (words.length * 1.2));
         return (
           <Word 

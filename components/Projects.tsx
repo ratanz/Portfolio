@@ -137,21 +137,21 @@ const Projects = () => {
     ]
 
     return (
-        <div 
+        <div
             ref={containerRef}
-            className={`projects-container relative ${isMobile ? 'min-h-screen' : 'lg:h-[55vw]'} overflow-hidden w-full flex-col bg-zinc-900 font-glorich`}>  
+            className={`projects-container relative ${isMobile ? 'min-h-screen' : 'lg:h-[55vw]'} overflow-hidden w-full flex-col bg-neutral-950 font-tanker`}>
             <div className="content flex flex-col justify-center w-full items-center pt-[4vw]">
-                <div className=''> 
-                    <h1 className='text-4xl md:text-4xl font-bold p-6 text-transparent font-glorich leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
+                <div className=''>
+                    <h1 className='text-4xl md:text-4xl font-bold p-6 text-transparent font-tanker leading-none tracking-normal bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-100'>Projects</h1>
                 </div>
-                <div 
-                ref={projectsRef}
-                className={`project-boxes ${isMobile ? 'flex flex-col space-y-8' : 'flex'} w-full items-start px-4 md:px-10 gap-10`}>
+                <div
+                    ref={projectsRef}
+                    className={`project-boxes ${isMobile ? 'flex flex-col space-y-8' : 'flex'} w-full items-start px-4 md:px-10 gap-10`}>
                     {projectsContent.map((project, index) => (
-                        <ProjectBox 
-                            key={index} 
-                            {...project} 
-                            isMobile={isMobile} 
+                        <ProjectBox
+                            key={index}
+                            {...project}
+                            isMobile={isMobile}
                             ref={(el: HTMLDivElement | null) => {
                                 projectBoxesRef.current[index] = el;
                             }}
@@ -165,36 +165,36 @@ const Projects = () => {
 
 const ProjectBox = React.forwardRef<HTMLDivElement, { title: string, description: string, imageUrl: string, projectUrl: string, isMobile: boolean }>(
     ({ title, description, imageUrl, projectUrl, isMobile }, ref) => {
-    return (
-        <div ref={ref} className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-[55vw]'}`}>
-            <motion.div
-                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-                className={`relative ${isMobile ? 'w-full aspect-video' : 'w-[55vw] h-[31vw]'} overflow-hidden rounded-lg cursor-pointer group mb-4`}
-            >
-                <Link href={projectUrl} passHref>
-                    <div className={`${isMobile ? 'h-full w-full' : 'h-[31vw] w-[55vw]'} rounded-lg relative self-center pointer-events-none`}>
-                        <Image
-                            src={imageUrl}
-                            alt={title}
-                            layout='fill'
-                            objectFit=""
-                        />
-                        <div className="absolute flex justify-end items-center p-4 w-full h-10 bottom-0 bg-[#1a1a1a36] transition-all duration-300 transform translate-y-24 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <h3 className='text-white text-xl font-spacer36 justify-center self-center'>Visit</h3>
-                            <svg className="w-6 h-6 text-white text-center ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+        return (
+            <div ref={ref} className={`flex flex-col items-center ${isMobile ? 'w-full' : 'w-[55vw]'}`}>
+                <motion.div
+                    whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+                    className={`relative ${isMobile ? 'w-full aspect-video' : 'w-[55vw] h-[31vw]'} overflow-hidden rounded-lg cursor-pointer group mb-4`}
+                >
+                    <Link href={projectUrl} passHref>
+                        <div className={`${isMobile ? 'h-full w-full' : 'h-[31vw] w-[55vw]'} rounded-lg relative self-center pointer-events-none`}>
+                            <Image
+                                src={imageUrl}
+                                alt={title}
+                                layout='fill'
+                                objectFit=""
+                            />
+                            <div className="absolute flex justify-end items-center p-4 w-full h-10 bottom-0 bg-[#1a1a1a36] transition-all duration-300 transform translate-y-24 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                                <h3 className='text-white text-xl justify-center self-center'>Visit</h3>
+                                <svg className="w-6 h-6 text-white text-center ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </div>
                         </div>
-                    </div>
-                </Link>
-            </motion.div>
-            <div className="text-center">
-                <h3 className="text-xl font-bold bg-gradient-to-t from-zinc-100 to-zinc-500 bg-clip-text text-transparent">{title}</h3>
-                <p className="text-sm bg-gradient-to-r from-zinc-400 to-zinc-100 bg-clip-text text-transparent">{description}</p>
+                    </Link>
+                </motion.div>
+                <div className="text-center">
+                    <h3 className="text-xl font-bold bg-gradient-to-t from-zinc-100 to-zinc-500 bg-clip-text text-transparent">{title}</h3>
+                    <p className="text-sm bg-gradient-to-r from-zinc-400 to-zinc-100 bg-clip-text text-transparent">{description}</p>
+                </div>
             </div>
-        </div>
-    )
-})
+        )
+    })
 
 ProjectBox.displayName = 'ProjectBox'
 

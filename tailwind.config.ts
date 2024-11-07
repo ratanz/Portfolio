@@ -80,6 +80,7 @@ const config: Config = {
   			pretendard: ['var(--font-pretendard)'],
 			spacer36: ['var(--font-spacer36)'],
 			glorich: ['var(--font-glorich)'],
+			tanker: ['var(--font-tanker)'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

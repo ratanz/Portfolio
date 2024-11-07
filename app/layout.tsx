@@ -3,7 +3,6 @@ import "./globals.css";
 import localFont from 'next/font/local';
 
 // fonts used in the website
-
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
   display: 'swap',
@@ -21,6 +20,10 @@ const glorich = localFont({
   variable: '--font-glorich',
 })
 
+const tanker = localFont({
+  src: './fonts/Tanker-Regular.otf',
+  variable: '--font-tanker',
+})
 
 // metadata for the website
 export const metadata: Metadata = {
@@ -36,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`$ ${pretendard.variable} ${spacer36.variable} 
+      <body className={`${tanker.variable} ${pretendard.variable} ${spacer36.variable} 
        ${glorich.variable}`}>
         {children}
       </body>

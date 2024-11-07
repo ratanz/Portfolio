@@ -106,7 +106,7 @@ export function Navbar() {
       ${isScrolled ? 'bg-[#58585820] backdrop-blur-2xl': "bg-transparent"}`}
         style={{ transform: 'translateY(-100%)' }}
       >
-        <div className="logo-name flex items-center py-4">
+        <div className="logo-name flex items-center py-4 font-glorich ">
           <TransitionLink href="/">
             <ShinyText text="R A T A N" />
           </TransitionLink>

@@ -108,25 +108,27 @@ const About = () => {
     }, []) 
 
     return (
-        <div ref={containerRef} className='about-content w-full lg:min-h-[115vh] bg-zinc-900 overflow-hidden  lg:mt-40 lg:pt-14 min-h-[160vh] pt-[25vh]  '>
+        <div ref={containerRef} className='about-content w-full lg:min-h-[115vh] bg-neutral-950 overflow-hidden  lg:mt-0 lg:pt-14 min-h-[160vh] pt-[25vh]  '>
+          
             <div className='content flex flex-col w-full justify-center min-h-screen items-center p-4 sm:p-8 md:p-16'>
-                <h1 ref={titleRef} className='text-[10vw] sm:text-4xl md:text-[3vw] font-glorich w-fit h-fit lg:p-10 p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
+                <h1 ref={titleRef} className='text-[10vw] sm:text-4xl md:text-[3vw] font-tanker w-fit h-fit lg:p-10 p-4 text-center font-bold bg-gradient-to-r from-zinc-500 to-zinc-100 bg-clip-text text-transparent'>About</h1>
 
                     <div className='flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-24 w-full max-w-6xl'>
-                        {/* Image container with enhanced styling */}
-                        <div className="pic relative w-64 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-300">
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent z-10"></div>
+                      
+                        <div className="pic relative w-64 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden transform hover:scale-[1.04] transition-all duration-300">
+                           
+                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div> 
                             <Image 
                                 src="/images/me.jpg" 
                                 alt="Ratan Rathod" 
                                 width={400} 
                                 height={500} 
-                                className='w-full h-full object-cover'
+                                className='w-full h-full object-cover '
                                 priority
                             />
                         </div>
 
-                    <div className='flex flex-col justify-center font-glorich    leading-normal tracking-wider items-center mt-0 md:mt-16'>
+                    <div className='flex flex-col justify-center font-tanker leading-normal tracking-wider items-center mt-0 md:mt-16'>
                         <TextRevealByWord 
                             text="Im Ratan Rathod, a passionate software developer based in Pune. As a self-taught developer, I love building innovative projects and exploring new technologies. With expertise in JavaScript, TypeScript, and various frontend frameworks like React and Next.js, I specialize in creating responsive and interactive web applications. My experience extends to backend technologies as well, including Node.js and Express. I'm dedicated to optimizing performance and enhancing user experiences through advanced UI/UX design principles and cutting-edge animation techniques."
                             className="text-[8px] sm:text-lg md:text-sm bg-gradient-to-r self-center text-center from-zinc-500 to-zinc-100 bg-clip-text text-transparent w-full md:w-[50vw]"
