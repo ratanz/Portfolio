@@ -179,7 +179,7 @@ const Homepage = () => {
   // }, [])
 
   return (
-    <div className='content lg:h-[190vh] w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
+    <div className='content lg:h-[200vh] w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
       <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] lg:h-[35rem] items-center justify-between max-w-7xl mx-auto mt-10 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-8 lg:gap-16'>
 
         <div className="flex flex-col items-center lg:items-start justify-center lg:w-1/2 space-y-6">
