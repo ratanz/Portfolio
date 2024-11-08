@@ -120,7 +120,7 @@ export function Navbar() {
                   <div className='overflow-hidden'>
                     <ShinyText 
                       text={item.label}
-                      className="font-medium font-glorich lg:text-sm text-xs"
+                      className="font-medium lg:text-sm text-xs font-tanker"
                       speed={3}
                       disabled={false}
                     />
