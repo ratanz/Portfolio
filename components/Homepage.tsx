@@ -206,7 +206,7 @@ const Homepage = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div>
             <Image
-              src="/images/me.jpg"
+              src="/images/me3.jpg"
               alt="Ratan Rathod"
               width={500}
               height={500}

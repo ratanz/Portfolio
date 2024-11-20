@@ -64,11 +64,11 @@ const experienceData = [
         ),
     },
     {
-        title: "JPMorgan",
+        title: "JPMorgan Chase & Co. Virtual Enternship",
         content: (
             <div className="bg-neutral-950 rounded py-3 px-6">
                 <h4 className="text-xl font-semibold text-white mb-2">
-                    JPMorgan Chase & Co. Software Engineering Lite
+                    JPMorgan Chase & Co. Software Engineering Lite Program on Forage
                 </h4>
                 <Badge className="mb-4 bg-blue-600/20 text-blue-300">On Forage</Badge>
                 <ul className="space-y-2 text-neutral-300">
