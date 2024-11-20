@@ -74,14 +74,14 @@ const Projects = () => {
                     ref={(el: HTMLDivElement | null) => { projectRefs.current[index] = el }}
                     className={`card ${index === projectsContent.length - 1 ? 'scroll' : 'pinned'} h-screen w-screen`}
                 >
-                    <div className="project absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[90%] h-[80%] md:h-[68%] flex flex-col md:flex-row lg:mt-0 mt-16">
-                        <div className="project-info relative h-[23%] md:h-full md:flex-[1.75] rounded-xl p-4 md:p-8 bg-neutral-900">
+                    <div className="project absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[90%] h-[50%] md:h-[68%] flex flex-col-reverse md:flex-row lg:mt-0 mt-0">
+                        <div className="project-info  relative h-[38%] md:h-full md:flex-[1.75] rounded-xl p-4 md:p-8 bg-neutral-900">
                             <div className="project-header flex justify-between items-start">
                                 <h3 className="text-2xl md:text-4xl uppercase font-bold text-zinc-100">{project.title}</h3>
                                 <p className="text-sm md:text-base text-zinc-400">0{index + 1} - 0{projectsContent.length}</p>
                             </div>
                             <p className="py-2 md:py-4 text-sm md:text-base text-zinc-300">{project.description}</p>
-                            <div className="project-cta absolute left-4 bottom-0 w-full p-4 uppercase">
+                            <div className="project-cta absolute left-0 md:left-4 w-full p-4 uppercase">
                                 <Link href={project.projectUrl} className="text-zinc-300 hover:text-zinc-100">
                                     Visit Project →
                                 </Link>
