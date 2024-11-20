@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -11,11 +10,28 @@
   width: 100%;
 }
 
+.pinned {
+  position: relative;
+  z-index: 100;
+}
+
+.scroll {
+  position: relative;
+  z-index: 101;
+}
+
+.project {
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
  body {
  transition-property: opacity, transform, filter;
  transition-timing-function: ease-in-out;
  transition-duration: 0.5s;
  background-color: #18181b ;
+
 }
 
 .page-transition {

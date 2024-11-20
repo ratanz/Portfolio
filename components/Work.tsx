@@ -10,7 +10,35 @@ import ShinyText from './ui/ShinyText'
 
 const experienceData = [
     {
-        title: "2022",
+        title: "Freelance Web Developer",
+        content: (
+            <div className="space-y-8">
+                <div className="bg-neutral-950 rounded py-3 px-6">
+                    <h4 className="text-xl font-semibold text-white mb-2">Phoenix Fits</h4>
+                    <Badge className="mb-4 bg-blue-600/20 text-blue-300">Freelance</Badge>
+                    <ul className="space-y-2 text-neutral-300">
+                        {[
+                            "Built a clothing store using Next.js 14 and TypeScript, featuring server-side rendering and dynamic store management",
+                            "Integrated cloud-based image management using AWS S3 for scalable product storage and optimized delivery",
+                            "Implemented secure authentication with NextAuth.js supporting multiple providers and JWT token management",
+                            "Developed responsive admin dashboard with real-time inventory tracking, reducing product update time by 85%",
+                            "Reduced page load time by 60% through image optimization and lazy loading techniques",
+                            "Built scalable architecture supporting 10,000+ product listings with MongoDB",
+                            "Leveraged TailwindCSS, Framer Motion and GSAP for polished animations and responsive design",
+                            "Integrated Stripe payment processing for secure checkout and order management"
+                        ].map((item, idx) => (
+                            <li key={idx} className="flex items-start">
+                                <span className="mr-2 text-blue-400">•</span>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        ),
+    },
+    {
+        title: "Accenture Virtual Enternship",
         content: (
             <div className="space-y-8">
                 <div className="bg-neutral-950 rounded py-3 px-6">
@@ -58,55 +86,7 @@ const experienceData = [
             </div>
         ),
     },
-    {
-        title: "meta",
-        content: (
-            <div className="bg-neutral-950 rounded py-3 px-6">
-                <h4 className="text-xl font-semibold text-white mb-2">
-                    Data structure and Algorithm
-                </h4>
-                <Badge className="mb-4 bg-blue-600/20 text-blue-300">Coursera</Badge>
-                <ul className="space-y-2 text-neutral-300">
-                    {[
-                        "Learned about various types of data structures and algorithms and their use cases.",
-                        "Gained knowledge of Big O notation and how to analyze the time and space complexity of algorithms.",
-                        "Got hands on experience with common data structures like arrays, linked lists, stacks, queues, trees, and graphs.",
-                        "Learned about various types of sorting algorithms and their implementations.",
-                        "Got hands on experience with common algorithms like binary search, dynamic programming, and graph traversal algorithms."
-                    ].map((item, idx) => (
-                        <li key={idx} className="flex items-start">
-                            <span className="mr-2 text-blue-400">•</span>
-                            <span>{item}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        )
-    },
-    {
-        title: "Artistry",
-        content: (
-            <div className="space-y-8">
-                <div className="bg-neutral-950 rounded py-3 px-6">
-                    <h4 className="text-xl font-semibold text-white mb-2">Artistry</h4>
-                    <Badge className="mb-4 bg-blue-600/20 text-blue-300">Freelance</Badge>
-                    <ul className="space-y-2 text-neutral-300">
-                        {[
-                            "Created a website for a local artist to showcase their work and sell prints.",
-                            "Used Next.js, Shadcn, and Tailwind CSS to create a responsive and visually appealing website.",
-                            "Implemented a shopping cart system using Redux Toolkit to allow users to add and remove items from their cart.",
-                            "Integrated Stripe to handle payments and manage the checkout process."
-                        ].map((item, idx) => (
-                            <li key={idx} className="flex items-start">
-                                <span className="mr-2 text-blue-400">•</span>
-                                <span>{item}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        ),
-    },
+    
 
 ]
 
