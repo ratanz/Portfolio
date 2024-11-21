@@ -17,7 +17,7 @@ const Projects = () => {
         const pinnedSections = projectRefs.current.slice(0, -1) 
         const lastCard = projectRefs.current[projectRefs.current.length - 1]
         const footer = footerRef.current
-        let scrollTriggers: ScrollTrigger[] = []
+        const scrollTriggers: ScrollTrigger[] = []
 
         const ctx = gsap.context(() => {
             pinnedSections.forEach((section, index) => {
