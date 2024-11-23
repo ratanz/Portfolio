@@ -226,7 +226,7 @@ const Homepage = () => {
           />
         </h1>
         
-        <div ref={iconsRef} className="grid lg:grid-cols-6 grid-cols-6 lg:gap-16 gap-6 mt-4 border-2 border-zinc-800 rounded-lg lg:p-14 p-10">
+        <div ref={iconsRef} className="grid lg:grid-cols-9 md:grid-cols-2 grid-cols-6 lg:gap-16 gap-10 mt-2 rounded-lg lg:p-14 p-6">
           <Magnetic>
             <a href='https://react.dev/' target="_blank" rel="noopener noreferrer">
               <FaReact className="text-2xl sm:text-4xl lg:text-5xl text-blue-500 cursor-pointer drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" title="React" />

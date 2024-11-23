@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import localFont from 'next/font/local';
+import localFont from 'next/font/local'
 
-// fonts used in the website
+// Keep your existing font definitions
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
   display: 'swap',
@@ -35,14 +35,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body className={`${tanker.variable} ${pretendard.variable} ${spacer36.variable} 
-       ${glorich.variable}`}>
+      <body className={`${tanker.variable} ${pretendard.variable} ${spacer36.variable} ${glorich.variable}`}>
         {children}
       </body>
     </html>
-  );
+  )
 }
