@@ -96,7 +96,7 @@ const Projects = () => {
                                     src={project.imageUrl}
                                     alt={project.title}
                                     layout="fill"
-                                    objectFit="fill"
+                                    objectFit="cover"
                                     priority
                                 />
                             </div>
