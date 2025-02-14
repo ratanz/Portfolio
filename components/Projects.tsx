@@ -92,7 +92,6 @@ const Projects = () => {
     }, [])
 
     return (
-
         <div ref={containerRef} className="sticky-cards bg-neutral-950 font-tanker">
             <section className="project-hero pinned h-[50vh]"></section>
 
@@ -199,7 +198,52 @@ const projectsContent = [
         description: "An artistic portfolio platform featuring creative animations, smooth transitions, and responsive gallery layouts",
         imageUrl: "/images/artistry.png",
         projectUrl: "https://artistry-omega.vercel.app/"
+    },
+    {
+        title: "serene-drift",
+        description:"A serene and calming website with smooth animations and interactive UI elements",
+        imageUrl: "/images/serenedrift.png",
+        projectUrl: "https://serenedrift.netlify.app/"
+    },
+    {
+        title: "stories supercharged",
+        description:" Leveraging JavaScript & GSAP, I supercharged Instagram Stories with smooth transitions, animations, and dynamic storytelling. From image scaling to interactive highlights, this setup transforms user experiences into something visually stunning.",
+        imageUrl: "/images/stories.png",
+        projectUrl: "https://stories-supercharged.netlify.app/"
+    },
+    {
+        title: "Gen Scroll",
+        description:"A sophisticated web application showcasing advanced scroll animations and interactive user experiences",
+        imageUrl: "/images/genscroll.png",
+        projectUrl: "https://gen-scroll.netlify.app/"
+    },
+    {
+        title: "Serenity Slide",
+        description:"A smooth ride to serenity-slides with smooth animations and interactive UI elements",
+        imageUrl: "/images/serenity.png",
+        projectUrl: "https://serenity-slides.netlify.app/"
+    },
+    {
+        title: "Flux & Flow",
+        description:"Flux & Flow - a cutting-edge design agency platform that pushes the boundaries of web aesthetics and performance.",
+        imageUrl: "/images/flux.png",
+        projectUrl: "https://flux-flow.vercel.app/"
+    },
+    {
+        title: "Zentry - Awwwards Recreation",
+        description:"A pixel-perfect recreation of Awwwards winning gaming agency website, showcasing attention to detail at its finest",
+        imageUrl: "/images/zentry.png",
+        projectUrl: "https://zentryy.vercel.app/"
+    },
+    {
+        title: "Pheonix fits",
+        description:"Not your average e-commerce platform, Pheonix fits is a modern take on online shopping with a focus on user experience and performance",
+        imageUrl: "/images/phoenix.png",
+        projectUrl: "https://phoenix-fits.vercel.app/"
     }
+    
+
+
 ]
 
 export default Projects
