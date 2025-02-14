@@ -15,7 +15,6 @@ const Projects = () => {
 
     useEffect(() => {
         const pinnedSections = projectRefs.current.slice(0, -1) 
-        const lastCard = projectRefs.current[projectRefs.current.length - 1]
         const footer = footerRef.current
         const scrollTriggers: ScrollTrigger[] = []
 
@@ -54,35 +53,6 @@ const Projects = () => {
                     }
                 )
             })
-
-            if (lastCard) {
-                const lastProject = lastCard.querySelector('.project')
-                if (lastProject) {
-                    scrollTriggers.push(
-                        ScrollTrigger.create({
-                            trigger: lastCard,
-                            start: "top center",
-                            end: "center end",
-                            animation: gsap.fromTo(
-                                lastProject,
-                                { 
-                                    y: 100,
-                                    opacity: 1,
-                                    scale: 0.9
-                                },
-                                {
-                                    y: 0,
-                                    opacity: 1,
-                                    scale: 1,
-                                    duration: 1,
-                                    ease: "power2.out"
-                                }
-                            ),
-                            toggleActions: "play none none reverse"
-                        })
-                    )
-                }
-            }
         })
 
         return () => {
