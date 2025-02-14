@@ -62,7 +62,7 @@ const Projects = () => {
                         ScrollTrigger.create({
                             trigger: lastCard,
                             start: "top center",
-                            end: "center center",
+                            end: "center end",
                             animation: gsap.fromTo(
                                 lastProject,
                                 { 
@@ -106,7 +106,8 @@ const Projects = () => {
                     className={`card ${index === projectsContent.length - 1 ? 'scroll' : 'pinned'} h-screen w-screen`}
                 >
                     <div className="project absolute top-[40vh] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[90%] h-[70%] md:h-[68%] flex flex-col-reverse md:flex-row lg:mt-0 mt-0">
-                        <div className="project-info  relative h-[40%] md:h-full md:flex-[1.75] rounded-xl p-4 pt-6  md:p-8 bg-neutral-900">
+                      
+                        <div className="project-info relative h-[40%] md:h-full md:flex-[1.75] rounded-xl p-4 pt-6 md:p-8 bg-neutral-900">
                             <div className="project-header flex justify-between items-start">
                                 <h3 className="text-2xl md:text-4xl uppercase font-bold text-zinc-100">{project.title}</h3>
                                 <p className="text-sm md:text-base text-zinc-400">0{index + 1} - 0{projectsContent.length}</p>
@@ -118,6 +119,7 @@ const Projects = () => {
                                 </Link>
                             </div>
                         </div>
+
                         <div className="project-img md:flex-[4] rounded-xl overflow-hidden mt-2 md:mt-0 md:ml-4 h-[25vh] md:h-full">
                             <div className="relative w-full h-full">
                                 <Image
@@ -129,11 +131,12 @@ const Projects = () => {
                                 />
                             </div>
                         </div>
+
                     </div>
                 </section>
             ))}
 
-            <section ref={footerRef} className="footer h-[20vh]"></section>
+            <section ref={footerRef} className="footer h-[25vh]"></section>
         </div>
     )
 }
