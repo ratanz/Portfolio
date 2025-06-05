@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 👨‍💻 Professional Summary
+I am a passionate Frontend Engineer and Designer with full-stack development capabilities. My expertise lies in creating minimal, clean, and aesthetically pleasing user interfaces while maintaining professional standards.
 
-## Getting Started
+### 🛠️ Technical Skills
+#### 🎨 Frontend Development
+- ⚛️ React.js
+- ⚡ Next.js
+- 📘 TypeScript
+- 💛 JavaScript
+- 🎯 Tailwind CSS
+- ✨ Framer Motion
+- 🔄 GSAP
+- 🌐 HTML5/CSS3
 
-First, run the development server:
+#### 🔧 Backend Development
+- 💚 Node.js
+- 🚀 Express.js
+- 🍃 MongoDB
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 💼 Project Highlights
+1. 🏋️ Phoenix Fits (TypeScript, React) - Fitness platform
+2. 🎯 Sensa (TypeScript) - Modern web application
+3. 🔗 URL Shortener (JavaScript) - Link management tool
+4. 🎮 GTA VI Clone (JavaScript, CSS) - Gaming interface
+5. 🚗 Uber Clone (JavaScript) - Ride-sharing platform
+6. 🎨 Ochi (JavaScript, CSS) - Creative design project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🌟 Additional Skills & Interests
+- 🎯 UI/UX Design
+- 📱 Responsive Web Design
+- 🎬 Animation & Motion Design
+- ✨ Clean Code Architecture
+- 🎥 Filmmaking
+- 🎬 Video Creation
+- 🎨 Graphic Design
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🔗 Professional Links
+- 🐦 Twitter: [@ratan_codes](https://x.com/ratan_codes)
+- 💼 LinkedIn: [Ratan Rathod](https://www.linkedin.com/in/ratanrathod7/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🎯 Personal Interests
+- 🎥 Filmmaking
+- 🎬 Video Creation
+- 🎨 Designing
+- 💪 Gym
+- 🏏 Cricket
 
-## Learn More
+## 🚀 Goals
+- 🎯 Continue developing minimalist, aesthetic web applications
+- ✨ Focus on creating clean, professional user interfaces
+- 🔄 Expand expertise in frontend animations and interactions
+- ⚖️ Maintain a balance between design aesthetics and functionality
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
