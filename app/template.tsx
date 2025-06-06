@@ -8,7 +8,7 @@ export default function Template({
 }: {
   children: React.ReactNode
 }) {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   return (
     <>
@@ -18,7 +18,7 @@ export default function Template({
           opacity: loading ? 0 : 1, 
           transition: 'opacity 0.5s ease-in-out',
         }}
-        className="bg-neutral-950"
+        className="bg-neutral-"
       >
         {children}
       </div>

@@ -43,14 +43,14 @@ const Homepage = () => {
 
      // Add image animation after the main title but before subtitle
      tl.fromTo(imageContainerRef.current,
-      { x: 25, opacity: 0 },
+      { y: 25, opacity: 0 },
       {
-        x: 0,
+        y: 0,
         opacity: 1,
         duration: 1,
         ease: 'power3.out',
+        delay: 0.5,
       },
-      '-=0.3'  // Slight overlap with previous animation
     )
 
     // gradient text animation
@@ -98,89 +98,9 @@ const Homepage = () => {
     })
   }, [])
 
-  // scroll animation when scroll back to top
-  //   useEffect(() => {
-  //     const scrollTl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: mainTitleRef.current,
-  //         start: "top top",
-  //         end: "bottom top",
-  //         scrub: 1.5,  // Increased for smoother scrolling
-  //         toggleActions: "play none none reverse"
-  //       }
-  //     })
-
-  //     scrollTl.to(mainTitleRef.current, { 
-  //       y: -120, 
-  //       opacity: 0, 
-  //       scrub: 2,
-  //       duration: 2.5,
-  //       ease: "power3.inOut"
-  //     })
-
-  //     scrollTl.to(subTitleRef.current, { 
-  //       y: -100, 
-  //       opacity: 0, 
-  //       duration: 2.5,
-  //       stagger: 0.3,
-  //       ease: "power3.inOut"
-  //     }, "-=2")
-
-  //     scrollTl.to(descriptionRef.current, { 
-  //       y: 40, 
-  //       opacity: 0,
-  //       duration: 2.3,
-  //       scrub: 3,
-  //       stagger: 0.3,
-  //       ease: "power3.out",
-  //     }, "-=2.5")
-
-
-  //     scrollTl.to(connectTitleRef.current, { 
-  //       y: 50, 
-  //       opacity: 0, 
-  //       duration: 1.9,
-  //       delay: 0.9,
-  //       stagger: 0.2,
-  //       scrub: 4,
-  //       ease: "power3.out"
-  //     }, "-=3.8")
-
-  //   scrollTl.to(connectIconsRef.current, { 
-  //     y: 50, 
-  //     opacity: 0,
-  //     duration: 1.2,
-  //     scrub: 3,
-  //     ease: "power3.out"
-  //   }, "-=0.23")
-
-
-  //   scrollTl.to(techStackTitleRef.current, { 
-  //     y: -60, 
-  //     opacity: 0, 
-  //     duration: 2.5,
-  //     ease: "power3.inOut"
-  //   }, "-=2.2")
-
-  //   if (iconsRef.current) {
-  //     scrollTl.to(Array.from(iconsRef.current.children), { 
-  //       y: -40, 
-  //       opacity: 0, 
-  //       delay: 0.40,
-  //       duration: 1.3,
-  //       stagger: 0.3,  // Increased for slower sequential fade
-  //       ease: "power3.inout"
-  //     }, "-=0.4")
-  //   }
-
-  //   return () => {
-  //     scrollTl.kill()
-  //     ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-  //   }
-  // }, [])
 
   return (
-    <div className='content min-h-screen w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
+    <div className='content min-h-screen w-full bg-gradient-to-br from-black via-zinc-950 to-black font-tanker px-4 py-8 md:p-14'>
       {/* Hero Section */}
       <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-6 sm:gap-8 lg:gap-16'>
         

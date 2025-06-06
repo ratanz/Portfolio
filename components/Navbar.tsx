@@ -41,7 +41,7 @@ export function Navbar() {
 
   useEffect(() => {
     gsap.to(navbarRef.current, {
-      duration: 0.3,
+      duration: 0.5,
       y: isVisible ? 0 : '-200%',
       ease: 'power3.out'
     })
@@ -102,11 +102,11 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 px-6 py-4 mt-2 flex justify-between  items-center fixed top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] 
+      <div ref={navbarRef} className={`content h-12 px-6 py-4 mt-2 flex justify-between items-center fixed font-glorich top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] 
       ${isScrolled ? 'bg-[#58585820] backdrop-blur-2xl': "bg-transparent"}`}
         style={{ transform: 'translateY(-100%)' }}
       >
-        <div className="logo-name flex items-center py-4 font-glorich ">
+        <div className="logo-name flex items-center py-4 ">
           <TransitionLink href="/">
             <ShinyText text="R A T A N" />
           </TransitionLink>
@@ -120,7 +120,7 @@ export function Navbar() {
                   <div className='overflow-hidden'>
                     <ShinyText 
                       text={item.label}
-                      className="font-medium lg:text-sm text-xs font-tanker"
+                      className="font-medium lg:text-sm text-xs tracking-tight"
                       speed={3}
                       disabled={false}
                     />
