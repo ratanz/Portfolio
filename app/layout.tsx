@@ -39,9 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${tanker.variable} ${pretendard.variable} ${spacer36.variable} ${glorich.variable}`}>
-        {children}
-      </body>
+    <body className={`${tanker.variable} ${pretendard.variable} ${spacer36.variable} ${glorich.variable}`}>
+      {children}
+    </body>
     </html>
   )
 }
