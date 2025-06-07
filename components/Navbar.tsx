@@ -15,20 +15,71 @@ export function Navbar() {
   const menuIconRef = useRef(null)
   const navbarRef = useRef(null)
 
-  // Initial animation on mount with delay
+  // Track scroll position and control navbar visibility
   useEffect(() => {
-    // Show navbar with a slight delay
-    gsap.fromTo(navbarRef.current,
-      { y: -100, opacity: 0 , scale: 0.7},
+    const navbar = navbarRef.current;
+    if (!navbar) return;
+    
+    // Initial animation
+    gsap.fromTo(navbar,
+      { y: -100, opacity: 0, scale: 0.7 },
       { 
         y: 0, 
         opacity: 1,
         scale: 1,
         duration: 1.5,
-        ease: 'easeOut',
-        delay: 0.4  
+        ease: 'power3.out',
+        delay: 0.4
       }
-    )
+    );
+    
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
+    const updateNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (Math.abs(currentScrollY - lastScrollY) < 10) {
+        ticking = false;
+        return;
+      }
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        gsap.to(navbar, {
+          y: -100,
+          opacity: 0,
+          duration: 0.5,
+          ease: 'power3.out'
+        });
+      } else if (currentScrollY < lastScrollY || currentScrollY < 10) {
+        // Scrolling up or at top - show navbar
+        gsap.to(navbar, {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: 'power3.out'
+        });
+
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      gsap.killTweensOf(navbar);
+    };
   }, [])
 
   // Hamburger Menu Animation
@@ -86,7 +137,7 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 px-10 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 w-full backdrop-blur-md z-[60] 
+      <div ref={navbarRef} className={`content h-12 px-10 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-[60] w-[80%] ml-[10%] mt-4 rounded-xl bg-zinc-950/30 
       `}
         style={{ transform: 'translateY(-100%)' }}
       >
