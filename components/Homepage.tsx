@@ -37,8 +37,8 @@ const Homepage = () => {
     // sub title and description animation
     tl.fromTo([subTitleRef.current, descriptionRef.current, iconsRef.current],
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.3, stagger: 0.3, ease: 'power3.out' },
-      '-=0.4'
+      { y: 0, opacity: 1, duration: 1.1, stagger: 0.2, ease: 'power3.out' },
+      '-=0.9'
     )
 
      // Add image animation after the main title but before subtitle

@@ -17,34 +17,56 @@ export function Navbar() {
   const menuIconRef = useRef(null)
   const navbarRef = useRef(null)
 
-  // Navbar Visibility
+  // Initial animation on mount with delay
+  useEffect(() => {
+    // Show navbar with a slight delay
+    gsap.fromTo(navbarRef.current,
+      { y: -100, opacity: 0 , scale: 0.7},
+      { 
+        y: 0, 
+        opacity: 1,
+        scale: 1,
+        duration: 1.4,
+        ease: 'power4.inOut',
+        delay: 0.4  
+      }
+    )
+  }, [])
+
+  // Navbar Visibility with throttled scroll
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    const handleScroll = () => {
+
+    const updateScroll = () => {
       const currentScrollY = window.scrollY;
-      const scrolled = window.scrollY > 0
-      setIsScrolled(scrolled)
+      const scrolled = currentScrollY > 0;
+      setIsScrolled(scrolled);
 
       if (currentScrollY <= 0) {
-        setIsVisible(true)
+        setIsVisible(true);
       } else if (currentScrollY > lastScrollY) {
-        setIsVisible(false)
+        setIsVisible(false);
       } else {
-        setIsVisible(true)
+        setIsVisible(true);
       }
-      lastScrollY = currentScrollY
-    }
+      lastScrollY = currentScrollY;
+    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isScrolled])
+    const handleScroll = () => {
+      window.requestAnimationFrame(updateScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isScrolled]);
 
   useEffect(() => {
     gsap.to(navbarRef.current, {
-      duration: 0.5,
-      y: isVisible ? 0 : '-200%',
-      ease: 'power3.out'
-    })
+      duration: 0.4,
+      y: isVisible ? 0 : '-100%',
+      ease: 'power3.out',
+      overwrite: 'auto'
+    });
   }, [isVisible])
 
   // Hamburger Menu Animation
