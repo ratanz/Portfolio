@@ -9,9 +9,7 @@ import ShinyText from './ui/ShinyText'
 gsap.registerPlugin();
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
   const menuRef = useRef(null)
   const menuContentRef = useRef(null)
   const menuIconRef = useRef(null)
@@ -26,48 +24,12 @@ export function Navbar() {
         y: 0, 
         opacity: 1,
         scale: 1,
-        duration: 1.4,
-        ease: 'power4.inOut',
+        duration: 1.5,
+        ease: 'easeOut',
         delay: 0.4  
       }
     )
   }, [])
-
-  // Navbar Visibility with throttled scroll
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const updateScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrolled = currentScrollY > 0;
-      setIsScrolled(scrolled);
-
-      if (currentScrollY <= 0) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      lastScrollY = currentScrollY;
-    };
-
-    const handleScroll = () => {
-      window.requestAnimationFrame(updateScroll);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolled]);
-
-  useEffect(() => {
-    gsap.to(navbarRef.current, {
-      duration: 0.4,
-      y: isVisible ? 0 : '-100%',
-      ease: 'power3.out',
-      overwrite: 'auto'
-    });
-  }, [isVisible])
 
   // Hamburger Menu Animation
   useEffect(() => {
@@ -124,8 +86,8 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 px-6 py-4 mt-2 flex justify-between items-center fixed font-pretendard   top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] 
-      ${isScrolled ? 'bg-[#58585820] backdrop-blur-2xl': "bg-transparent"}`}
+      <div ref={navbarRef} className={`content h-12 px-10 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 w-full backdrop-blur-md z-[60] 
+      `}
         style={{ transform: 'translateY(-100%)' }}
       >
         <div className="logo-name flex items-center py-4 ">
