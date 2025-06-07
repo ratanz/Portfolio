@@ -62,23 +62,27 @@ const Homepage = () => {
       )
     }
 
-    [mainTitleRef, subTitleRef, descriptionRef,  techStackTitleRef].forEach(ref => {
+    [mainTitleRef, subTitleRef, descriptionRef].forEach(ref => {
       if (ref.current) animateGradientText(ref.current)
     })
   
 
-    // tech stack title animation
-    tl.to(techStackTitleRef.current,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.3,
-        yoyo: true,
-        ease: 'power3.out',
-      },
-      '-=0.9'
-    )
+    // Set initial state for tech stack title
+    gsap.set(techStackTitleRef.current, { opacity: 0, y: 30 })
+
+    // Tech stack title animation with ScrollTrigger
+    gsap.to(techStackTitleRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      delay: 0.5,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: techStackTitleRef.current,
+        start: 'top 90%', 
+        toggleActions: 'play none none reverse',
+      }
+    })
 
     // Set initial state for icons
     gsap.set(Array.from(iconsRef.current?.children || []), { opacity: 0, y: 20 })
@@ -100,7 +104,7 @@ const Homepage = () => {
 
 
   return (
-    <div className='content min-h-screen w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
+    <div className='content min-h-screen w-full bg-gradient-to-br from-black via-zinc-950 to-black font-pretendard px-4 py-8 md:p-14'>
       {/* Hero Section */}
       <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-6 sm:gap-8 lg:gap-16'>
         
@@ -142,7 +146,7 @@ const Homepage = () => {
         <h1 ref={techStackTitleRef}>
           <ShinyText
             text="Tech Stack I Work With"
-            className="text-base sm:text-xl lg:text-3xl font-bold tracking-wider p-2 uppercase"
+            className="text-base sm:text-xl lg:text-3xl font-bold tracking-wider "
           />
         </h1>
         

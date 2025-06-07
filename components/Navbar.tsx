@@ -102,7 +102,7 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 px-6 py-4 mt-2 flex justify-between items-center fixed font-glorich top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] 
+      <div ref={navbarRef} className={`content h-12 px-6 py-4 mt-2 flex justify-between items-center fixed font-pretendard   top-0 left-0 right-0 transition-all duration-300 w-[80%] ml-[10%] rounded-full backdrop-blur-md z-[60] 
       ${isScrolled ? 'bg-[#58585820] backdrop-blur-2xl': "bg-transparent"}`}
         style={{ transform: 'translateY(-100%)' }}
       >

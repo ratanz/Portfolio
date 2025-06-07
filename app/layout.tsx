@@ -15,20 +15,11 @@ const spacer36 = localFont({
   variable: '--font-spacer36',
 })
 
-const glorich = localFont({
-  src: './fonts/Glorich-Bold.otf',
-  variable: '--font-glorich',
-})
-
-const tanker = localFont({
-  src: './fonts/Tanker-Regular.otf',
-  variable: '--font-tanker',
-})
 
 // metadata for the website
 export const metadata: Metadata = {
-  title: "Ratan.codes",
-  description: "Ratan's personal website",
+  title: "Ratanz",
+  description: "Ratan's personal portfolio website",
 };
 
 // root layout for the website
@@ -39,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <body className={`${tanker.variable} ${pretendard.variable} ${spacer36.variable} ${glorich.variable}`}>
+    <body className={`${pretendard.variable} ${spacer36.variable}`}>
       {children}
     </body>
     </html>
