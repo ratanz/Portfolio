@@ -28,11 +28,12 @@ const Homepage = () => {
 
     // Main title animation
     tl.fromTo(mainTitleRef.current,
-      { y: -100, opacity: 0 },
+      { opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 0.5,
+        delay: 0.3,
         ease: 'power3.out',
       }
     );
@@ -54,15 +55,16 @@ const Homepage = () => {
     // Image animation
     tl.fromTo(
       imageContainerRef.current,
-      { y: 25, opacity: 0 },
+      { opacity: 0, scale: 0.8 },
       {
         y: 0,
         opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        delay: 0.5,
+        duration: 1.8,
+        scrub: 2,
+        ease: 'power2.inOut',
+        delay: 0.3,
+        scale: 1,
       },
-      '-=0.5'
     );
 
     // Gradient text animation
