@@ -1,131 +1,106 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaJava } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb, SiFramer, SiFigma, SiCplusplus, SiRust, SiGo, SiVite } from 'react-icons/si';
-import ShinyText from './ui/ShinyText';
+import ShinyText from './ui/ShinyText'
 import Image from 'next/image';
 import Magnetic from './ui/Magnetic';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const Homepage = () => {
-  const mainTitleRef = useRef<HTMLHeadingElement>(null);
-  const subTitleRef = useRef<HTMLHeadingElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const techStackTitleRef = useRef<HTMLHeadingElement>(null);
-  const iconsRef = useRef<HTMLDivElement>(null);
-  const imageContainerRef = useRef<HTMLDivElement>(null);
-  const hasAnimatedRef = useRef(false);
+
+  const mainTitleRef = useRef<HTMLHeadingElement>(null)
+  const subTitleRef = useRef<HTMLHeadingElement>(null)
+  const descriptionRef = useRef<HTMLParagraphElement>(null)
+  const techStackTitleRef = useRef<HTMLHeadingElement>(null)
+  const iconsRef = useRef<HTMLDivElement>(null)
+  const imageContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (hasAnimatedRef.current) return;
-    
-    const tl = gsap.timeline();
-    hasAnimatedRef.current = true;
+    const tl = gsap.timeline()
 
-    // Main title animation
+    // main title animation
     tl.fromTo(mainTitleRef.current,
-      { opacity: 0 },
+      { y: -100, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 0.5,
-        delay: 0.3,
         ease: 'power3.out',
       }
-    );
+    )
 
-    // Sub title and description animation
-    tl.fromTo(
-      [subTitleRef.current, descriptionRef.current],
+    // sub title and description animation
+    tl.fromTo([subTitleRef.current, descriptionRef.current, iconsRef.current],
       { y: 50, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: 1.3, 
-        stagger: 0.3, 
-        ease: 'power3.out' 
+      { y: 0, opacity: 1, duration: 1.3, stagger: 0.3, ease: 'power3.out' },
+      '-=0.4'
+    )
+
+     // Add image animation after the main title but before subtitle
+     tl.fromTo(imageContainerRef.current,
+      { opacity: 0 , scale: 0.9},
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        delay: 0.7,
+        ease: 'power3.out',
+      },
+    )
+
+    // gradient text animation
+    const animateGradientText = (element: HTMLElement) => {
+      tl.fromTo(element,
+        { backgroundSize: '0% 100%', opacity: 0 },
+        { backgroundSize: '100% 100%', opacity: 1, duration: 1.2, scrub: 1, stagger: 0.6, ease: 'power2.out' },
+        '-=0.9'
+      )
+    }
+
+    [mainTitleRef, subTitleRef, descriptionRef,  techStackTitleRef].forEach(ref => {
+      if (ref.current) animateGradientText(ref.current)
+    })
+  
+
+    // tech stack title animation
+    tl.to(techStackTitleRef.current,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.3,
+        yoyo: true,
+        ease: 'power3.out',
       },
       '-=0.9'
-    );
+    )
 
-    // Image animation
-    tl.fromTo(
-      imageContainerRef.current,
-      { opacity: 0, scale: 0.8 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.8,
-        scrub: 2,
-        ease: 'power2.inOut',
-        delay: 0.3,
-        scale: 1,
-      },
-    );
-
-    // Gradient text animation
-    const animateGradientText = (element: HTMLElement) => {
-      if (!element) return;
-      
-      tl.fromTo(
-        element,
-        { backgroundSize: '0% 100%', opacity: 0 },
-        { 
-          backgroundSize: '100% 100%', 
-          opacity: 1, 
-          duration: 1.2, 
-          ease: 'power2.out' 
-        },
-        '-=0.8'
-      );
-    };
-
-    // Apply gradient animation to text elements
-    [mainTitleRef, subTitleRef, descriptionRef, techStackTitleRef].forEach(ref => {
-      if (ref.current) animateGradientText(ref.current);
-    });
-
-    // Tech stack title animation
-    if (techStackTitleRef.current) {
-      tl.fromTo(
-        techStackTitleRef.current,
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          ease: 'power3.out',
-        },
-        '-=0.5'
-      );
-    }
+    // Set initial state for icons
+    gsap.set(Array.from(iconsRef.current?.children || []), { opacity: 0, y: 20 })
 
     // Icons animation with ScrollTrigger
-    if (iconsRef.current) {
-      const icons = Array.from(iconsRef.current.children);
-      gsap.set(icons, { opacity: 0, y: 20 });
+    gsap.to(Array.from(iconsRef.current?.children || []), {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: iconsRef.current,
+        start: 'top 80%', // Start animation when icons are 80% into the viewport
+        toggleActions: 'play none none reverse',
+      },
+    })
+  }, [])
 
-      gsap.to(icons, {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: iconsRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-      });
-    }
-  }, []);
 
   return (
-    <div className='content min-h-screen w-full bg-gradient-to-br from-black via-zinc-950 to-black font-tanker px-4 py-8 md:p-14'>
+    <div className='content min-h-screen w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
       {/* Hero Section */}
       <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-6 sm:gap-8 lg:gap-16'>
         
