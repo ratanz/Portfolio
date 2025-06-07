@@ -60,6 +60,7 @@ const Homepage = () => {
         opacity: 1,
         duration: 1,
         ease: 'power3.out',
+        delay: 0.5,
       },
       '-=0.5'
     );
@@ -121,9 +122,8 @@ const Homepage = () => {
     }
   }, []);
 
-
   return (
-    <div className='content min-h-screen w-full bg-neutral-950 font-tanker px-4 py-8 md:p-14'>
+    <div className='content min-h-screen w-full bg-gradient-to-br from-black via-zinc-950 to-black font-tanker px-4 py-8 md:p-14'>
       {/* Hero Section */}
       <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-6 sm:gap-8 lg:gap-16'>
         
