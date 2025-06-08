@@ -3,11 +3,8 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FaReact, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaJava } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiExpress, SiJavascript, SiTypescript, SiMongodb, SiFramer, SiFigma, SiCplusplus, SiRust, SiGo, SiVite } from 'react-icons/si';
-import ShinyText from './ui/ShinyText'
-import Image from 'next/image';
-import Magnetic from './ui/Magnetic';
+import Image from 'next/image'
+import TechStack from './TechStack'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,8 +13,6 @@ const Homepage = () => {
   const mainTitleRef = useRef<HTMLHeadingElement>(null)
   const subTitleRef = useRef<HTMLHeadingElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
-  const techStackTitleRef = useRef<HTMLHeadingElement>(null)
-  const iconsRef = useRef<HTMLDivElement>(null)
   const imageContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -35,7 +30,7 @@ const Homepage = () => {
     )
 
     // sub title and description animation
-    tl.fromTo([subTitleRef.current, descriptionRef.current, iconsRef.current],
+    tl.fromTo([subTitleRef.current, descriptionRef.current],
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.1, stagger: 0.2, ease: 'power3.out' },
       '-=0.9'
@@ -66,40 +61,6 @@ const Homepage = () => {
       if (ref.current) animateGradientText(ref.current)
     })
   
-
-    // Set initial state for tech stack title
-    gsap.set(techStackTitleRef.current, { opacity: 0, y: 30 })
-
-    // Tech stack title animation with ScrollTrigger
-    gsap.to(techStackTitleRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      delay: 0.5,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: techStackTitleRef.current,
-        start: 'top 90%', 
-        toggleActions: 'play none none reverse',
-      }
-    })
-
-    // Set initial state for icons
-    gsap.set(Array.from(iconsRef.current?.children || []), { opacity: 0, y: 20 })
-
-    // Icons animation with ScrollTrigger
-    gsap.to(Array.from(iconsRef.current?.children || []), {
-      opacity: 1,
-      y: 0,
-      duration: 0.4,
-      stagger: 0.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: iconsRef.current,
-        start: 'top 80%', // Start animation when icons are 80% into the viewport
-        toggleActions: 'play none none reverse',
-      },
-    })
   }, [])
 
 
@@ -108,7 +69,7 @@ const Homepage = () => {
       {/* Hero Section */}
       <div className='flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-7xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-12 gap-6 sm:gap-8 lg:gap-16'>
         
-        <div className="flex flex-col items-center lg:items-start justify-center w-full lg:w-1/2 space-y-4 sm:space-y-6">
+        <div className="flex flex-col items-center lg:items-start justify-center w-full lg:w-[70%] space-y-4 sm:space-y-6">
           <h1 ref={mainTitleRef} className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left'>
             Turning Caffeine Into Code.
           </h1>
@@ -122,7 +83,7 @@ const Homepage = () => {
           </p>
         </div>
 
-        <div className="w-full sm:w-2/3 lg:w-1/2 flex justify-center lg:justify-end mt-16 lg:mt-0">
+        <div className="w-full sm:w-2/3 lg:w-[30%] flex justify-center lg:justify-end mt-16 lg:mt-0">
           <div
             ref={imageContainerRef}
             className="pic relative rounded-2xl w-52 h-52 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300"
@@ -142,107 +103,7 @@ const Homepage = () => {
       </div>
 
       {/* Tech Stack Section */}
-      <div className='flex flex-col items-center justify-center min-h-[60vh] pt-2 sm:pt-20 lg:pt-36'>
-        <h1 ref={techStackTitleRef}>
-          <ShinyText
-            text="Tech Stack I Work With"
-            className="text-base sm:text-xl lg:text-3xl font-bold tracking-wider "
-          />
-        </h1>
-        
-        <div ref={iconsRef} className="grid lg:grid-cols-9 md:grid-cols-2 grid-cols-6 lg:gap-16 gap-10 mt-2 rounded-lg lg:p-14 p-6">
-          <Magnetic>
-            <a href='https://react.dev/' target="_blank" rel="noopener noreferrer">
-              <FaReact className="text-2xl sm:text-4xl lg:text-5xl text-blue-500 cursor-pointer drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" title="React" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://nextjs.org/' target="_blank" rel="noopener noreferrer">
-              <SiNextdotjs className="text-2xl sm:text-4xl lg:text-5xl text-zinc-500 cursor-pointer drop-shadow-[0_0_12px_rgba(45,44,44,0.66)]" title="Next.js" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://tailwindcss.com/' target="_blank" rel="noopener noreferrer">
-              <SiTailwindcss className="text-2xl sm:text-4xl lg:text-5xl text-teal-500 cursor-pointer drop-shadow-[0_0_8px_rgba(20,184,166,0.5)]" title="Tailwind CSS" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://expressjs.com/' target="_blank" rel="noopener noreferrer">
-              <SiExpress className="text-2xl sm:text-4xl lg:text-5xl text-gray-500 cursor-pointer drop-shadow-[0_0_8px_rgba(107,114,128,0.5)]" title="Express.js" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.javascript.com/' target="_blank" rel="noopener noreferrer">
-              <SiJavascript className="text-2xl sm:text-4xl lg:text-5xl text-yellow-500 cursor-pointer drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]" title="JavaScript" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.typescriptlang.org/' target="_blank" rel="noopener noreferrer">
-              <SiTypescript className="text-2xl sm:text-4xl lg:text-5xl text-blue-600 cursor-pointer drop-shadow-[0_0_8px_rgba(37,99,235,0.5)]" title="TypeScript" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://git-scm.com/' target="_blank" rel="noopener noreferrer">
-              <FaGitAlt className="text-2xl sm:text-4xl lg:text-5xl text-orange-500 cursor-pointer drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" title="Git" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://github.com/' target="_blank" rel="noopener noreferrer">
-              <FaGithub className="text-2xl sm:text-4xl lg:text-5xl text-gray-600 cursor-pointer drop-shadow-[0_0_8px_rgba(31,41,55,0.5)]" title="GitHub" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.npmjs.com/' target="_blank" rel="noopener noreferrer">
-              <FaNpm className="text-2xl sm:text-4xl lg:text-5xl text-red-500 cursor-pointer drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" title="npm" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://nodejs.org/' target="_blank" rel="noopener noreferrer">
-              <FaNodeJs className="text-2xl sm:text-4xl lg:text-5xl text-green-600 cursor-pointer drop-shadow-[0_0_8px_rgba(22,163,74,0.5)]" title="Node.js" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.mongodb.com/' target="_blank" rel="noopener noreferrer">
-              <SiMongodb className="text-2xl sm:text-4xl lg:text-5xl text-green-500 cursor-pointer drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" title="MongoDB" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.framer.com/motion/' target="_blank" rel="noopener noreferrer">
-              <SiFramer className="text-2xl sm:text-4xl lg:text-5xl text-purple-500 cursor-pointer drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" title="Framer Motion" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.figma.com/' target="_blank" rel="noopener noreferrer">
-              <SiFigma className="text-2xl sm:text-4xl lg:text-5xl text-pink-500 cursor-pointer drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]" title="Figma" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://isocpp.org/' target="_blank" rel="noopener noreferrer">
-              <SiCplusplus className="text-2xl sm:text-4xl lg:text-5xl text-blue-700 cursor-pointer drop-shadow-[0_0_8px_rgba(0,0,255,0.5)]" title="C++" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.java.com/' target="_blank" rel="noopener noreferrer">
-              <FaJava className="text-2xl sm:text-4xl lg:text-5xl text-red-700 cursor-pointer drop-shadow-[0_0_8px_rgba(255,0,0,0.5)]" title="Java" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://www.rust-lang.org/' target="_blank" rel="noopener noreferrer">
-              <SiRust className="text-2xl sm:text-4xl lg:text-5xl text-orange-700 cursor-pointer drop-shadow-[0_0_8px_rgba(255,165,0,0.3)]" title="Rust" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://golang.org/' target="_blank" rel="noopener noreferrer">
-              <SiGo className="text-2xl sm:text-4xl lg:text-5xl text-teal-700 cursor-pointer drop-shadow-[0_0_8px_rgba(0,128,128,0.5)]" title="Go" />
-            </a>
-          </Magnetic>
-          <Magnetic>
-            <a href='https://vitejs.dev/' target="_blank" rel="noopener noreferrer">
-              <SiVite className="text-2xl sm:text-4xl lg:text-5xl text-purple-600 cursor-pointer drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]" title="Vite" />
-            </a>
-          </Magnetic>
-        </div>
-      </div>
+      <TechStack />
     </div>
   )
 }
