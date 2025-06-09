@@ -5,13 +5,16 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import TechStack from "./TechStack";
-
+import { MdEmail } from "react-icons/md";
+import Magnetic from "./ui/Magnetic";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 gsap.registerPlugin(ScrollTrigger);
 
 const Homepage = () => {
   const mainTitleRef = useRef<HTMLHeadingElement>(null);
   const subTitleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const iconsRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -70,6 +73,20 @@ const Homepage = () => {
     [mainTitleRef, subTitleRef, descriptionRef].forEach((ref) => {
       if (ref.current) animateGradientText(ref.current);
     });
+
+    // icons animation
+    tl.fromTo(
+      iconsRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        delay: 1,
+        ease: "back.out(1.7)",
+      }
+    );
   }, []);
 
   return (
@@ -103,6 +120,51 @@ const Homepage = () => {
             scalable websites and applications that make a meaningful impact.
             With a focus on user experience and design aesthetics.
           </p>
+
+          <div
+            ref={iconsRef}
+            className="icons flex justify-center items-center space-x-4 sm:space-x-6 md:space-x-4"
+          >
+            <Magnetic>
+              <a
+                href="https://github.com/ratanz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-400 w-fit
+                                          bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
+              >
+                <FaGithub className="w-6 h-6" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="https://linkedin.com/in/ratanrathod7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-400 w-fit bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="https://twitter.com/ratanz_codes"
+                target="_blank"
+                rel=""
+                className="text-zinc-400 bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
+              >
+                <FaTwitter className="w-6 h-6" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="mailto:ratanrathod870@gmail.com"
+                className="text-zinc-400 bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
+              >
+                <MdEmail className="w-6 h-6" />
+              </a>
+            </Magnetic>
+          </div>
         </div>
 
         <div className="w-full sm:w-2/3 lg:w-[30%] flex justify-center  mt-16 lg:mt-4">
