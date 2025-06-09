@@ -22,12 +22,12 @@ export function Navbar() {
     
     // Initial animation
     gsap.fromTo(navbar,
-      { y: -100, opacity: 0, scale: 0.7 },
+      { y: -100, opacity: 0, },
       { 
-        y: 0, 
+        y: 0,
         opacity: 1,
-        scale: 1,
-        duration: 1.5,
+        duration: 1.8,
+        stagger: 0.5,
         ease: 'power3.out',
         delay: 0.4
       }

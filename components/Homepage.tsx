@@ -76,26 +76,26 @@ const Homepage = () => {
     <div className="content min-h-screen w-full font-pretendard px-4 py-8 md:p-14">
       {/* Hero Section */}
       <div className="flex flex-col-reverse lg:flex-row min-h-[30rem] items-center justify-between max-w-6xl mx-auto mt-6 sm:mt-8 lg:mt-16 px-4 sm:px-8 lg:px-10 gap-6 sm:gap-8">
-        <div className="flex flex-col items-center lg:items-start justify-center w-full lg:w-[65%]  space-y-4 sm:space-y-6">
-
-
-          <h2 ref={subTitleRef} className="text-lg sm:text-4xl md:text-lg lg:text-lg font-light leading-tight tracking-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left uppercase">Frontend Developer</h2>
-
+        <div className="flex flex-col items-center lg:items-start justify-center w-full lg:w-[65%]  space-y-5 sm:space-y-5">
+          <h2
+            ref={subTitleRef}
+            className="text-lg sm:text-4xl md:text-lg lg:text-lg font-light leading-tight tracking-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left uppercase"
+          >
+            Frontend Developer
+          </h2>
 
           <h1
             ref={mainTitleRef}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold leading-tight tracking-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold leading-tight tracking-tight bg-gradient-to-t from-zinc-300 to-zinc-500 bg-clip-text text-transparent text-center lg:text-left border-b border-zinc-100/40 pb-4"
           >
             Turning Caffeine
             <br />
             Into Code.
           </h1>
 
-          <span className="border-t border-zinc-500 w-24"></span>
-
           <p
             ref={descriptionRef}
-            className="text-sm sm:text-base lg:text-lg font-light bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed text-center lg:text-left max-w-lg"
+            className="text-sm  sm:text-base lg:text-lg font-light bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed text-center lg:text-left max-w-lg"
           >
             Hey,I&apos;m
             <span className="font-bold"> Ratan Rathod </span>
