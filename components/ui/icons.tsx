@@ -1,6 +1,6 @@
 import Magnetic from "./Magnetic";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+// import { MdEmail } from "react-icons/md";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useEffect } from "react";
@@ -35,7 +35,7 @@ const Icons = () => {
           href="https://github.com/ratanz"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-zinc-400 w-fit p-2 rounded-md hover:text-zinc-100 transition-colors"
+          className="bg-gradient-to-t from-zinc-300 to-zinc-500 p-2 rounded-md transition-colors"
         >
           <FaGithub className="w-6 h-6" />
         </a>
@@ -45,7 +45,7 @@ const Icons = () => {
           href="https://linkedin.com/in/ratanrathod7"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-zinc-400 w-fit p-2 rounded-md hover:text-zinc-100 transition-colors"
+          className="bg-gradient-to-t from-zinc-300 to-zinc-500 p-2 rounded-md transition-colors"
         >
           <FaLinkedin className="w-6 h-6" />
         </a>
@@ -55,7 +55,7 @@ const Icons = () => {
           href="https://twitter.com/ratanz_codes"
           target="_blank"
           rel=""
-          className="text-zinc-400  p-2 rounded-md hover:text-zinc-100 transition-colors"
+          className="bg-gradient-to-t from-zinc-300 to-zinc-500 p-2 rounded-md transition-colors"
         >
           <FaTwitter className="w-6 h-6" />
         </a>
