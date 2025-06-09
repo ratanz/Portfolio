@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Magnetic from "./ui/Magnetic";
-import Image from "next/image";
 import TextRevealByWord from "./ui/text-reveal";
 
 gsap.registerPlugin(ScrollTrigger);
