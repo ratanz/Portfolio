@@ -35,7 +35,7 @@ const Icons = () => {
           href="https://github.com/ratanz"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gradient-to-t from-zinc-300 to-zinc-500 p-2 rounded-md transition-colors"
+          className="bg-gradient-to-t text-zinc-400 rounded-md transition-colors"
         >
           <FaGithub className="w-6 h-6" />
         </a>
@@ -45,7 +45,7 @@ const Icons = () => {
           href="https://linkedin.com/in/ratanrathod7"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gradient-to-t from-zinc-300 to-zinc-500 p-2 rounded-md transition-colors"
+          className="bg-gradient-to-t text-zinc-400 rounded-md transition-colors"
         >
           <FaLinkedin className="w-6 h-6" />
         </a>
@@ -55,7 +55,7 @@ const Icons = () => {
           href="https://twitter.com/ratanz_codes"
           target="_blank"
           rel=""
-          className="bg-gradient-to-t from-zinc-300 to-zinc-500 p-2 rounded-md transition-colors"
+          className="bg-gradient-to-t text-zinc-400 rounded-md transition-colors"
         >
           <FaTwitter className="w-6 h-6" />
         </a>
