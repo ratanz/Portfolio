@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Magnetic from "./ui/Magnetic";
 import TextRevealByWord from "./ui/text-reveal";
+import Icons from "./ui/icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,47 +132,7 @@ const About = () => {
         <span className="border-t border-zinc-800 mt-4 w-1/2"></span>
 
         <div className="connect lg:mt-4 mt-4 flex justify-center items-center flex-col w-full gap-3 ">
-          <div className="icons flex justify-center items-center space-x-4 sm:space-x-6 md:space-x-4">
-            <Magnetic>
-              <a
-                href="https://github.com/ratanz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 w-fit
-                                bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
-              >
-                <FaGithub className="w-6 h-6" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="https://linkedin.com/in/ratanrathod7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 w-fit bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="https://twitter.com/ratanz_codes"
-                target="_blank"
-                rel=""
-                className="text-zinc-400 bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
-              >
-                <FaTwitter className="w-6 h-6" />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="mailto:ratanrathod870@gmail.com"
-                className="text-zinc-400 bg-zinc-900/50 p-2 rounded-md hover:text-zinc-100 transition-colors"
-              >
-                <MdEmail className="w-6 h-6" />
-              </a>
-            </Magnetic>
-          </div>
+         <Icons />
         </div>
       </div>
     </div>
