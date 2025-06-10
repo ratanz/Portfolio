@@ -1,9 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import Magnetic from "./ui/Magnetic";
 import TextRevealByWord from "./ui/text-reveal";
 import Icons from "./ui/icons";
 
