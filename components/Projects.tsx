@@ -137,12 +137,6 @@ const projectsContent = [
         projectUrl: "https://rejoicex.netlify.app/"
     },
     {
-        title: "Nike",
-        description: "A high-fidelity Nike website clone built with React, featuring product showcases and responsive design patterns",
-        imageUrl: "/images/nike.png",
-        projectUrl: "https://nike-landing-page-seven-iota.vercel.app/"
-    },
-    {
         title: "Glass Glam",
         description: "An elegant e-commerce interface with glassmorphism design, built using modern web technologies and animations",
         imageUrl: "/images/glass.png",
