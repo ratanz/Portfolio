@@ -105,22 +105,22 @@ export function Navbar() {
       });
     } else {
       gsap.to(menuContentRef.current, {
-        duration: 0.5,
-        opacity: 0,
-        y: 50,
-        ease: "power3.in"
-      });
-      gsap.to(menuRef.current, {
         duration: 0.7,
         opacity: 0,
+        y: 30,
+        ease: "power2.inOut"
+      });
+      gsap.to(menuRef.current, {
+        duration: 0.9,
+        opacity: 0,
         y: "-100%",
-        delay: 0.2,
-        ease: "power3.in"
+        delay: 0.1,
+        ease: "expo.inOut"
       });
       gsap.to(menuIconRef.current, {
         duration: 0.8,
         rotation: 0,
-        ease: "power2.inOut"
+        ease: "expo.inOut"
       });
     }
   }, [isMenuOpen]);
@@ -183,20 +183,30 @@ export function Navbar() {
 
       <div
         ref={menuRef}
-        className={`fixed inset-0 bg-black bg-opacity-100 z-50 flex items-center justify-center ${isMenuOpen ? '' : 'pointer-events-none'}`}
+        className={`fixed inset-0 bg-black bg-opacity-100 z-50 flex flex-col items-center justify-center ${isMenuOpen ? '' : 'pointer-events-none'}`}
         style={{ opacity: 0, transform: 'translateY(-100%)' }}
       >
+        <button 
+          onClick={toggleMenu} 
+          className="absolute top-8  text-zinc-400 hover:text-white transition-colors duration-300 focus:outline-none z-60"
+          aria-label="Close menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
         <div
           ref={menuContentRef}
-          className="text-center"
+          className="text-center relative z-50"
           style={{ opacity: 0, transform: 'translateY(50px)' }}
         >
           {menuItems.map((item) => (
-            <div key={item.label} className="my-8">
+            <div key={item.label} className="my-6">
               <TransitionLink href={item.href} onClick={() => setIsMenuOpen(false)}>
                 <ShinyText 
                   text={item.label}
-                  className="text-4xl font-medium"
+                  className="text-4xl font-medium hover:text-white transition-colors duration-300"
                   speed={3}
                   disabled={false}
                 />
