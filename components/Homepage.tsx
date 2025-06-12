@@ -124,16 +124,16 @@ const Homepage = () => {
         <div className="w-full sm:w-2/3 lg:w-[30%] flex justify-center  mt-16 lg:mt-4">
           <div
             ref={imageContainerRef}
-            className="pic relative rounded-xl w-full h-full sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300 shadow-[0_3px_10px_rgba(255,255,255,0.1)]"
+            className="pic relative rounded-lg w-full h-full sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden transform hover:scale-[1.04] transition-all duration-300 shadow-[0_3px_10px_rgba(255,255,255,0.1)]"
             style={{ opacity: 0 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div> {/* gradient overlay */}
             <Image
               src="/images/me3.jpg"
               alt="Ratan Rathod"
               width={500}
               height={500}
-              className="w-full h-full object-cover"
+              className="w-full h-[50vh] object-cover"
               priority
             />
           </div>
