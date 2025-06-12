@@ -103,7 +103,9 @@ export function Navbar() {
         rotation: 180,
         ease: "power2.inOut"
       });
-    } else {
+    } 
+    // close menu
+    else {
       gsap.to(menuContentRef.current, {
         duration: 0.7,
         opacity: 0,
@@ -137,7 +139,7 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 px-20 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-xl bg-zinc-950/50 cursor-pointer 
+      <div ref={navbarRef} className={`content h-12 md:px-20 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-xl bg-zinc-950/50 cursor-pointer 
       `}
         style={{ transform: 'translateY(-100%)' }}
       >
