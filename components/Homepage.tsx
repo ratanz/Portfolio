@@ -133,7 +133,7 @@ const Homepage = () => {
               alt="Ratan Rathod"
               width={500}
               height={500}
-              className="w-full h-[50vh] object-cover"
+              className="w-full h-[50vh] lg:h-full md:h-full object-cover"
               priority
             />
           </div>
