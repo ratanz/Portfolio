@@ -129,7 +129,7 @@ const Homepage = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent z-10"></div> {/* gradient overlay */}
             <Image
-              src="/images/me4.jpg"
+              src="/images/me3.jpg"
               alt="Ratan Rathod"
               width={500}
               height={500}
