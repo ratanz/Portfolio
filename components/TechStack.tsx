@@ -76,7 +76,7 @@ const TechStack = () => {
     <div className='flex flex-col items-center justify-center min-h-[70vh] pt-2 sm:pt-20 lg:pt-36' id="tech-stack">
       <h1 ref={techStackTitleRef}>
         <ShinyText
-          text="Tech Stack I Work With"
+          text="Tech Stack"
           className="text-base sm:text-xl lg:text-3xl font-bold tracking-wider"
         />
       </h1>

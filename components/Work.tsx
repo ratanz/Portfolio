@@ -4,9 +4,8 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Badge } from "@/components/ui/badge"
 import { motion } from 'framer-motion'
-import { Timeline } from './ui/timeline'
 import ShinyText from './ui/ShinyText'
-
+import { Timeline } from './ui/timeline'
 
 const experienceData = [
     {
@@ -120,7 +119,7 @@ export default function Work() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="min-h-screen lg:pt-28 pt-10 bg-neutral-950"
+            className="min-h-screen lg:pt-32 lg:pb-10 pt-10"
         >
             <div className="max-w-7xl mx-auto flex flex-col items-center justify-center  ">
                 <div ref={titleRef}>
