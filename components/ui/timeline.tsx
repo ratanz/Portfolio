@@ -1,11 +1,8 @@
 "use client";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
-  useMotionValue,
-  useSpring,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
