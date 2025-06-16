@@ -107,7 +107,7 @@ const About = () => {
   return (
     <div
       ref={containerRef}
-      className="about-content w-full lg:min-h-[115vh] bg-neutral-950 overflow-hidden  lg:mt-0 lg:pt-14 min-h-[160vh] pt-[25vh]  "
+      className="about-content w-full lg:min-h-[115vh]  overflow-hidden  lg:mt-0 lg:pt-14 min-h-[160vh] pt-[25vh]  "
     >
       <div className="content flex flex-col w-full justify-center min-h-screen items-center p-4 sm:p-8 md:p-16">
         <h1

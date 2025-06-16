@@ -62,7 +62,7 @@ const Projects = () => {
     }, [])
 
     return (
-        <div ref={containerRef} className="sticky-cards bg-neutral-950 font-tanker">
+        <div ref={containerRef} className="sticky-cards  font-tanker">
             <section className="project-hero pinned h-[50vh]"></section>
 
             <div className="heading-text flex justify-center items-center">
