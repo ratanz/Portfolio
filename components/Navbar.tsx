@@ -161,7 +161,7 @@ export function Navbar() {
                       speed={3}
                       disabled={false}
                     />
-                    <span className='block h-[1px] w-0 bg-zinc-700 absolute bottom-0 left-0 group-hover:w-full transition-all duration-300'></span>
+                    <span className='block h-[1px] w-0 bg-gradient-to-tr from-zinc-200 to-zinc-300 absolute bottom-0 left-0 group-hover:w-full transition-all duration-300'></span>
                   </div>
                 </TransitionLink>
               </div>
