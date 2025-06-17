@@ -6,8 +6,6 @@ import { Badge } from "./ui/badge";
 import ShinyText from "./ui/ShinyText";
 import { Mail, MapPin, Phone, Send, Loader2, Check, X } from "lucide-react";
 import emailjs from '@emailjs/browser';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 interface FormData {
   name: string;
@@ -21,8 +19,9 @@ export function Contact() {
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitMessage, setSubmitMessage] = useState('')
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,14 +36,14 @@ export function Contact() {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error('Please fill in all fields');
+      setSubmitMessage('Please fill in all fields')
       return;
     }
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      toast.error('Please enter a valid email address');
+      setSubmitMessage('Please enter a valid email address')
       return;
     }
 
@@ -65,23 +64,13 @@ export function Contact() {
         'VFMTPRpWt_LZEbG68'
       );
       
-      // Show success message
-      toast.success('Message sent successfully!', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      toast.success('Message sent successfully!');
+      setSubmitStatus('success')
+      setSubmitMessage('Message sent successfully! I\'ll get back to you soon.')
+      setFormData({ name: '', email: '', message: '' })
     } catch (error) {
-      console.error('Error sending email:', error);
-      setSubmitStatus('error');
-      toast.error('Failed to send message. Please try again.');
+      console.error('Error sending email:', error)
+      setSubmitStatus('error')
+      setSubmitMessage('Failed to send message. Please try again or contact me directly at ratannnxd@gmail.com')
     } finally {
       setIsSubmitting(false);
     }
@@ -92,20 +81,7 @@ export function Contact() {
       id="contact"
       className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
     >
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        toastClassName="!bg-neutral-900 !text-white"
-        style={{ width: 'auto', maxWidth: '90%' }}
-      />
+
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           <ShinyText text="Contact Me" />
@@ -185,37 +161,38 @@ export function Contact() {
               ></textarea>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 ${
-                isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:from-blue-700 hover:to-blue-800'
-              }`}
-            >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  <span>Sending...</span>
-                </>
-              ) : submitStatus === 'success' ? (
-                <>
-                  <Check className="h-5 w-5" />
-                  <span>Sent!</span>
-                </>
-              ) : submitStatus === 'error' ? (
-                <>
-                  <X className="h-5 w-5" />
-                  <span>Try Again</span>
-                </>
-              ) : (
-                <>
-                  <Send size={18} />
-                  <span>Send Message</span>
-                </>
+            <div className="space-y-2">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full flex items-center justify-center space-x-2 py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
+                  isSubmitting
+                    ? 'bg-blue-900/50 text-blue-300 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg hover:shadow-blue-500/20'
+                }`}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-5 w-5" />
+                    <span>Send Message</span>
+                  </>
+                )}
+              </button>
+              {submitMessage && (
+                <p className={`text-sm text-center ${
+                  submitStatus === 'success' 
+                    ? 'text-green-400' 
+                    : 'text-red-400'
+                }`}>
+                  {submitMessage}
+                </p>
               )}
-            </motion.button>
+            </div>
           </form>
         </motion.div>
 
