@@ -4,11 +4,11 @@ import { useEffect } from "react"
 import { Navbar } from "@/components/Navbar"
 import Homepage from "@/components/Homepage"
 import Projects from "@/components/Projects"
-import About from "@/components/About"
 import Work from "@/components/Work"
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { Contact } from "@/components/Contact"
 
 export default function Home() {
 
@@ -47,8 +47,8 @@ export default function Home() {
         <section id="projects">
           <Projects />
         </section>
-        <section id="about">
-          <About />
+        <section id="contact">
+          <Contact />
         </section>
       </div>
     </>

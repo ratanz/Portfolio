@@ -133,13 +133,13 @@ export function Navbar() {
 
   const menuItems = [
     { label: 'Projects', href: '/#projects' },
-    { label: 'About', href: '/#about' },
-    { label: 'Resume', href: 'https://docs.google.com/document/d/1c9jIaVQ1FwQKgU3lLI3c2uV5CBlR12SfuyPaLIInx-Q/edit' }
+    { label: 'Contact', href: '/#contact' },
+    { label: 'Resume', href: '' }
   ];
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 md:px-5 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-xl bg-zinc-950/50 cursor-pointer border border-zinc-800/40 
+      <div ref={navbarRef} className={`content h-12 px-4 md:px-5 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-full bg-zinc-950/50 cursor-pointer border border-zinc-800/40 
       `}
         style={{ transform: 'translateY(-100%)' }}
       >
