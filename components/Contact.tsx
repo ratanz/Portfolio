@@ -251,8 +251,8 @@ export function Contact() {
                         scale: 1,
                         transition: {
                           type: "spring",
-                          stiffness: 500,
-                          damping: 15,
+                          stiffness: 400,
+                          damping: 25,
                           delay: 0.1,
                         },
                       }}
