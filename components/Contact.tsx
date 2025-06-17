@@ -19,19 +19,15 @@ export function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
 
   const clearMessage = () => {
-    // Clear message after 3 seconds
     const timer = setTimeout(() => {
       setSubmitMessage("");
       setSubmitStatus("idle");
     }, 3000);
 
-    // Cleanup function to clear the timeout if component unmounts
     return () => clearTimeout(timer);
   };
   const formRef = useRef<HTMLFormElement>(null);
@@ -56,7 +52,7 @@ export function Contact() {
       return;
     }
 
-    // Basic email validation
+    // email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setSubmitStatus("error");
@@ -69,10 +65,7 @@ export function Contact() {
     setSubmitStatus("idle");
 
     try {
-      // Initialize EmailJS with environment variable
       emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
-
-      // Send the email using EmailJS with environment variables
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
