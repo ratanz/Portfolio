@@ -2,9 +2,8 @@
 
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Badge } from "./ui/badge";
 import ShinyText from "./ui/ShinyText";
-import { Mail, MapPin, Phone, Send, Loader2, Check, X } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 interface FormData {
@@ -22,6 +21,17 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
+  
+  const clearMessage = () => {
+    // Clear message after 3 seconds
+    const timer = setTimeout(() => {
+      setSubmitMessage('');
+      setSubmitStatus('idle');
+    }, 3000);
+    
+    // Cleanup function to clear the timeout if component unmounts
+    return () => clearTimeout(timer);
+  };
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,14 +46,18 @@ export function Contact() {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.message) {
-      setSubmitMessage('Please fill in all fields')
+      setSubmitStatus('error');
+      setSubmitMessage('Please fill in all fields');
+      clearMessage();
       return;
     }
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setSubmitMessage('Please enter a valid email address')
+      setSubmitStatus('error');
+      setSubmitMessage('Please enter a valid email address');
+      clearMessage();
       return;
     }
 
@@ -51,26 +65,26 @@ export function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // Initialize EmailJS with your public key
-      // Replace with your actual EmailJS public key
-      emailjs.init('VFMTPRpWt_LZEbG68');
+      // Initialize EmailJS with environment variable
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
       
-      // Send the email using EmailJS
-      // Replace with your actual EmailJS service ID and template ID
+      // Send the email using EmailJS with environment variables
       await emailjs.sendForm(
-        'service_0ks0pae',
-        'template_up0oiap',
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         formRef.current!,
-        'VFMTPRpWt_LZEbG68'
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       );
       
-      setSubmitStatus('success')
-      setSubmitMessage('Message sent successfully! I\'ll get back to you soon.')
-      setFormData({ name: '', email: '', message: '' })
+      setSubmitStatus('success');
+      setSubmitMessage('Message sent successfully! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+      clearMessage();
     } catch (error) {
-      console.error('Error sending email:', error)
-      setSubmitStatus('error')
-      setSubmitMessage('Failed to send message. Please try again or contact me directly at ratannnxd@gmail.com')
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('Failed to send message. Please try again or contact me directly at ratannnxd@gmail.com');
+      clearMessage();
     } finally {
       setIsSubmitting(false);
     }
@@ -183,15 +197,54 @@ export function Contact() {
                   </>
                 )}
               </button>
-              {submitMessage && (
-                <p className={`text-sm text-center ${
-                  submitStatus === 'success' 
-                    ? 'text-green-400' 
-                    : 'text-red-400'
-                }`}>
-                  {submitMessage}
-                </p>
-              )}
+              <AnimatePresence mode="wait">
+                {submitMessage && (
+                  <motion.div
+                    key={submitMessage}
+                    initial={{ opacity: 0, y: -20, height: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0, 
+                      height: 'auto',
+                      transition: {
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 20,
+                        mass: 0.5
+                      }
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      y: -20, 
+                      height: 0,
+                      transition: {
+                        duration: 0.2
+                      }
+                    }}
+                    className="overflow-hidden mt-2"
+                  >
+                    <motion.div 
+                      className={`text-sm text-center px-4 py-3 rounded-lg ${
+                        submitStatus === 'success' 
+                          ? 'bg-green-900/30 text-green-300 border border-green-800/50' 
+                          : 'bg-red-900/30 text-red-300 border border-red-800/50'
+                      }`}
+                      initial={{ scale: 0.9 }}
+                      animate={{ 
+                        scale: 1,
+                        transition: {
+                          type: 'spring',
+                          stiffness: 500,
+                          damping: 15,
+                          delay: 0.1
+                        }
+                      }}
+                    >
+                      {submitMessage}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </form>
         </motion.div>
