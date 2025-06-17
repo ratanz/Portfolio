@@ -139,7 +139,7 @@ export function Navbar() {
 
   return (
     <>
-      <div ref={navbarRef} className={`content h-12 md:px-20 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-xl bg-zinc-950/50 cursor-pointer border border-zinc-800/80 
+      <div ref={navbarRef} className={`content h-12 md:px-5 py-6 flex justify-between items-center fixed font-pretendard  transition-all duration-300 backdrop-blur-md z-50 w-[80%] ml-[10%] mt-4 rounded-xl bg-zinc-950/50 cursor-pointer border border-zinc-800/40 
       `}
         style={{ transform: 'translateY(-100%)' }}
       >
