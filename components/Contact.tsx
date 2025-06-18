@@ -94,7 +94,7 @@ export function Contact() {
       id="contact"
       className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
     >
-      <div className="text-center mb-16">
+      <div className="text-center mb-10">
         <motion.h2
           initial={{ opacity: 0, y: 40, scale: 0.8 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -116,7 +116,7 @@ export function Contact() {
         </motion.p>
       </div>
 
-      <div className="w-2/3 mx-auto">
+      <div className="lg:w-2/3 mx-auto">
         {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 100, scale: 0.8 }}

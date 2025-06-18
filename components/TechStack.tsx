@@ -177,8 +177,8 @@ const TechStack = () => {
         opacity: 1,
         x: 0,
         duration: 0.6,
-        delay: 0.3,
-        stagger: 0.3,
+        delay: 0.1,
+        stagger: 0.1,
 
         ease: "power3.out",
         scrollTrigger: {
@@ -199,6 +199,7 @@ const TechStack = () => {
         y: 0,
         duration: 0.4,
         stagger: 0.1,
+        delay: 1.5,
         ease: "power3.out",
         scrollTrigger: {
           trigger: iconsRef.current,
