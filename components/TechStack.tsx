@@ -199,11 +199,11 @@ const TechStack = () => {
         y: 0,
         duration: 0.4,
         stagger: 0.1,
-        delay: 1.5,
+        delay: 0.4,
         ease: "power3.out",
         scrollTrigger: {
           trigger: iconsRef.current,
-          start: "top 80%",
+          start: "top 60%",
           toggleActions: "play none none reverse",
         },
       });
