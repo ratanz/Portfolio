@@ -52,7 +52,7 @@ export const projectsContent: Project[] = [
         title: "Genesis",
         description: "A sophisticated web application showcasing advanced scroll animations and interactive user experiences",
         imageUrl: "/images/genesis.png",
-        projectUrl: "https://genesis-omega.vercel.app/"
+        projectUrl: "https://genesis-scroll.vercel.app/"
     },
     {
         title: "artistry",
@@ -71,12 +71,6 @@ export const projectsContent: Project[] = [
         description:" Leveraging JavaScript & GSAP, I supercharged Instagram Stories with smooth transitions, animations, and dynamic storytelling. From image scaling to interactive highlights, this setup transforms user experiences into something visually stunning.",
         imageUrl: "/images/stories.png",
         projectUrl: "https://stories-supercharged.netlify.app/"
-    },
-    {
-        title: "Gen Scroll",
-        description:"A sophisticated web application showcasing advanced scroll animations and interactive user experiences",
-        imageUrl: "/images/genscroll.png",
-        projectUrl: "https://gen-scroll.netlify.app/"
     },
     {
         title: "Serenity Slide",
