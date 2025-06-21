@@ -58,7 +58,7 @@ export const projectsContent: Project[] = [
         title: "artistry",
         description: "An artistic portfolio platform featuring creative animations, smooth transitions, and responsive gallery layouts",
         imageUrl: "/images/artistry.png",
-        projectUrl: "https://artistry-omega.vercel.app/"
+        projectUrl: "https://artistry-portfolio.vercel.app/"
     },
     {
         title: "serene-drift",
