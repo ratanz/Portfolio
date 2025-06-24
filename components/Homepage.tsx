@@ -80,7 +80,7 @@ const Homepage = () => {
       { opacity: 1, width : '50%', stagger: 0.5, duration: 5, ease: "power3.out" },
     );
 
-  }, []);
+  }, [mainTitleRef, subTitleRef, descriptionRef, borderRef, imageContainerRef]);
 
   return (
     <div className="content min-h-screen w-full font-pretendard px-4 py-8 md:p-14">
