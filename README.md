@@ -37,6 +37,7 @@ I am a passionate Frontend Engineer and Designer with full-stack development cap
 ### 🔗 Professional Links
 - 🐦 Twitter: [@ratan_codes](https://x.com/ratan_codes)
 - 💼 LinkedIn: [Ratan Rathod](https://www.linkedin.com/in/ratanrathod7/)
+- 📬 Email: ratanrathod7@outlook.com
 
 ### 🎯 Personal Interests
 - 🎥 Filmmaking
