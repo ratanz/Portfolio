@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { TransitionLink } from '../utils/TransitionLink'
-// import { triggerPageTransition } from '../utils/animations'
 import Magnetic from './ui/Magnetic'
 import ShinyText from './ui/ShinyText'
 gsap.registerPlugin();
