@@ -9,6 +9,7 @@ I am a passionate Frontend Engineer and Designer with full-stack development cap
 - 💛 JavaScript
 - 🎯 Tailwind CSS
 - ✨ Framer Motion
+- 📚 Shadcn UI
 - 🔄 GSAP
 - 🌐 HTML5/CSS3
 
