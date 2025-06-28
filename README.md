@@ -46,6 +46,7 @@ I am a passionate Frontend Engineer and Designer with full-stack development cap
 - 🎨 Designing
 - 💪 Gym
 - 🏏 Cricket
+- 🎮 Gaming
 
 ## 🚀 Goals
 - 🎯 Continue developing minimalist, aesthetic web applications
