@@ -110,7 +110,7 @@ const Homepage = () => {
               ref={descriptionRef}
               className="text-sm  sm:text-base lg:text-lg font-light bg-gradient-to-r from-zinc-300 to-zinc-500 bg-clip-text text-transparent tracking-wide leading-relaxed text-center lg:text-left max-w-lg"
             >
-              Hey,I&apos;m
+              Hey, I&apos;m
               <span className="font-bold"> Ratan Rathod </span>
               I&apos;m a frontend developer based in India, dedicated to
               building scalable websites and applications that make a meaningful
