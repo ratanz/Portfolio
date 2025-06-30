@@ -76,7 +76,7 @@ const Projects = () => {
                     ref={(el: HTMLDivElement | null) => { projectRefs.current[index] = el }}
                     className={`card ${index === projectsContent.length - 1 ? 'scroll' : 'pinned'} h-screen w-screen`}
                 >
-                    <div className="project absolute top-[50vh] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[90%] h-[90%] md:h-[68%] flex flex-col-reverse md:flex-row lg:mt-0 mt-0 px-2">
+                    <div className="project absolute top-[50vh] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] md:w-[90%] h-[90%] md:h-[68%] flex flex-col-reverse md:flex-row lg:mt-0 mt-0 px-4">
                       
                         <div className="project-info relative h-[30%] md:h-full md:flex-[1.75] rounded-xl p-4 pt-6 md:p-8 bg-neutral-900">
                             <div className="project-header flex justify-between items-start">
