@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from 'next/font/local'
+import Cursor from '../components/Cursor/Cursor';
 
 // Keep your existing font definitions
 const pretendard = localFont({
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body className={`${pretendard.variable} ${spacer36.variable}`}>
+      <Cursor />
       {children}
     </body>
     </html>

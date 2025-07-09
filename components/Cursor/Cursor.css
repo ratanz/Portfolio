@@ -1,0 +1,28 @@
+.cursor {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: var(--light);
+  will-change: transform;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: center;
+  margin-left: -50px;
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+}
+
+.cursor-icon, .icon {
+  transform-origin: center;
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .cursor {
+    display: none !important;
+  }
+}
