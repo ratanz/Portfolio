@@ -78,7 +78,7 @@ const Cursor = () => {
   return (
     <div className="cursor" ref={cursorRef}>
       <div className="cursor-icon" ref={iconRef}>
-        <MdOutlineArrowOutward size={48} />
+        <MdOutlineArrowOutward size={88} />
       </div>
     </div>
   );
