@@ -92,7 +92,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto "
     >
       <div className="text-center mb-10">
         <motion.h2

@@ -81,7 +81,7 @@ const Projects = () => {
                         onClick={() => window.open(project.projectUrl, "_blank")}>
 
                       
-                        <div className="project-info relative h-[25%] md:h-full md:flex-[1.75] rounded-xl p-4 mt-2 pt-8 md:p-8 bg-neutral-900">
+                        <div className="project-info relative h-[25%] md:h-full md:flex-[1.75] rounded-xl p-4 mt-2 md:mt-0 pt-8 md:p-8 bg-[#111111] border border-zinc-700/40 shadow-sm shadow-white/20">
                             <div className="project-header flex justify-between items-center">
                                 <h3 className="text-2xl md:text-4xl uppercase font-bold text-zinc-100">{project.title}</h3>
                                 <p className="text-sm md:text-base text-zinc-400">0{index + 1} - 0{projectsContent.length}</p>
@@ -93,7 +93,7 @@ const Projects = () => {
                                 </Link>
                             </div>
                         </div>
-                        <div className="project-img md:flex-[4] rounded-xl overflow-hidden md:mt-0 md:ml-4 h-[70%] md:h-full">
+                        <div className="project-img md:flex-[4] rounded-xl overflow-hidden md:mt-0 md:ml-4 h-[70%] md:h-full border border-zinc-700/40 shadow-sm shadow-white/20">
                             <div className="relative w-full h-full">
                                 <Image
                                     src={project.imageUrl}
