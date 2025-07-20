@@ -27,28 +27,11 @@
 }
 
  body {
- transition-property: opacity, transform, filter;
- transition-timing-function: ease-in-out;
- transition-duration: 0.5s;
  background-color: rgb(10, 10, 10);
 
 }
 
-.page-transition {
-  opacity: 0;
-  background: black;
-  transform: translateY(55px) ;
-  filter: blur(40px);
-}
 
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-/* Optional: Add this if you want to prevent the 3D effect from affecting text readability */
-.preserve-flat {
-  transform: translateZ(0);
-}
 
 @layer base {
   :root {

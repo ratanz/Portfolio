@@ -96,8 +96,8 @@ export function Contact() {
     >
       <div className="text-center mb-10">
         <motion.h2
-          initial={{ opacity: 0, y: 40, scale: 0.8 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 40, }}
+          whileInView={{ opacity: 1, y: 0, }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: false }}
           className="text-4xl md:text-5xl font-bold mb-6"
@@ -105,8 +105,8 @@ export function Contact() {
           <ShinyText text="Contact Me" />
         </motion.h2>
         <motion.p
-          initial={{ opacity: 0, y: 50, scale: 0.8 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 50, }}
+          whileInView={{ opacity: 1, y: 0, }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: false }}
           className="text-neutral-300 max-w-2xl mx-auto"
@@ -119,9 +119,9 @@ export function Contact() {
       <div className="lg:w-2/3 mx-auto">
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, y: 100, scale: 0.8 }}
+          initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: false }}
           className="bg-neutral-950/50 backdrop-blur-sm border border-neutral-700 rounded-2xl p-8 shadow-2xl"
         >
@@ -192,7 +192,7 @@ export function Contact() {
                 className={`w-full flex items-center justify-center space-x-2 py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
                   isSubmitting
                     ? "bg-blue-900/50 text-blue-300 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700/50 text-white hover:shadow-lg hover:shadow-blue-500/20"
+                    : "bg-zinc-800 hover:bg-zinc-800/50 text-white"
                 }`}
               >
                 {isSubmitting ? (

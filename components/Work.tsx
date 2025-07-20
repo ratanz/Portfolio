@@ -119,7 +119,7 @@ export default function Work() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="min-h-screen lg:pt-32 lg:pb-10 pt-10"
+            className="min-h-screen lg:pt-32 pt-10"
         >
             <div className="max-w-7xl mx-auto flex flex-col items-center justify-center  ">
                 <div ref={titleRef}>
