@@ -21,7 +21,7 @@ const spacer36 = localFont({
 
 // metadata for the website
 export const metadata: Metadata = {
-  title: "Ratanz",
+  title: "Ratan Rathod",
   description: "Ratan's personal portfolio website",
 };
 
