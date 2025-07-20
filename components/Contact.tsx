@@ -12,6 +12,31 @@ interface FormData {
   message: string;
 }
 
+// Subtle fade-up animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
+// Staggered container variants
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+};
+
 export function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -92,41 +117,38 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto "
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
     >
-      <div className="text-center mb-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 40, }}
-          whileInView={{ opacity: 1, y: 0, }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: false }}
-          className="text-4xl md:text-5xl font-bold mb-6"
-        >
+      <motion.div 
+        className="text-center mb-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ margin: "-100px" }}
+        variants={fadeUp}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
           <ShinyText text="Contact Me" />
-        </motion.h2>
+        </h2>
         <motion.p
-          initial={{ opacity: 0, y: 50, }}
-          whileInView={{ opacity: 1, y: 0, }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: false }}
+          variants={fadeUp}
           className="text-neutral-300 max-w-2xl mx-auto"
         >
           Have a project in mind or want to chat? Feel free to reach out through
           the form or any of my socials.
         </motion.p>
-      </div>
+      </motion.div>
 
       <div className="lg:w-2/3 mx-auto">
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: false }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{  margin: "-50px" }}
+          variants={staggerContainer}
           className="bg-neutral-950/50 backdrop-blur-sm border border-neutral-700 rounded-2xl p-8 shadow-2xl"
         >
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <div>
+            <motion.div variants={fadeUp}>
               <label
                 htmlFor="name"
                 className="block text-sm font-medium text-neutral-300 mb-2"
@@ -145,9 +167,9 @@ export function Contact() {
                   onChange={handleInputChange}
                 />
               </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={fadeUp}>
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-neutral-300 mb-2"
@@ -164,9 +186,9 @@ export function Contact() {
                 value={formData.email}
                 onChange={handleInputChange}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={fadeUp}>
               <label
                 htmlFor="message"
                 className="block text-sm font-medium text-neutral-300 mb-2"
@@ -183,9 +205,9 @@ export function Contact() {
                 value={formData.message}
                 onChange={handleInputChange}
               ></textarea>
-            </div>
+            </motion.div>
 
-            <div className="space-y-2">
+            <motion.div variants={fadeUp} className="space-y-2">
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -211,51 +233,38 @@ export function Contact() {
                 {submitMessage && (
                   <motion.div
                     key={submitMessage}
-                    initial={{ opacity: 0, y: -20, height: 0 }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ 
+                      opacity: 1, 
                       height: "auto",
                       transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 20,
-                        mass: 0.5,
-                      },
+                        duration: 0.3,
+                        ease: "easeOut"
+                      }
                     }}
-                    exit={{
-                      opacity: 0,
-                      y: -20,
+                    exit={{ 
+                      opacity: 0, 
                       height: 0,
                       transition: {
                         duration: 0.2,
-                      },
+                        ease: "easeIn"
+                      }
                     }}
                     className="overflow-hidden mt-2"
                   >
-                    <motion.div
+                    <div
                       className={`text-sm text-center px-4 py-3 rounded-lg ${
                         submitStatus === "success"
                           ? "bg-green-900/30 text-green-300 border border-green-800/50"
                           : "bg-red-900/30 text-red-300 border border-red-800/50"
                       }`}
-                      initial={{ scale: 0.9 }}
-                      animate={{
-                        scale: 1,
-                        transition: {
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 25,
-                          delay: 0.1,
-                        },
-                      }}
                     >
                       {submitMessage}
-                    </motion.div>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           </form>
         </motion.div>
       </div>
