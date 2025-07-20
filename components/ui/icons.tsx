@@ -51,7 +51,7 @@ const Icons = () => {
       </Magnetic>
       <Magnetic>
         <a
-          href="https://twitter.com/ratanz_codes"
+          href="https://twitter.com/ratan_codes"
           target="_blank"
           rel=""
           className="bg-gradient-to-t text-zinc-400 rounded-md transition-colors"
