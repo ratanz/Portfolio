@@ -27,12 +27,15 @@ import {
 } from "react-icons/si";
 import Magnetic from "./ui/Magnetic";
 import ShinyText from "./ui/ShinyText";
+import { useClickSound } from "../hooks/useClickSound";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TechStack = () => {
   const techStackTitleRef = useRef<HTMLHeadingElement>(null);
   const iconsRef = useRef<HTMLDivElement>(null);
+  const { handleClick } = useClickSound();
+  
   const techStack = [
     {
       icon: (
@@ -233,6 +236,7 @@ const TechStack = () => {
               target="_blank"
               rel="noopener noreferrer"
               title={tech.title}
+              onClick={handleClick()}
             >
               {tech.icon}
             </a>

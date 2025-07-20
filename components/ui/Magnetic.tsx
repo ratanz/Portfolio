@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+"use client";
+
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useClickSound } from '../../hooks/useClickSound';
 
 export default function Magnetic({children}: {children: React.ReactNode}) {
     const magnetic = useRef<HTMLDivElement>(null);
+    const { playClickSound } = useClickSound();
 
     useEffect(() => {
         const xTo = gsap.quickTo(magnetic.current, "x", {duration: 1, ease: "elastic.out(1, 0.3)"});
@@ -22,19 +26,25 @@ export default function Magnetic({children}: {children: React.ReactNode}) {
             yTo(0);
         };
 
+        const handleClick = () => {
+            playClickSound();
+        };
+
         const element = magnetic.current;
         if (element) {
             element.addEventListener("mousemove", handleMouseMove);
             element.addEventListener("mouseleave", handleMouseLeave);
+            element.addEventListener("click", handleClick);
         }
 
         return () => {
             if (element) {
                 element.removeEventListener("mousemove", handleMouseMove);
                 element.removeEventListener("mouseleave", handleMouseLeave);
+                element.removeEventListener("click", handleClick);
             }
         };
-    }, []);
+    }, [playClickSound]);
 
     return (
         React.cloneElement(children as React.ReactElement, { ref: magnetic })

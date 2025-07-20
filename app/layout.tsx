@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from 'next/font/local'
 import Cursor from '../components/Cursor/Cursor';
+import { AudioProvider } from "../contexts/AudioContext";
+import GlobalClickHandler from "../components/GlobalClickHandler";
 
 // Keep your existing font definitions
 const pretendard = localFont({
@@ -32,8 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body className={`${pretendard.variable} ${spacer36.variable}`}>
-      <Cursor />
-      {children}
+      <AudioProvider>
+        <GlobalClickHandler />
+        <Cursor />
+        {children}
+      </AudioProvider>
     </body>
     </html>
   )

@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { TransitionLink } from '../utils/TransitionLink'
 import Magnetic from './ui/Magnetic'
 import ShinyText from './ui/ShinyText'
+import { useClickSound } from '../hooks/useClickSound'
 gsap.registerPlugin();
 
 export function Navbar() {
@@ -13,6 +14,7 @@ export function Navbar() {
   const menuContentRef = useRef(null)
   const menuIconRef = useRef(null)
   const navbarRef = useRef(null)
+  const { handleClick, playClickSound } = useClickSound()
 
   // Track scroll position and control navbar visibility
   useEffect(() => {
@@ -127,6 +129,7 @@ export function Navbar() {
   }, [isMenuOpen]);
 
   const toggleMenu = () => {
+    playClickSound();
     setIsMenuOpen(!isMenuOpen);
   }
 
@@ -142,7 +145,7 @@ export function Navbar() {
       `}
         style={{ transform: 'translateY(-100%)' }}
       >
-        <div className="logo-name flex items-center py-4 ">
+        <div className="logo-name flex items-center py-4 " onClick={handleClick()}>
           <TransitionLink href="/">
             <ShinyText text="R A T A N" />
           </TransitionLink>
@@ -151,7 +154,7 @@ export function Navbar() {
         <div className="links hidden lg:flex lg:gap-10 gap-2 uppercase ">
           {menuItems.map((item) => (
             <Magnetic key={item.label}>
-              <div className='relative group'>
+              <div className='relative group' onClick={handleClick()}>
                 <TransitionLink href={item.href}>
                   <div className='overflow-hidden'>
                     <ShinyText 
@@ -203,7 +206,7 @@ export function Navbar() {
           style={{ opacity: 0, transform: 'translateY(50px)' }}
         >
           {menuItems.map((item) => (
-            <div key={item.label} className="my-6">
+            <div key={item.label} className="my-6" onClick={handleClick()}>
               <TransitionLink href={item.href} onClick={() => setIsMenuOpen(false)}>
                 <ShinyText 
                   text={item.label}

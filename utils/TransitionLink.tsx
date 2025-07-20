@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 import { useRouter } from 'next/navigation'  // Change this import
 import { triggerPageTransition } from './animations'
+import { useClickSound } from '../hooks/useClickSound'
 
 interface TransitionLinkProps {
     href: string
@@ -21,11 +22,15 @@ export const TransitionLink = ({
     ...props
 }: TransitionLinkProps) => {
     const router = useRouter()
+    const { playClickSound } = useClickSound()
 
     const handleTransition = async (
         e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
     ) => {
         e.preventDefault()
+        
+        // Play click sound
+        playClickSound()
 
         const body = document.querySelector('body')
         body?.classList.add('page-transition')
