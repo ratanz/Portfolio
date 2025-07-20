@@ -14,7 +14,7 @@ interface FormData {
 
 // Subtle fade-up animation variants
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 25 },
   visible: { 
     opacity: 1, 
     y: 0,
@@ -31,8 +31,8 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
+      staggerChildren: 0.2,
+      delayChildren: 0.4
     }
   }
 };
@@ -123,7 +123,7 @@ export function Contact() {
         className="text-center mb-10"
         initial="hidden"
         whileInView="visible"
-        viewport={{ margin: "-100px" }}
+        viewport={{ margin: "-50px" }}
         variants={fadeUp}
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
