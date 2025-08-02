@@ -39,7 +39,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     <div className="w-full font-tanker pt-4 md:px-10" ref={containerRef}>
       <div ref={ref} className="relative max-w-7xl mx-auto">
         {data.map((item, index) => (
-          <div key={index} className="flex justify-start pt-10 md:pt-28 md:gap-10">
+          <div key={index} className="flex justify-start pt-10 md:pt-32 md:gap-10">
             {/* Timeline marker and title for larger screens */}
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               {/* Circular marker */}
